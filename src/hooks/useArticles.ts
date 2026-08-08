@@ -37,8 +37,8 @@ const toArticle = (p: GhostPost): Article => ({
   url: p.url,
   excerpt: p.custom_excerpt ?? p.excerpt ?? '',
   category: p.primary_tag?.name ?? p.tags?.[0]?.name ?? '',
-  // Ghost reports 0 for anything under ~30s of reading
-  readTime: Math.max(1, p.reading_time),
+  // Ghost reports 0 (or nothing at all) for anything under ~30s of reading
+  readTime: Math.max(1, p.reading_time || 1),
   publishedAt: p.published_at,
   image: p.feature_image ?? undefined,
 })

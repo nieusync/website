@@ -8,7 +8,8 @@ export default {
         blue: '#233877',
         purple: '#9F8EC2',
         bg: '#F5F5F7',
-        whatsapp: '#25D366',
+        // Dark surface for the site — the brand blue taken down to near-black
+        ink: '#070B1D',
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
@@ -36,11 +37,33 @@ export default {
           '0%, 80%, 100%': { opacity: '0.2' },
           '40%': { opacity: '1' },
         },
+        'gradient-shift': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        'fade-up': {
+          from: { opacity: '0', transform: 'translateY(26px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        drift: {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '33%': { transform: 'translate(40px, -30px)' },
+          '66%': { transform: 'translate(-30px, 24px)' },
+        },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         float: 'float 4s ease-in-out infinite',
         'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
         blink: 'blink 1.4s infinite both',
+        gradient: 'gradient-shift 10s ease-in-out infinite',
+        'fade-up': 'fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both',
+        drift: 'drift 18s ease-in-out infinite',
+        'spin-slow': 'spin 50s linear infinite',
+        marquee: 'marquee 28s linear infinite',
       },
     },
   },
