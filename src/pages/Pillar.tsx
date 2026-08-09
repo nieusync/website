@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, CheckCircle } from '@phosphor-icons/react';
 import { useT } from '../i18n';
 import { useParallax } from '../hooks/useParallax';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Nav, Footer, PLATFORM_URL, PILLAR_ICONS } from '../components/SiteChrome';
+import { Nav, Footer, PILLAR_ICONS } from '../components/SiteChrome';
 
 export default function Pillar() {
   const { slug } = useParams();
@@ -20,7 +20,7 @@ export default function Pillar() {
   }, [slug]);
 
   useEffect(() => {
-    if (pillar) document.title = `${pillar.name} — NIEUSYNC`;
+    if (pillar) document.title = `${pillar.name} | NieuSync`;
   }, [pillar]);
 
   if (!pillar) return <Navigate to="/demo" replace />;
@@ -38,7 +38,7 @@ export default function Pillar() {
 
         <div className="container relative">
           <Link
-            to="/demo#pillars"
+            to="/demo/what-we-do"
             className="mb-12 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/50 transition-colors hover:text-purple"
           >
             <ArrowLeft size={14} weight="bold" />
@@ -97,13 +97,13 @@ export default function Pillar() {
               <h2 className="mb-8 font-display text-[clamp(26px,3.5vw,40px)] leading-[1.1] text-white">
                 {t.pillarPage.ctaTitle}
               </h2>
-              <a
-                href={PLATFORM_URL}
+              <Link
+                to="/demo/contact"
                 className="group inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-grad-main px-9 py-4 text-[13px] font-bold uppercase tracking-[0.08em] text-white shadow-[0_0_30px_rgba(159,142,194,0.4)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_50px_rgba(159,142,194,0.6)]"
               >
                 {t.pillarPage.cta}
                 <ArrowRight size={17} weight="bold" className="transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 // The blog lives on Ghost at blog.nieusync.com; this site only previews it.
 export const BLOG_URL = 'https://blog.nieusync.com'
 
-// Ghost content keys are read-only and meant to ship in client bundles — this
+// Ghost content keys are read-only and meant to ship in client bundles, so this
 // same key is already public in the blog's own HTML.
 const CONTENT_KEY = 'd4368c66622175e9eeef35d000'
 
