@@ -15,6 +15,9 @@
   --purple: #9F8EC2;
   --white: #FFFFFF;
   --bg: #F5F5F7;
+  /* Dark surface for the site. Also the page background, so an overscroll
+     bounce at the top or bottom shows ink instead of white. */
+  --ink: #070B1D;
 
   --grad-main: linear-gradient(135deg, #233877 0%, #9F8EC2 100%);
   --grad-subtle: linear-gradient(135deg, #233877 0%, #9F8EC2 100%);
@@ -25,11 +28,11 @@
 
 @layer base {
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; background-color: var(--ink); }
   body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    background-color: var(--bg);
+    background-color: var(--ink);
     color: var(--blue);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -65,14 +68,16 @@
   @media (max-width: 768px) { h1 { font-size: 30px; } h2 { font-size: 24px; } h3 { font-size: 20px; } }
   @media (max-width: 480px) { h1 { font-size: 28px; } h2 { font-size: 22px; } }
 
-  /* Tighter vertical section spacing on mobile */
+  /* Tighter vertical section spacing on mobile. The first section of a page is
+     the hero, which sits under the fixed 80px header and needs the clearance. */
   @media (max-width: 768px) {
     section { padding-top: 40px !important; padding-bottom: 40px !important; }
+    section:first-of-type { padding-top: 112px !important; }
   }
 }
 
 /* Component classes live in @layer components so Tailwind utilities in JSX
-   always win over them — `class="card p-0"` does what it looks like. */
+   always win over them, so `class="card p-0"` does what it looks like. */
 @layer components {
   .gradient-text {
     background: var(--grad-main);
@@ -192,7 +197,7 @@
     border-color: rgba(159, 142, 194, 0.55);
   }
 
-  /* Faint blueprint grid — layer over sections, fade with a mask utility at the call site */
+  /* Faint blueprint grid. Layer over sections, fade with a mask utility at the call site */
   .tech-grid {
     background-image:
       linear-gradient(rgba(35, 56, 119, 0.06) 1px, transparent 1px),
@@ -228,7 +233,7 @@
   .accent-line-white   { background: rgba(255,255,255,0.5); }
   .section-label-white { color: rgba(255,255,255,0.85); }
 
-  /* Floating WhatsApp button — the tooltip depends on the parent's :hover */
+  /* Floating WhatsApp button. The tooltip depends on the parent's :hover */
   .whatsapp-btn {
     position: fixed;
     bottom: 24px;
@@ -276,7 +281,7 @@
   transform: translateY(0);
 }
 
-/* Motion is decoration here — turn it all off for users who asked for less */
+/* Motion is decoration here, so turn it all off for users who asked for less */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

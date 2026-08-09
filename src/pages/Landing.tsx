@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useT, LanguageToggle } from '../i18n';
 
 // ponytail: port of the old static site `nieusync/landingpage` (GitHub Pages)
-// into the app. That repo is gone — this page is the only version.
+// into the app. That repo is gone, so this page is the only version.
 export default function Landing() {
   const t = useT('landing');
 
@@ -28,11 +28,11 @@ export default function Landing() {
         <img
           className="w-[260px] max-w-[65vw] animate-pulse-soft"
           src="/assets/logo_v_w_nbg.png"
-          alt="NIEUSYNC"
+          alt="NieuSync"
         />
       </div>
 
-      {/* font-sans: index.css forces 'Magistral' on h1 — the landing uses Montserrat 800 */}
+      {/* font-sans: index.css forces 'Magistral' on h1, but the landing uses Montserrat 800 */}
       <h1 className="animate-fade-up relative mb-5 max-w-[700px] text-center font-sans text-[clamp(28px,5vw,52px)] font-extrabold leading-[1.2] tracking-[-0.5px] text-white [animation-delay:150ms]">
         {t.headingBefore}<span className="text-[#c9bfe0]">{t.headingHighlight}</span>{t.headingAfter}
       </h1>
