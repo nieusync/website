@@ -4,7 +4,6 @@ const landing = {
   headingHighlight: 'YOUR BUSINESS',
   headingAfter: ' TO FLY',
   body: 'Our new website is under development.',
-  bodyLast: 'It will be back with a completely renewed experience.',
   urgentPrefix: 'For urgent matters:',
 };
 

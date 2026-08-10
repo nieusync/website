@@ -35,7 +35,7 @@ export default function Contact() {
               {t.contact.label}
             </span>
             <h1 className="mb-6 text-[clamp(38px,6vw,76px)] leading-[1.03]">{t.contact.title}</h1>
-            <p className="mb-10 text-[17px] leading-[1.75] text-white/55">{t.contact.subtitle}</p>
+            <p className="mb-10 text-[17px] leading-[1.75] text-white/85">{t.contact.subtitle}</p>
 
             <div className="border-t border-white/10 pt-8">
               {DETAILS.map(({ Icon, label, href }) => {
@@ -47,7 +47,7 @@ export default function Contact() {
                     {label}
                   </>
                 );
-                const cls = 'mb-4 flex items-center gap-4 text-[15px] text-white/60';
+                const cls = 'mb-4 flex items-center gap-4 text-[15px] text-white/85';
                 return href ? (
                   <a key={label} href={href} className={`${cls} transition-colors hover:text-purple`}>
                     {body}

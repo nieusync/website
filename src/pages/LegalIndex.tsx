@@ -25,7 +25,7 @@ export default function LegalIndex() {
         <div className="container relative max-w-[780px]">
           <Link
             to="/demo"
-            className="mb-12 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/50 transition-colors hover:text-purple"
+            className="mb-12 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/85 transition-colors hover:text-purple"
           >
             <ArrowLeft size={14} weight="bold" />
             {t.indexBack}
@@ -35,8 +35,8 @@ export default function LegalIndex() {
             {t.indexTitle}
           </span>
           <h1 className="mb-6 text-[clamp(34px,5.5vw,64px)] leading-[1.05]">{t.indexHeading}</h1>
-          <p className="mb-4 text-[17px] leading-[1.75] text-white/55">{t.indexSubtitle}</p>
-          <p className="text-xs uppercase tracking-[0.14em] text-white/30">
+          <p className="mb-4 text-[17px] leading-[1.75] text-white/90">{t.indexSubtitle}</p>
+          <p className="text-xs uppercase tracking-[0.14em] text-white/85">
             {t.updatedLabel}: {t.updated}
           </p>
         </div>
@@ -44,12 +44,12 @@ export default function LegalIndex() {
 
       <section className="pb-32">
         <div className="container">
-          <div className="animate-on-scroll mb-10 flex max-w-[780px] gap-3 rounded-2xl border border-purple/25 bg-purple/[0.07] px-5 py-4">
+          <div className="animate-on-scroll mx-auto mb-10 flex max-w-[780px] gap-3 rounded-2xl border border-purple/25 bg-purple/[0.07] px-5 py-4">
             <Info size={18} weight="duotone" className="mt-0.5 shrink-0 text-purple" />
-            <p className="text-sm leading-[1.6] text-white/55">{t.indexDisclaimer}</p>
+            <p className="text-sm leading-[1.6] text-white/90">{t.indexDisclaimer}</p>
           </div>
 
-          <div className="animate-on-scroll grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="animate-on-scroll mx-auto grid max-w-[780px] grid-cols-1 gap-5 md:grid-cols-2">
             {t.docs.map((d, i) => (
               <Link
                 key={d.slug}
@@ -60,7 +60,7 @@ export default function LegalIndex() {
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <h2 className="mb-3 font-display text-xl leading-[1.25] text-white">{d.title}</h2>
-                <p className="mb-6 flex-1 text-[14px] leading-[1.7] text-white/45">{d.summary}</p>
+                <p className="mb-6 flex-1 text-[14px] leading-[1.7] text-white/90">{d.summary}</p>
                 <span className="inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.1em] text-white transition-colors group-hover:text-purple">
                   {t.read}
                   <ArrowUpRight

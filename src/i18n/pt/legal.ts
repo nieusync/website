@@ -7,144 +7,144 @@ const legal: Legal = {
   indexDocumentTitle: 'Legal | Nieusync',
   indexHeading: 'Documentos legais.',
   indexSubtitle:
-    'As condições em que este site é disponibilizado, o que fazemos com os seus dados e o padrão que exigimos de nós próprios.',
+    'As condições em que este site é disponibilizado, o que fazemos com os seus dados e os cookies que utilizamos.',
   indexBack: 'Voltar ao site',
   indexDisclaimer:
-    'Estes documentos são minutas a aguardar revisão jurídica final. Para qualquer questão, escreva para geral@nieusync.com.',
+    'A versão portuguesa destes documentos é a original e prevalece em caso de divergência. Para qualquer questão, escreva para geral@nieusync.com.',
   read: 'Ler',
   updatedLabel: 'Última atualização',
-  updated: 'Agosto de 2026',
-  disclaimer:
-    'Este documento é uma minuta a aguardar revisão jurídica final. Para qualquer questão, escreva para geral@nieusync.com.',
+  updated: '10 de agosto de 2026',
   docs: [
     {
       slug: 'legal-notice',
-      title: 'Avisos legais',
+      title: 'Aviso legal',
       summary: 'Quem explora este site e em que condições é disponibilizado.',
       sections: [
         {
-          title: 'Titular do site',
+          title: 'Identificação do prestador de serviços',
           paragraphs: [
-            'Este site é propriedade e é explorado por [NOME DA ENTIDADE], com sede em [MORADA], NIPC [NIF], matriculada na [CONSERVATÓRIA DO REGISTO COMERCIAL] sob o mesmo número («Nieusync», «nós»).',
-            'Pode contactar-nos através de geral@nieusync.com ou (+351) 269 030 096. As chamadas para a rede fixa nacional são cobradas ao custo de uma chamada nacional.',
+            'O presente site é propriedade e é operado por NIEUSYNC — Sociedade Multidisciplinar de Advogados e Consultores, SP, Lda. (adiante «NIEUSYNC» ou «Sociedade»). A utilização do site pressupõe o conhecimento e a aceitação do presente Aviso Legal, da Política de Privacidade, da Política de Cookies e dos Termos e Condições de Utilização.',
+            'Nos termos do artigo 10.º do Decreto-Lei n.º 7/2004, de 7 de janeiro, do artigo 171.º do Código das Sociedades Comerciais e do artigo 22.º da Lei n.º 9/2009, de 4 de março, prestam-se as seguintes informações:',
+            'Denominação: NIEUSYNC — Sociedade Multidisciplinar de Advogados e Consultores, SP, Lda.',
+            'Natureza jurídica: sociedade de profissionais multidisciplinar, sob a forma de sociedade por quotas, constituída ao abrigo do artigo 212.º-A do E.O.A. e da Lei n.º 53/2015, de 11 de junho.',
+            'Sede: Rua Eng. Costa Serrão, n.º 35, R/C INF, 7540-185 Santiago do Cacém, Portugal.',
+            'Número de Identificação de Pessoa Coletiva (NIPC): 518 694 925.',
+            'Registo na Ordem dos Advogados: inscrição n.º 17/26.',
+            'Contactos: correio eletrónico geral@nieusync.com; telefone (+351) 269 030 096. Chamadas cobradas ao custo das chamadas efetuadas para a rede fixa nacional. Formulário de contacto disponível no site.',
           ],
         },
         {
-          title: 'Finalidade do site',
+          title: 'Sujeição à Ordem dos Advogados e ao regime deontológico',
           paragraphs: [
-            'Este site apresenta a Nieusync e os serviços que prestamos nos nossos cinco pilares: Legal, Digital, Estratégia, Operações e Financeira. O conteúdo é informativo e não constitui aconselhamento jurídico, fiscal, financeiro ou de qualquer outra natureza profissional, nem uma proposta vinculativa.',
-            'Qualquer relação profissional com a Nieusync inicia-se apenas com um contrato escrito assinado por ambas as partes.',
+            'A NIEUSYNC exerce, entre outras, a atividade de advocacia, encontrando-se inscrita e sujeita à supervisão da Ordem dos Advogados, associação pública profissional que regula o acesso e o exercício da profissão em Portugal.',
+            'Os advogados que integram a Sociedade estão vinculados ao Estatuto da Ordem dos Advogados e às demais normas deontológicas aplicáveis, designadamente em matéria de segredo profissional, independência, prevenção de conflitos de interesses e proibição de angariação ilícita de clientela.',
+            'Advogado responsável / gerente: Dr. Ricardo Serrão de Carvalho, Cédula Profissional n.º 50477E.',
+          ],
+        },
+        {
+          title: 'Objeto e natureza informativa dos conteúdos',
+          paragraphs: [
+            'A informação disponibilizada neste site tem carácter meramente informativo e institucional. Não constitui aconselhamento jurídico, fiscal, financeiro ou de qualquer outra natureza, parecer profissional, nem oferta contratual, e a sua consulta não estabelece qualquer relação profissional entre o utilizador e a NIEUSYNC ou os seus advogados.',
+            'Qualquer relação profissional só se constitui mediante contratação expressa e após cumprimento dos procedimentos de identificação do cliente e de verificação da inexistência de conflitos de interesses legalmente exigidos. O utilizador não deve tomar ou deixar de tomar qualquer decisão com base exclusiva na informação aqui contida, devendo procurar aconselhamento jurídico adequado ao seu caso concreto.',
+          ],
+        },
+        {
+          title: 'Comunicação comercial e publicidade',
+          paragraphs: [
+            'As comunicações de natureza informativa e publicitária constantes deste sítio observam os limites deontológicos aplicáveis à advocacia, designadamente o dever de segredo profissional e a proibição de solicitação ou angariação ilícita de clientela, sendo uma decisão totalmente autónoma e livre reservada ao utilizador o contacto, se assim o entender, da Sociedade por sua própria iniciativa.',
           ],
         },
         {
           title: 'Propriedade intelectual',
           paragraphs: [
-            'A denominação e o logótipo Nieusync, o design do site, os seus textos, imagens e código-fonte pertencem à Nieusync ou aos seus licenciadores e estão protegidos pelo direito de propriedade intelectual.',
-            'Pode consultar e partilhar o conteúdo para uso pessoal e não comercial, citando a fonte. Qualquer reprodução, adaptação ou utilização comercial carece da nossa autorização prévia por escrito.',
+            'Salvo indicação em contrário, todos os conteúdos deste site, nomeadamente textos, marcas, logótipos, elementos gráficos, imagens e código são propriedade da NIEUSYNC ou de terceiros que autorizaram a sua utilização, e encontram-se protegidos pelo Código do Direito de Autor e dos Direitos Conexos e pelo Código da Propriedade Industrial. É vedada a reprodução, distribuição, transformação ou qualquer outra utilização não autorizada, total ou parcial, sem consentimento prévio e escrito da Sociedade.',
           ],
         },
         {
-          title: 'Responsabilidade',
+          title: 'Limitação de responsabilidade',
           paragraphs: [
-            'Mantemos o conteúdo rigoroso e atualizado, mas não garantimos que seja completo, atual ou isento de erros, e podemos alterá-lo a qualquer momento sem aviso prévio.',
-            'Não somos responsáveis por decisões tomadas exclusivamente com base no conteúdo aqui publicado, nem pelo conteúdo de sites de terceiros para os quais remetemos.',
+            'A NIEUSYNC envida esforços razoáveis para manter a informação do site atualizada e exata, mas não garante a inexistência de erros, omissões ou desatualizações, nem a disponibilidade ininterrupta do site.',
+            'A NIEUSYNC não se responsabiliza por danos decorrentes do acesso ou da impossibilidade de acesso ao site, pela tomada de decisões tomadas exclusivamente com base no conteúdo publicado, nem pelos conteúdos de sites de terceiros acessíveis através de hiperligações, cuja inclusão não implica endosso.',
           ],
         },
         {
-          title: 'Lei aplicável',
+          title: 'Lei aplicável e foro',
           paragraphs: [
-            'Estes avisos regem-se pela lei portuguesa. Os litígios emergentes da utilização deste site são submetidos ao foro da comarca de [COMARCA], sem prejuízo de norma imperativa que atribua ao consumidor foro diverso.',
-          ],
-        },
-      ],
-    },
-    {
-      slug: 'code-of-conduct',
-      title: 'Código de conduta',
-      summary: 'O padrão que exigimos de nós próprios e que pode exigir-nos.',
-      sections: [
-        {
-          title: 'Âmbito',
-          paragraphs: [
-            'Este código aplica-se a todos os sócios, colaboradores, prestadores e fornecedores que atuem em nome da Nieusync, em qualquer projeto e em qualquer mercado.',
-          ],
-        },
-        {
-          title: 'Integridade e independência',
-          paragraphs: [
-            'Agimos com honestidade e damos a nossa opinião real, mesmo quando isso nos custa trabalho. Não aceitamos nem oferecemos ofertas, pagamentos ou vantagens destinados a influenciar uma decisão, e não toleramos qualquer forma de corrupção ou pagamento de facilitação.',
-            'Divulgamos qualquer conflito de interesses assim que o identificamos e, quando o conflito não pode ser gerido, afastamo-nos do projeto.',
-          ],
-        },
-        {
-          title: 'Confidencialidade',
-          paragraphs: [
-            'Tudo o que sabemos sobre um cliente é confidencial e mantém-se confidencial depois de o projeto terminar. A informação do cliente só é acedida por quem precisa dela para o trabalho e nunca é usada em benefício próprio ou de outro cliente.',
-          ],
-        },
-        {
-          title: 'Respeito e não discriminação',
-          paragraphs: [
-            'Não toleramos assédio, intimidação ou discriminação em razão do género, origem, idade, deficiência, religião, orientação sexual ou qualquer outra característica pessoal, internamente ou em qualquer ambiente de cliente.',
-          ],
-        },
-        {
-          title: 'Cumprimento legal',
-          paragraphs: [
-            'Cumprimos a lei de todas as jurisdições onde operamos, incluindo as regras de concorrência, proteção de dados, branqueamento de capitais e sanções. Quando a lei e este código divergem, aplica-se o padrão mais exigente.',
-          ],
-        },
-        {
-          title: 'Comunicar uma preocupação',
-          paragraphs: [
-            'Qualquer violação deste código pode ser comunicada para geral@nieusync.com. As comunicações são tratadas de forma confidencial e ninguém sofre retaliação por comunicar de boa-fé.',
+            'O presente Aviso Legal rege-se pela lei portuguesa. Para a resolução de quaisquer litígios emergentes da utilização do site, e sem prejuízo das normas imperativas de proteção do consumidor, será competente o foro da comarca da sede da NIEUSYNC, com expressa renúncia a qualquer outro.',
           ],
         },
       ],
     },
     {
-      slug: 'terms-and-conditions',
-      title: 'Termos e condições',
-      summary: 'As regras de utilização deste site e de pedido de informação.',
+      slug: 'privacy-policy',
+      title: 'Política de privacidade',
+      summary: 'Que dados pessoais tratamos, com que fundamento e que direitos tem.',
       sections: [
         {
-          title: 'Aceitação',
+          title: 'Responsável pelo tratamento',
           paragraphs: [
-            'Ao utilizar este site aceita estes termos. Se não concordar com eles, não utilize o site.',
-            'Podemos alterar estes termos a qualquer momento; a versão aqui publicada é a que está em vigor.',
+            'A presente Política de Privacidade descreve o modo como a NIEUSYNC — Sociedade Multidisciplinar de Advogados e Consultores, SP, Lda. trata os dados pessoais dos utilizadores do seu site eletrónico e dos seus clientes e contactos, em conformidade com o Regulamento (UE) 2016/679 (RGPD) e a Lei n.º 58/2019, de 8 de agosto.',
+            'Entidade: NIEUSYNC — Sociedade Multidisciplinar de Advogados e Consultores, SP, Lda.',
+            'NIPC: 518 694 925.',
+            'Sede: Rua Eng. Costa Serrão, n.º 35, R/C INF, 7540-185 Santiago do Cacém, Portugal.',
+            'Contacto para efeitos de proteção de dados: dpo@nieusync.com',
           ],
         },
         {
-          title: 'Utilização do site',
+          title: 'Categorias de dados tratados',
           paragraphs: [
-            'O site é disponibilizado «tal como está» e gratuitamente. Compromete-se a não o utilizar para fins ilícitos, a não tentar aceder a áreas ou dados para os quais não tenha autorização e a não interferir com o seu funcionamento normal.',
-            'A nossa política de uso aceitável detalha o que não é permitido.',
+            'Consoante a relação estabelecida, a NIEUSYNC pode tratar as seguintes categorias de dados:',
+            'Dados de identificação e contacto: nome, morada, telefone, correio eletrónico, número de contribuinte.',
+            'Dados profissionais e de faturação: empresa, cargo, dados de faturação e pagamento.',
+            'Dados de navegação: endereço IP, tipo de dispositivo e navegador, dados de cookies, nos termos da Política de Cookies.',
+            'Dados relativos a assuntos jurídicos: informação necessária à prestação de serviços jurídicos e de consultoria, que pode incluir categorias especiais de dados quando estritamente necessário ao patrocínio ou aconselhamento.',
           ],
         },
         {
-          title: 'Formulários e comunicações',
+          title: 'Finalidades e fundamentos de licitude',
           paragraphs: [
-            'Ao enviar-nos uma mensagem ou subscrever a nossa newsletter, garante que os dados fornecidos são verdadeiros e que pode utilizar o endereço de email indicado. Tratamos esses dados conforme descrito na política de privacidade.',
-            'O envio de uma mensagem não cria qualquer relação profissional nem nos obriga a aceitar um projeto.',
+            'Os dados pessoais são tratados para as seguintes finalidades, com os correspondentes fundamentos de licitude do artigo 6.º e, quando aplicável, do artigo 9.º do RGPD:',
+            'Resposta a contactos, pedidos de informação e formulários de contacto. Fundamento: diligências pré-contratuais a pedido do titular (artigo 6.º/1/b) ou interesse legítimo (artigo 6.º/1/f).',
+            'Prestação de serviços jurídicos e de consultoria. Fundamento: execução de contrato (artigo 6.º/1/b); quando envolva categorias especiais de dados, o exercício ou defesa de direitos em processo (artigo 9.º/2/f).',
+            'Cumprimento de obrigações legais, designadamente fiscais, contabilísticas e de prevenção do branqueamento de capitais. Fundamento: cumprimento de obrigação jurídica (artigo 6.º/1/c).',
+            'Comunicações institucionais e informativas, newsletters e guias. Fundamento: consentimento do titular (artigo 6.º/1/a), com direito de oposição a qualquer momento.',
+            'Segurança e funcionamento do site. Fundamento: interesse legítimo em operar o site em segurança (artigo 6.º/1/f).',
           ],
         },
         {
-          title: 'Serviços',
+          title: 'Comunicação de dados a terceiros',
           paragraphs: [
-            'Os serviços descritos no site são prestados ao abrigo de contrato escrito autónomo que define âmbito, entregáveis, prazos, honorários e responsabilidade. Em caso de conflito, esse contrato prevalece sobre estes termos.',
+            'A NIEUSYNC não vende nem cede dados pessoais. Os dados podem ser comunicados, quando necessário: a autoridades judiciais, administrativas e fiscais no cumprimento de obrigações legais; a subcontratantes que prestem serviços à Sociedade, vinculados por contrato de subcontratação nos termos do artigo 28.º do RGPD; e a contrapartes e seus mandatários no estrito âmbito do patrocínio, sempre com salvaguarda do segredo profissional.',
+            'Não estão previstas transferências de dados para fora do Espaço Económico Europeu. Caso venham a ocorrer, serão asseguradas as garantias adequadas previstas no Capítulo V do RGPD.',
           ],
         },
         {
-          title: 'Responsabilidade',
+          title: 'Prazos de conservação',
           paragraphs: [
-            'Não garantimos a disponibilidade ininterrupta ou isenta de erros do site e, na medida permitida por lei, não somos responsáveis por danos indiretos ou lucros cessantes decorrentes da sua utilização.',
-            'Nada nestes termos exclui responsabilidade que não possa ser excluída ao abrigo da lei portuguesa.',
+            'Os dados são conservados apenas pelo período necessário às finalidades que motivaram a recolha e ao cumprimento de obrigações legais, designadamente:',
+            'Dados de clientes, projetos e processos: durante a relação e, após o seu termo, pelo prazo de prescrição aplicável e pelos prazos de conservação legalmente impostos.',
+            'Dados de faturação e contabilísticos: 10 anos, nos termos legais.',
+            'Dados de contacto de leads sem contratação: 12 meses ou até oposição do titular.',
+            'Dados de navegação e cookies: nos termos da Política de Cookies.',
           ],
         },
         {
-          title: 'Lei e foro',
+          title: 'Direitos dos titulares',
           paragraphs: [
-            'Estes termos regem-se pela lei portuguesa e os litígios são submetidos ao foro da comarca de [COMARCA]. Os consumidores podem ainda recorrer às entidades de resolução alternativa de litígios listadas em www.consumidor.gov.pt.',
+            'Nos termos dos artigos 15.º a 22.º do RGPD, o titular tem direito de acesso, retificação, apagamento, limitação do tratamento, portabilidade e oposição, bem como o direito de retirar o consentimento a todo o tempo, sem afetar a licitude do tratamento anterior. Estes direitos podem ser exercidos junto do responsável através dos contactos indicados no ponto 01.',
+            'O titular tem ainda o direito de apresentar reclamação à autoridade de controlo, a Comissão Nacional de Proteção de Dados (CNPD), Av. D. Carlos I, n.º 134 – 1.º, 1200-651 Lisboa, www.cnpd.pt.',
+          ],
+        },
+        {
+          title: 'Segurança',
+          paragraphs: [
+            'A NIEUSYNC adota as medidas técnicas e organizativas adequadas para proteger os dados pessoais contra o acesso não autorizado, a perda, a destruição ou a alteração, tendo em conta o estado da técnica, os custos e a natureza dos dados, com especial reforço quanto a dados abrangidos pelo segredo profissional.',
+          ],
+        },
+        {
+          title: 'Alterações',
+          paragraphs: [
+            'A presente Política pode ser atualizada a qualquer momento, produzindo efeitos a partir da sua publicação no site. Recomenda-se a consulta periódica.',
           ],
         },
       ],
@@ -157,7 +157,8 @@ const legal: Legal = {
         {
           title: 'O que são cookies',
           paragraphs: [
-            'Cookies são pequenos ficheiros que um site guarda no seu navegador. Esta política abrange também tecnologias equivalentes, como o armazenamento local.',
+            'A presente Política de Cookies explica o que são cookies, quais os que são utilizados no sítio da NIEUSYNC — Sociedade Multidisciplinar de Advogados e Consultores, SP, Lda. e como o utilizador pode geri-los, em conformidade com o artigo 5.º da Lei n.º 41/2004, de 18 de agosto, e com o RGPD.',
+            'Cookies são pequenos ficheiros de texto que são armazenados no dispositivo do utilizador quando este acede a um site eletrónico. Permitem reconhecer o dispositivo, memorizar preferências e recolher informação sobre a navegação.',
           ],
         },
         {
@@ -174,82 +175,83 @@ const legal: Legal = {
           ],
         },
         {
+          title: 'Consentimento',
+          paragraphs: [
+            'Os cookies estritamente necessários ao funcionamento do site são instalados sem necessidade de consentimento. Todos os restantes cookies só são instalados após consentimento prévio e expresso do utilizador, prestado através do banner de cookies apresentado no primeiro acesso. O utilizador pode aceitar, recusar ou configurar as suas preferências, bem como alterá-las a qualquer momento.',
+          ],
+        },
+        {
           title: 'Como controlar',
           paragraphs: [
             'Pode apagar ou bloquear o armazenamento a qualquer momento nas definições do seu navegador. Bloquear a preferência de idioma não impede o site de funcionar. Apenas faz com que a sua escolha seja esquecida.',
           ],
         },
-      ],
-    },
-    {
-      slug: 'privacy-policy',
-      title: 'Política de privacidade',
-      summary: 'Que dados pessoais recolhemos, porquê e que direitos tem.',
-      sections: [
         {
-          title: 'Responsável pelo tratamento',
+          title: 'Alterações',
           paragraphs: [
-            '[NOME DA ENTIDADE], com sede em [MORADA], NIPC [NIF], é a responsável pelo tratamento dos dados pessoais recolhidos através deste site. Contacto em matéria de proteção de dados: geral@nieusync.com.',
-          ],
-        },
-        {
-          title: 'O que recolhemos e porquê',
-          paragraphs: [
-            'Formulário de contacto: nome, empresa, email e o conteúdo da sua mensagem, para lhe responder e avaliar um eventual projeto. Fundamento: diligências pré-contratuais a seu pedido.',
-            'Newsletter e guia: o seu endereço de email, para lhe enviar o documento pedido e artigos ocasionais. Fundamento: o seu consentimento, que pode retirar a qualquer momento.',
-            'Registos técnicos: o nosso fornecedor de alojamento regista endereço IP e dados do navegador por razões de segurança e disponibilidade. Fundamento: o nosso interesse legítimo em operar o site em segurança.',
-          ],
-        },
-        {
-          title: 'Durante quanto tempo',
-          paragraphs: [
-            'As mensagens de contacto são conservadas até dois anos após a última troca, salvo se derem origem a um projeto, caso em que se aplicam as regras de conservação desse contrato. Os dados da newsletter são conservados até cancelar a subscrição.',
-          ],
-        },
-        {
-          title: 'Quem tem acesso',
-          paragraphs: [
-            'Apenas os membros da equipa Nieusync que precisam dos dados para a finalidade indicada e os prestadores que alojam o site e entregam o nosso email. Esses prestadores atuam segundo as nossas instruções, ao abrigo de contrato de subcontratação. Não vendemos os seus dados.',
-            'Quando um prestador trata dados fora do Espaço Económico Europeu, recorremos às cláusulas contratuais-tipo da Comissão Europeia.',
-          ],
-        },
-        {
-          title: 'Os seus direitos',
-          paragraphs: [
-            'Pode solicitar acesso, retificação, apagamento, limitação ou portabilidade dos seus dados, opor-se a tratamentos baseados em interesse legítimo e retirar o consentimento a qualquer momento. Escreva para geral@nieusync.com e respondemos no prazo de 30 dias.',
-            'Pode também apresentar reclamação à Comissão Nacional de Proteção de Dados (www.cnpd.pt).',
-          ],
-        },
-        {
-          title: 'Segurança',
-          paragraphs: [
-            'Utilizamos cifragem em trânsito, controlo de acessos na base do estritamente necessário e revisão periódica dos nossos prestadores. Nenhum sistema é totalmente seguro, mas notificamos o titular e a autoridade de controlo sempre que a lei o exija.',
+            'A presente Política de Cookies pode ser atualizada a qualquer momento, refletindo alterações técnicas ou legais. Recomenda-se a sua consulta periódica.',
           ],
         },
       ],
     },
     {
-      slug: 'acceptable-use-policy',
-      title: 'Política de uso aceitável',
-      summary: 'O que não pode ser feito com este site e com os sistemas que disponibilizamos.',
+      slug: 'terms-and-conditions',
+      title: 'Termos e condições de utilização',
+      summary: 'As regras de acesso e utilização deste site e da área de cliente.',
       sections: [
         {
-          title: 'Âmbito',
+          title: 'Objeto e aceitação',
           paragraphs: [
-            'Esta política aplica-se a este site, à área de cliente e a qualquer sistema que a Nieusync disponibilize a um cliente ou ao público.',
+            'Os presentes Termos e Condições regulam o acesso e a utilização do site eletrónico da NIEUSYNC — Sociedade Multidisciplinar de Advogados e Consultores, SP, Lda. (adiante «NIEUSYNC»), disponível em www.nieusync.com.',
+            'A utilização do site atribui a qualidade de utilizador e implica a aceitação plena e sem reservas dos presentes Termos, bem como do Aviso Legal, da Política de Privacidade e da Política de Cookies. O utilizador que não concorde deve abster-se de utilizar o site.',
           ],
         },
         {
-          title: 'Utilizações proibidas',
+          title: 'Utilização do site',
           paragraphs: [
-            'Não pode utilizar os nossos sistemas para: violar a lei ou direitos de terceiros; enviar spam ou comunicações comerciais não solicitadas; publicar conteúdo ilícito, difamatório, discriminatório ou que viole direitos de autor; ou carregar software malicioso.',
-            'Não pode tentar aceder sem autorização, testar a segurança sem autorização escrita, contornar limites de acesso, extrair conteúdo em massa ou sobrecarregar a infraestrutura.',
+            'O site é disponibilizado «tal como está». O utilizador compromete-se a utilizar o site de acordo com a lei, os bons costumes e os presentes Termos, abstendo-se de utilizar o site para fins ilícitos ou lesivos de direitos e interesses de terceiros, enviar spam ou comunicações comerciais não solicitadas, publicar conteúdo ilícito, difamatório, discriminatório ou que viole direitos de autor, ou introduzir e difundir conteúdos ou programas informáticos suscetíveis de causar danos aos sistemas da NIEUSYNC ou de terceiros.',
+            'Não pode tentar aceder a áreas restritas, dados ou funcionalidades para os quais não esteja autorizado, nem testar a segurança sem autorização escrita, contornar limites de acesso, extrair conteúdo em massa ou sobrecarregar a infraestrutura.',
           ],
         },
         {
           title: 'Contas e credenciais',
           paragraphs: [
-            'As credenciais da área de cliente são pessoais e intransmissíveis. É responsável por tudo o que for feito através da sua conta e deve informar-nos de imediato através de geral@nieusync.com se suspeitar que foi comprometida.',
+            'As credenciais da área de cliente são pessoais e intransmissíveis. É responsável por tudo o que for feito através da sua conta e deve informar-nos de imediato através de geral@nieusync.com se suspeitar que a conta ou as credenciais foram comprometidas.',
+          ],
+        },
+        {
+          title: 'Natureza dos conteúdos',
+          paragraphs: [
+            'A informação disponibilizada no site tem carácter meramente informativo e institucional, não constituindo aconselhamento jurídico, fiscal, financeiro ou outro, parecer profissional nem oferta contratual.',
+            'A consulta do site ou o envio de comunicações através dele não estabelece qualquer relação profissional entre o utilizador e a NIEUSYNC ou os seus advogados. A relação profissional só se constitui mediante contratação expressa e após cumprimento dos procedimentos legais de identificação do cliente e de verificação da inexistência de conflitos de interesses.',
+            'O utilizador não deve remeter, através dos formulários ou canais do site, informação confidencial ou sensível antes de estabelecida formalmente a relação profissional.',
+          ],
+        },
+        {
+          title: 'Propriedade intelectual',
+          paragraphs: [
+            'Todos os conteúdos do site, incluindo textos, marcas, logótipos, elementos gráficos, imagens e código são propriedade da NIEUSYNC ou de terceiros que autorizaram a sua utilização, encontrando-se protegidos pela legislação de direito de autor e de propriedade industrial.',
+            'É vedada a reprodução, distribuição, comunicação pública, transformação ou qualquer outra utilização, total ou parcial, sem autorização prévia e escrita da NIEUSYNC, salvo para uso pessoal e não comercial do utilizador.',
+          ],
+        },
+        {
+          title: 'Hiperligações',
+          paragraphs: [
+            'O site pode conter hiperligações para sites de terceiros, cuja inclusão não implica endosso nem responsabilidade da NIEUSYNC pelos respetivos conteúdos, disponibilidade ou práticas de privacidade.',
+          ],
+        },
+        {
+          title: 'Limitação de responsabilidade',
+          paragraphs: [
+            'A NIEUSYNC não garante a inexistência de erros ou omissões nos conteúdos, nem a disponibilidade ininterrupta e isenta de falhas do site.',
+            'A NIEUSYNC não responde por danos decorrentes do acesso, da utilização ou da impossibilidade de utilização do site, nem por danos resultantes de conteúdos de terceiros ou de falhas técnicas alheias ao seu controlo.',
+            'Nada nestes Termos exclui a responsabilidade que não possa ser legalmente excluída ao abrigo da lei portuguesa.',
+          ],
+        },
+        {
+          title: 'Proteção de dados e cookies',
+          paragraphs: [
+            'O tratamento de dados pessoais no âmbito do site rege-se pela Política de Privacidade e pela Política de Cookies, que fazem parte integrante dos presentes Termos.',
           ],
         },
         {
@@ -262,6 +264,19 @@ const legal: Legal = {
           title: 'Comunicar abusos',
           paragraphs: [
             'Comunique abusos ou vulnerabilidades para geral@nieusync.com. Não perseguimos investigadores que comuniquem uma vulnerabilidade de boa-fé, sem aceder a dados de terceiros e sem a tornar pública antes de a corrigirmos.',
+          ],
+        },
+        {
+          title: 'Alterações',
+          paragraphs: [
+            'A NIEUSYNC reserva-se o direito de alterar, a qualquer momento, os presentes Termos, bem como a apresentação, configuração e conteúdos do site. As alterações produzem efeitos a partir da sua publicação.',
+          ],
+        },
+        {
+          title: 'Lei aplicável e foro',
+          paragraphs: [
+            'Os presentes Termos regem-se pela lei portuguesa.',
+            'Para a resolução de litígios emergentes da utilização do site, e sem prejuízo das normas imperativas de proteção do consumidor, é competente o foro da comarca da sede da NIEUSYNC, com renúncia expressa a qualquer outro.',
           ],
         },
       ],

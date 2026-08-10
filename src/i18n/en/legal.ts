@@ -1,7 +1,7 @@
-// Six legal documents, one entry per document. `slug` is the URL segment and is
+// Four legal documents, one entry per document. `slug` is the URL segment and is
 // intentionally identical in both languages so a link keeps working across a
-// language switch. Bodies are generic templates with [SQUARE BRACKET] slots for
-// the registration details. They need a lawyer's sign-off before launch.
+// language switch. The Portuguese text is the signed original (version 01.2026);
+// this English version is a courtesy translation and the Portuguese prevails.
 const legal = {
   back: 'All legal documents',
   indexTitle: 'Legal',
@@ -9,15 +9,13 @@ const legal = {
   indexDocumentTitle: 'Legal | Nieusync',
   indexHeading: 'Legal documents.',
   indexSubtitle:
-    'The terms this site is provided under, what we do with your data, and the standards we hold ourselves to.',
+    'The terms this site is provided under, what we do with your data, and the cookies we set.',
   indexBack: 'Back to site',
   indexDisclaimer:
-    'These documents are templates pending final legal review. For any question, write to geral@nieusync.com.',
+    'The Portuguese version of these documents is the original and prevails in case of discrepancy. For any question, write to geral@nieusync.com.',
   read: 'Read',
   updatedLabel: 'Last updated',
-  updated: 'August 2026',
-  disclaimer:
-    'This document is a template pending final legal review. For any question, write to geral@nieusync.com.',
+  updated: '10 August 2026',
   docs: [
     {
       slug: 'legal-notice',
@@ -25,160 +23,56 @@ const legal = {
       summary: 'Who operates this website and under what terms it is made available.',
       sections: [
         {
-          title: 'Owner of the website',
+          title: 'Service provider details',
           paragraphs: [
-            'This website is owned and operated by [ENTITY NAME], with registered office at [ADDRESS], taxpayer number [VAT NUMBER], registered at the [COMMERCIAL REGISTRY] under the same number (“Nieusync”, “we”).',
-            'You can contact us at geral@nieusync.com or (+351) 269 030 096. Calls to Portuguese landline numbers are charged at the national landline rate.',
+            'This website is owned and operated by NIEUSYNC — Sociedade Multidisciplinar de Advogados e Consultores, SP, Lda. (“NIEUSYNC” or “the Firm”). Using the site implies knowledge and acceptance of this Legal Notice, the Privacy Policy, the Cookie Policy and the Terms and Conditions of Use.',
+            'Under article 10 of Decree-Law 7/2004 of 7 January, article 171 of the Commercial Companies Code and article 22 of Law 9/2009 of 4 March, the following information is provided:',
+            'Name: NIEUSYNC — Sociedade Multidisciplinar de Advogados e Consultores, SP, Lda.',
+            'Legal form: multidisciplinary professional firm, incorporated as a private limited company under article 212-A of the Statute of the Portuguese Bar Association and Law 53/2015 of 11 June.',
+            'Registered office: Rua Eng. Costa Serrão, n.º 35, R/C INF, 7540-185 Santiago do Cacém, Portugal.',
+            'Corporate taxpayer number (NIPC): 518 694 925.',
+            'Registration with the Portuguese Bar Association: registration no. 17/26.',
+            'Contacts: email geral@nieusync.com; telephone (+351) 269 030 096. Calls are charged at the national landline rate. A contact form is available on the site.',
           ],
         },
         {
-          title: 'Purpose of the site',
+          title: 'Bar Association supervision and professional conduct',
           paragraphs: [
-            'This site presents Nieusync and the services we provide across our five pillars: Legal, Digital, Strategy, Operations and Financial. Its content is informational and does not constitute legal, tax, financial or any other professional advice, nor a binding offer.',
-            'Any professional relationship with Nieusync starts only with a written engagement signed by both parties.',
+            'NIEUSYNC practises law among its other activities and is registered with and supervised by the Portuguese Bar Association, the public professional body that regulates access to and practice of the profession in Portugal.',
+            'The lawyers of the Firm are bound by the Statute of the Portuguese Bar Association and the other applicable rules of professional conduct, in particular on professional secrecy, independence, prevention of conflicts of interest and the prohibition of unlawful client solicitation.',
+            'Lawyer in charge / managing partner: Dr. Ricardo Serrão de Carvalho, Bar card no. 50477E.',
+          ],
+        },
+        {
+          title: 'Purpose and informational nature of the content',
+          paragraphs: [
+            'The information on this site is purely informational and institutional. It does not constitute legal, tax, financial or any other professional advice, a professional opinion or a contractual offer, and consulting it does not establish any professional relationship between the user and NIEUSYNC or its lawyers.',
+            'A professional relationship arises only upon express engagement and after completion of the legally required client identification and conflict of interest checks. Users should not take or refrain from taking any decision solely on the basis of the information contained here, and should seek legal advice suited to their specific case.',
+          ],
+        },
+        {
+          title: 'Commercial communication and advertising',
+          paragraphs: [
+            'The informational and advertising communications on this site observe the professional conduct limits applicable to the practice of law, in particular the duty of professional secrecy and the prohibition of unlawful client solicitation. Any decision to contact the Firm is entirely free and autonomous and rests with the user, on their own initiative.',
           ],
         },
         {
           title: 'Intellectual property',
           paragraphs: [
-            'The Nieusync name and logo, the site design, its texts, images and source code belong to Nieusync or to its licensors and are protected by intellectual property law.',
-            'You may consult and share the content for personal, non-commercial use, citing the source. Any reproduction, adaptation or commercial use requires our prior written permission.',
+            'Unless stated otherwise, all content on this site, including text, trade marks, logos, graphic elements, images and code, is the property of NIEUSYNC or of third parties who authorised its use, and is protected by the Portuguese Copyright and Related Rights Code and the Industrial Property Code. Reproduction, distribution, transformation or any other unauthorised use, in whole or in part, is prohibited without the Firm’s prior written consent.',
           ],
         },
         {
-          title: 'Liability',
+          title: 'Limitation of liability',
           paragraphs: [
-            'We keep the content accurate and up to date, but we do not guarantee that it is complete, current or free of error, and we may change it at any time without notice.',
-            'We are not liable for decisions taken solely on the basis of the content published here, nor for the content of third-party sites we link to.',
+            'NIEUSYNC makes reasonable efforts to keep the information on the site accurate and up to date, but does not guarantee the absence of errors, omissions or outdated content, nor uninterrupted availability of the site.',
+            'NIEUSYNC is not liable for damage arising from access or inability to access the site, from decisions taken solely on the basis of the published content, or for the content of third party sites reachable through hyperlinks, whose inclusion does not imply endorsement.',
           ],
         },
         {
-          title: 'Applicable law',
+          title: 'Governing law and jurisdiction',
           paragraphs: [
-            'This notice is governed by Portuguese law. Disputes arising from the use of this site are submitted to the courts of [JUDICIAL DISTRICT], without prejudice to any mandatory rule that gives the consumer a different forum.',
-          ],
-        },
-      ],
-    },
-    {
-      slug: 'code-of-conduct',
-      title: 'Code of conduct',
-      summary: 'The standards we hold ourselves to, and what you can demand of us.',
-      sections: [
-        {
-          title: 'Scope',
-          paragraphs: [
-            'This code applies to every partner, employee, contractor and supplier acting on behalf of Nieusync, in any engagement and in any market.',
-          ],
-        },
-        {
-          title: 'Integrity and independence',
-          paragraphs: [
-            'We act honestly and give our real opinion, including when it costs us work. We do not accept or offer gifts, payments or advantages intended to influence a decision, and we do not tolerate any form of corruption or facilitation payment.',
-            'We disclose any conflict of interest as soon as we identify it and, where the conflict cannot be managed, we step away from the engagement.',
-          ],
-        },
-        {
-          title: 'Confidentiality',
-          paragraphs: [
-            'Everything we learn about a client is confidential and stays that way after the engagement ends. Client information is only accessed by the people who need it to do the work, and is never used for our own benefit or that of another client.',
-          ],
-        },
-        {
-          title: 'Respect and non-discrimination',
-          paragraphs: [
-            'We do not tolerate harassment, intimidation or discrimination on grounds of gender, origin, age, disability, religion, sexual orientation or any other personal characteristic, internally or in any client environment.',
-          ],
-        },
-        {
-          title: 'Legal compliance',
-          paragraphs: [
-            'We comply with the law of every jurisdiction where we operate, including competition, data protection, anti-money-laundering and sanctions rules. Where the law and this code differ, the stricter standard applies.',
-          ],
-        },
-        {
-          title: 'Reporting a concern',
-          paragraphs: [
-            'Any breach of this code can be reported to geral@nieusync.com. Reports are treated confidentially and no one suffers retaliation for reporting a concern in good faith.',
-          ],
-        },
-      ],
-    },
-    {
-      slug: 'terms-and-conditions',
-      title: 'Terms and conditions',
-      summary: 'The rules for using this website and for requesting information from us.',
-      sections: [
-        {
-          title: 'Acceptance',
-          paragraphs: [
-            'By using this website you accept these terms. If you do not agree with them, please do not use the site.',
-            'We may change these terms at any time; the version published here is the one in force.',
-          ],
-        },
-        {
-          title: 'Use of the site',
-          paragraphs: [
-            'The site is provided “as is” and free of charge. You undertake not to use it for unlawful purposes, not to attempt to access areas or data you are not authorised to access, and not to interfere with its normal operation.',
-            'Our acceptable use policy sets out in more detail what is not allowed.',
-          ],
-        },
-        {
-          title: 'Forms and communications',
-          paragraphs: [
-            'When you send us a message or subscribe to our newsletter, you warrant that the data you provide is true and that you may use the email address you supply. We use that data as described in our privacy policy.',
-            'Sending a message does not create any professional relationship, nor does it oblige us to accept an engagement.',
-          ],
-        },
-        {
-          title: 'Services',
-          paragraphs: [
-            'The services described on the site are provided under a separate written engagement that sets out scope, deliverables, deadlines, fees and liability. In case of conflict, that engagement prevails over these terms.',
-          ],
-        },
-        {
-          title: 'Liability',
-          paragraphs: [
-            'We do not guarantee uninterrupted or error-free availability of the site, and to the extent permitted by law we are not liable for indirect damage or loss of profit arising from its use.',
-            'Nothing in these terms excludes liability that cannot be excluded under Portuguese law.',
-          ],
-        },
-        {
-          title: 'Law and jurisdiction',
-          paragraphs: [
-            'These terms are governed by Portuguese law and disputes are submitted to the courts of [JUDICIAL DISTRICT]. Consumers may also use the alternative dispute resolution entities listed at www.consumidor.gov.pt.',
-          ],
-        },
-      ],
-    },
-    {
-      slug: 'cookie-policy',
-      title: 'Cookie policy',
-      summary: 'What we store in your browser, and how to refuse it.',
-      sections: [
-        {
-          title: 'What cookies are',
-          paragraphs: [
-            'Cookies are small files a site stores in your browser. This policy also covers equivalent technologies such as local storage.',
-          ],
-        },
-        {
-          title: 'What we use',
-          paragraphs: [
-            'This site uses strictly necessary storage only: we keep your chosen language in your browser’s local storage so the site opens in the same language next time. It contains no personal data and is not shared with anyone.',
-            'We do not use advertising or profiling cookies. If we ever add analytics or third-party cookies, we will ask for your consent before setting them and update this policy.',
-          ],
-        },
-        {
-          title: 'Third-party content',
-          paragraphs: [
-            'Some pages load content from third parties, for example our blog articles and the fonts served by Google Fonts. Those providers may receive your IP address to deliver the content. Their own policies apply to that processing.',
-          ],
-        },
-        {
-          title: 'How to control it',
-          paragraphs: [
-            'You can delete or block storage at any time in your browser settings. Blocking the language preference does not stop the site from working. It simply forgets your choice.',
+            'This Legal Notice is governed by Portuguese law. Any dispute arising from use of the site is subject to the courts of the district of NIEUSYNC’s registered office, with express waiver of any other, without prejudice to mandatory consumer protection rules.',
           ],
         },
       ],
@@ -186,72 +80,180 @@ const legal = {
     {
       slug: 'privacy-policy',
       title: 'Privacy policy',
-      summary: 'What personal data we collect, why, and what rights you have.',
+      summary: 'What personal data we process, on what basis, and the rights you have.',
       sections: [
         {
           title: 'Controller',
           paragraphs: [
-            '[ENTITY NAME], with registered office at [ADDRESS], taxpayer number [VAT NUMBER], is the controller of the personal data processed through this website. Data protection contact: geral@nieusync.com.',
+            'This Privacy Policy describes how NIEUSYNC — Sociedade Multidisciplinar de Advogados e Consultores, SP, Lda. processes the personal data of users of its website and of its clients and contacts, in accordance with Regulation (EU) 2016/679 (GDPR) and Law 58/2019 of 8 August.',
+            'Entity: NIEUSYNC — Sociedade Multidisciplinar de Advogados e Consultores, SP, Lda.',
+            'NIPC: 518 694 925.',
+            'Registered office: Rua Eng. Costa Serrão, n.º 35, R/C INF, 7540-185 Santiago do Cacém, Portugal.',
+            'Data protection contact: dpo@nieusync.com',
           ],
         },
         {
-          title: 'What we collect and why',
+          title: 'Categories of data processed',
           paragraphs: [
-            'Contact form: name, company, email and the content of your message, to answer you and assess a possible engagement. Legal basis: steps taken at your request prior to entering into a contract.',
-            'Newsletter and guide: your email address, to send you the requested document and occasional articles. Legal basis: your consent, which you may withdraw at any time.',
-            'Technical logs: our hosting provider records IP address and browser data for security and availability. Legal basis: our legitimate interest in operating the site safely.',
+            'Depending on the relationship established, NIEUSYNC may process the following categories of data:',
+            'Identification and contact data: name, address, telephone, email, taxpayer number.',
+            'Professional and billing data: company, role, billing and payment details.',
+            'Browsing data: IP address, device and browser type, cookie data, under the terms of the Cookie Policy.',
+            'Data relating to legal matters: information needed to provide legal and consulting services, which may include special categories of data where strictly necessary for representation or advice.',
           ],
         },
         {
-          title: 'How long we keep it',
+          title: 'Purposes and lawful bases',
           paragraphs: [
-            'Contact messages are kept for up to two years after the last exchange, unless they result in an engagement, in which case the engagement’s own retention rules apply. Newsletter data is kept until you unsubscribe.',
+            'Personal data is processed for the following purposes, on the corresponding lawful bases under article 6 and, where applicable, article 9 GDPR:',
+            'Responding to contacts, information requests and contact forms. Basis: pre-contractual steps at the data subject’s request (article 6(1)(b)) or legitimate interest (article 6(1)(f)).',
+            'Providing legal and consulting services. Basis: performance of a contract (article 6(1)(b)); where special categories of data are involved, the establishment or defence of legal claims (article 9(2)(f)).',
+            'Compliance with legal obligations, in particular tax, accounting and anti money laundering obligations. Basis: compliance with a legal obligation (article 6(1)(c)).',
+            'Institutional and informational communications, newsletters and guides. Basis: the data subject’s consent (article 6(1)(a)), with a right to object at any time.',
+            'Security and operation of the site. Basis: legitimate interest in operating the site securely (article 6(1)(f)).',
           ],
         },
         {
-          title: 'Who has access',
+          title: 'Disclosure to third parties',
           paragraphs: [
-            'Only Nieusync team members who need the data for the purpose above, plus the service providers who host our site and deliver our email. Those providers act on our instructions under a data processing agreement. We do not sell your data.',
-            'Where a provider processes data outside the European Economic Area, we rely on the European Commission’s standard contractual clauses.',
+            'NIEUSYNC does not sell or trade personal data. Data may be disclosed, where necessary: to judicial, administrative and tax authorities in compliance with legal obligations; to processors providing services to the Firm, bound by a processing agreement under article 28 GDPR; and to counterparties and their representatives strictly within the scope of representation, always subject to professional secrecy.',
+            'No transfers of data outside the European Economic Area are envisaged. Should any occur, the appropriate safeguards set out in Chapter V GDPR will be put in place.',
           ],
         },
         {
-          title: 'Your rights',
+          title: 'Retention periods',
           paragraphs: [
-            'You may request access, rectification, erasure, restriction or portability of your data, object to processing based on legitimate interest, and withdraw consent at any time. Write to geral@nieusync.com and we will reply within 30 days.',
-            'You may also complain to the Portuguese supervisory authority, the Comissão Nacional de Proteção de Dados (www.cnpd.pt).',
+            'Data is kept only for as long as necessary for the purposes that motivated its collection and to comply with legal obligations, namely:',
+            'Client, project and case data: for the duration of the relationship and, after it ends, for the applicable limitation period and any legally imposed retention periods.',
+            'Billing and accounting data: 10 years, as required by law.',
+            'Contact data of leads that do not result in an engagement: 12 months, or until the data subject objects.',
+            'Browsing and cookie data: under the terms of the Cookie Policy.',
+          ],
+        },
+        {
+          title: 'Rights of data subjects',
+          paragraphs: [
+            'Under articles 15 to 22 GDPR, data subjects have the right of access, rectification, erasure, restriction of processing, portability and objection, as well as the right to withdraw consent at any time without affecting the lawfulness of prior processing. These rights may be exercised with the controller through the contacts given in section 01.',
+            'Data subjects also have the right to lodge a complaint with the supervisory authority, the Comissão Nacional de Proteção de Dados (CNPD), Av. D. Carlos I, n.º 134 – 1.º, 1200-651 Lisboa, www.cnpd.pt.',
           ],
         },
         {
           title: 'Security',
           paragraphs: [
-            'We use encryption in transit, access control on a need-to-know basis and regular reviews of our providers. No system is completely secure, but we notify you and the supervisory authority whenever the law requires it.',
+            'NIEUSYNC adopts appropriate technical and organisational measures to protect personal data against unauthorised access, loss, destruction or alteration, taking into account the state of the art, the costs and the nature of the data, with particular reinforcement for data covered by professional secrecy.',
+          ],
+        },
+        {
+          title: 'Changes',
+          paragraphs: [
+            'This Policy may be updated at any time, taking effect once published on the site. Periodic review is recommended.',
           ],
         },
       ],
     },
     {
-      slug: 'acceptable-use-policy',
-      title: 'Acceptable use policy',
-      summary: 'What may not be done with this site and with any system we provide.',
+      slug: 'cookie-policy',
+      title: 'Cookie policy',
+      summary: 'What we store in your browser and how you can refuse it.',
       sections: [
         {
-          title: 'Scope',
+          title: 'What cookies are',
           paragraphs: [
-            'This policy applies to this website, to the client area and to any system Nieusync makes available to a client or to the public.',
+            'This Cookie Policy explains what cookies are, which ones are used on the site of NIEUSYNC — Sociedade Multidisciplinar de Advogados e Consultores, SP, Lda., and how users can manage them, in accordance with article 5 of Law 41/2004 of 18 August and with the GDPR.',
+            'Cookies are small text files stored on the user’s device when they visit a website. They make it possible to recognise the device, remember preferences and collect information about browsing.',
           ],
         },
         {
-          title: 'Prohibited use',
+          title: 'What we use',
           paragraphs: [
-            'You may not use our systems to: break the law or third-party rights; send spam or unsolicited commercial communications; publish unlawful, defamatory, discriminatory or infringing content; or upload malware.',
-            'You may not attempt to gain unauthorised access, test security without written authorisation, circumvent access limits, scrape content at scale, or overload the infrastructure.',
+            'This site uses strictly necessary storage only: we keep your chosen language in your browser’s local storage so the site opens in the same language next time. It holds no personal data and is shared with no one.',
+            'We use no advertising or profiling cookies. If we later add analytics or third party cookies, we will ask for your consent before setting them and update this policy.',
+          ],
+        },
+        {
+          title: 'Third party content',
+          paragraphs: [
+            'Some pages load third party content, for example the articles from our blog and the fonts served by Google Fonts. Those providers may receive your IP address in order to deliver the content. Their own policies apply to that processing.',
+          ],
+        },
+        {
+          title: 'Consent',
+          paragraphs: [
+            'Cookies strictly necessary for the site to work are set without consent. All other cookies are set only after the user’s prior and express consent, given through the cookie banner shown on first visit. Users may accept, refuse or configure their preferences, and change them at any time.',
+          ],
+        },
+        {
+          title: 'How to control it',
+          paragraphs: [
+            'You can delete or block the storage at any time in your browser settings. Blocking the language preference does not stop the site working. It only means your choice is forgotten.',
+          ],
+        },
+        {
+          title: 'Changes',
+          paragraphs: [
+            'This Cookie Policy may be updated at any time to reflect technical or legal changes. Periodic review is recommended.',
+          ],
+        },
+      ],
+    },
+    {
+      slug: 'terms-and-conditions',
+      title: 'Terms and conditions of use',
+      summary: 'The rules for accessing and using this site and the client area.',
+      sections: [
+        {
+          title: 'Purpose and acceptance',
+          paragraphs: [
+            'These Terms and Conditions govern access to and use of the website of NIEUSYNC — Sociedade Multidisciplinar de Advogados e Consultores, SP, Lda. (“NIEUSYNC”), available at www.nieusync.com.',
+            'Using the site makes you a user and implies full and unreserved acceptance of these Terms, as well as of the Legal Notice, the Privacy Policy and the Cookie Policy. Users who do not agree should refrain from using the site.',
+          ],
+        },
+        {
+          title: 'Use of the site',
+          paragraphs: [
+            'The site is provided “as is”. Users undertake to use the site in accordance with the law, good practice and these Terms, and to refrain from using the site for unlawful purposes or purposes harmful to the rights and interests of third parties, from sending spam or unsolicited commercial communications, from publishing unlawful, defamatory or discriminatory content or content that infringes copyright, and from introducing or spreading content or software liable to damage the systems of NIEUSYNC or of third parties.',
+            'You may not attempt to access restricted areas, data or features you are not authorised for, test security without written authorisation, circumvent access limits, extract content in bulk or overload the infrastructure.',
           ],
         },
         {
           title: 'Accounts and credentials',
           paragraphs: [
-            'Client area credentials are personal and non-transferable. You are responsible for everything done through your account and must tell us immediately at geral@nieusync.com if you suspect it has been compromised.',
+            'Client area credentials are personal and non transferable. You are responsible for everything done through your account and must inform us immediately at geral@nieusync.com if you suspect the account or credentials have been compromised.',
+          ],
+        },
+        {
+          title: 'Nature of the content',
+          paragraphs: [
+            'The information on the site is purely informational and institutional and does not constitute legal, tax, financial or other advice, a professional opinion or a contractual offer.',
+            'Consulting the site or sending communications through it does not establish any professional relationship between the user and NIEUSYNC or its lawyers. A professional relationship arises only upon express engagement and after completion of the legal client identification and conflict of interest checks.',
+            'Users should not send confidential or sensitive information through the forms or channels of the site before a professional relationship has been formally established.',
+          ],
+        },
+        {
+          title: 'Intellectual property',
+          paragraphs: [
+            'All content on the site, including text, trade marks, logos, graphic elements, images and code, is the property of NIEUSYNC or of third parties who authorised its use, and is protected by copyright and industrial property law.',
+            'Reproduction, distribution, public communication, transformation or any other use, in whole or in part, is prohibited without NIEUSYNC’s prior written authorisation, except for the user’s personal and non commercial use.',
+          ],
+        },
+        {
+          title: 'Hyperlinks',
+          paragraphs: [
+            'The site may contain hyperlinks to third party sites, whose inclusion implies neither endorsement nor any liability of NIEUSYNC for their content, availability or privacy practices.',
+          ],
+        },
+        {
+          title: 'Limitation of liability',
+          paragraphs: [
+            'NIEUSYNC does not guarantee the absence of errors or omissions in the content, nor uninterrupted and fault free availability of the site.',
+            'NIEUSYNC is not liable for damage arising from access to, use of or inability to use the site, nor for damage resulting from third party content or from technical failures beyond its control.',
+            'Nothing in these Terms excludes liability that cannot lawfully be excluded under Portuguese law.',
+          ],
+        },
+        {
+          title: 'Data protection and cookies',
+          paragraphs: [
+            'The processing of personal data in connection with the site is governed by the Privacy Policy and the Cookie Policy, which form an integral part of these Terms.',
           ],
         },
         {
@@ -263,7 +265,20 @@ const legal = {
         {
           title: 'Reporting abuse',
           paragraphs: [
-            'Report abuse or a vulnerability to geral@nieusync.com. We do not pursue researchers who report a vulnerability in good faith, without accessing third-party data and without making it public before we have fixed it.',
+            'Report abuse or vulnerabilities to geral@nieusync.com. We do not pursue researchers who report a vulnerability in good faith, without accessing third party data and without making it public before we have fixed it.',
+          ],
+        },
+        {
+          title: 'Changes',
+          paragraphs: [
+            'NIEUSYNC reserves the right to change these Terms at any time, as well as the presentation, configuration and content of the site. Changes take effect once published.',
+          ],
+        },
+        {
+          title: 'Governing law and jurisdiction',
+          paragraphs: [
+            'These Terms are governed by Portuguese law.',
+            'Disputes arising from use of the site are subject to the courts of the district of NIEUSYNC’s registered office, with express waiver of any other, without prejudice to mandatory consumer protection rules.',
           ],
         },
       ],
@@ -272,4 +287,5 @@ const legal = {
 };
 
 export type Legal = typeof legal;
+
 export default legal;

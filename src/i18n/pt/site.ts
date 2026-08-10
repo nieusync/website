@@ -12,22 +12,20 @@ const site: Site = {
   hero: {
     eyebrow: 'O parceiro operacional das PME com mercado europeu',
     titleTop: 'O seu negócio,',
-    titleSync: 'em sincronia.',
+    titleSync: 'visto de cima.',
     subtitle:
-      'Ajudamos PME que vendem para a Europa a crescer e escalar. Cinco disciplinas na mesma casa: Legal, Digital, Estratégia, Operações e Financeira. Escolha a que precisa, ou todas.',
+      'Escalamos o seu negócio com o apoio que normalmente só as grandes empresas têm.',
     ctaPillars: 'Explorar os cinco pilares',
     ctaContact: 'Falar connosco',
   },
   pillars: {
     label: '01 / O que fazemos',
-    title: 'Cinco pilares. Zero silos.',
-    subtitle: 'Comece pelo pilar de que precisa. Se o trabalho entrar noutro, é a mesma equipa que o pega.',
-    cta: 'Ver o que fazemos',
+    title: 'Cinco pilares. Uma visão integrada.',
     items: [
       {
         slug: 'legal',
         name: 'Legal',
-        desc: 'Contratos, estrutura societária e risco, desenhados antes de existirem problemas.',
+        desc: 'Contratos, estrutura societária e risco.',
         intro:
           'Do primeiro contrato à negociação mais difícil: estrutura jurídica para um negócio que opera em mercados europeus.',
         services: [
@@ -41,7 +39,7 @@ const site: Site = {
       {
         slug: 'digital',
         name: 'Digital',
-        desc: 'Tecnologia, dados e automação que transformam a operação numa vantagem.',
+        desc: 'Tecnologia, dados e automação.',
         intro:
           'Sistemas, automação e presença digital construídos à volta da forma como o negócio funciona no dia a dia.',
         services: [
@@ -55,7 +53,7 @@ const site: Site = {
       {
         slug: 'strategy',
         name: 'Estratégia',
-        desc: 'Posicionamento, prioridades e um plano que a empresa consegue mesmo executar.',
+        desc: 'Posicionamento, prioridades e um plano executável.',
         intro:
           'Clareza sobre onde competir e como ganhar na Europa, e um plano que toda a empresa executa sem precisar de tradução.',
         services: [
@@ -69,7 +67,7 @@ const site: Site = {
       {
         slug: 'operations',
         name: 'Operações',
-        desc: 'Processos que escalam sem caos: medidos, afinados, repetíveis.',
+        desc: 'Processos medidos, afinados, repetíveis.',
         intro:
           'A máquina por trás da promessa: processos que escalam sem caos e números que permitem conduzir o negócio.',
         services: [
@@ -83,7 +81,7 @@ const site: Site = {
       {
         slug: 'financial',
         name: 'Financeira',
-        desc: 'Fiscalidade, financiamento e arquitetura financeira que protegem a margem.',
+        desc: 'Fiscalidade, financiamento e margem.',
         intro:
           'Arquitetura financeira e fiscal: a margem, o financiamento e a conformidade que está por baixo dos dois.',
         services: [
@@ -105,23 +103,11 @@ const site: Site = {
       { title: 'Escalar', desc: 'Execução contínua com a sua equipa, medida a cada passo.' },
     ],
   },
-  blog: {
-    label: '02 / O que pensamos e casos de uso',
-    title: 'O que pensamos, e como isso fica na prática.',
-    subtitle: 'Artigos e casos de uso das cinco disciplinas: o raciocínio, e o trabalho em que deu.',
-    cta: 'Ler tudo',
-    readArticle: 'Ler artigo',
-    minutesSuffix: 'min de leitura',
-    dateLocale: 'pt-PT',
-  },
   portal: {
-    label: '03 / Área de cliente',
+    label: '02 / Área de cliente',
     title: 'A sua empresa, em direto.',
-    desc: 'Documentos, pedidos e o progresso do trabalho que estamos a fazer para si, num só lugar seguro.',
-    cta: 'Entrar na área de cliente',
-    hint: 'Acesso reservado a clientes Nieusync.',
+    cta: 'Marcar uma demonstração',
     shot: {
-      caption: 'Uma antevisão da área de cliente Nieusync.',
       workspace: 'Área de trabalho',
       company: 'Acme Comércio, Lda.',
       nav: ['Resumo', 'Documentos', 'Pedidos', 'Faturas', 'Equipa'],
@@ -163,15 +149,14 @@ const site: Site = {
   },
   newsletter: {
     label: 'Guia gratuito',
-    title: 'Guia de proteções jurídicas para PME’s',
-    desc: 'Subscreva a newsletter e receba o guia “Guia de proteções jurídicas para PME’s”: as bases de contratos, estrutura e conformidade que uma PME que vende para a Europa deve ter.',
+    title: '10 Proteções Legais que toda a PME precisa',
     emailPlaceholder: 'o.seu@email.com',
     submit: 'Enviar-me o guia',
     sending: 'A enviar…',
     success: 'Subscrição registada.',
     error: 'Algo correu mal. Escreva-nos diretamente para geral@nieusync.com.',
     consent: 'Enviamos apenas o guia e artigos ocasionais. Pode cancelar quando quiser.',
-    mailSubject: 'Newsletter: Guia de proteções jurídicas para PME’s',
+    mailSubject: 'Newsletter: 10 Proteções Legais que toda a PME precisa',
   },
   pillarPage: {
     back: 'Todos os pilares',
@@ -254,15 +239,14 @@ const site: Site = {
     back: 'Voltar ao site',
   },
   footer: {
-    description:
-      'A Nieusync ajuda PME que vendem para a Europa a crescer e escalar, em Legal, Digital, Estratégia, Operações e Financeira. Uma equipa, precise de um pilar ou dos cinco.',
     company: 'Empresa',
     pillars: 'O que fazemos',
     contact: 'Contacto',
     legal: 'Legal',
     blog: 'O que pensamos',
     clientArea: 'Área de cliente',
-    copyright: (year: number) => `© ${year} Nieusync. Todos os direitos reservados.`,
+    copyright: (year: number) =>
+      `© ${year} Nieusync, Sociedade Multidisciplinar de Advogados e Consultores SP, LDA. Registo OA 17/26 — Todos os direitos reservados.`,
   },
 };
 

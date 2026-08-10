@@ -39,7 +39,7 @@ export default function WhatWeDo() {
           <h1 className="animate-fade-up mb-8 text-[clamp(40px,6.5vw,84px)] leading-[1.02] [animation-delay:100ms]">
             {t.whatPage.title}
           </h1>
-          <p className="animate-fade-up text-[18px] leading-[1.8] text-white/60 [animation-delay:200ms]">
+          <p className="animate-fade-up text-[18px] leading-[1.8] text-white/85 [animation-delay:200ms]">
             {t.whatPage.subtitle}
           </p>
         </div>
@@ -69,7 +69,7 @@ export default function WhatWeDo() {
                     </div>
                   </div>
 
-                  <p className="mb-7 text-[15px] leading-[1.75] text-white/55">{p.intro}</p>
+                  <p className="mb-7 text-[15px] leading-[1.75] text-white/85">{p.intro}</p>
 
                   <ul className="mb-8 flex-1 space-y-3">
                     {p.services.map((s) => (
@@ -79,7 +79,7 @@ export default function WhatWeDo() {
                           weight="duotone"
                           className="mt-0.5 shrink-0 text-purple"
                         />
-                        <span className="text-[14px] leading-[1.6] text-white/60">{s}</span>
+                        <span className="text-[14px] leading-[1.6] text-white/85">{s}</span>
                       </li>
                     ))}
                   </ul>
@@ -121,7 +121,7 @@ export default function WhatWeDo() {
                   0{i + 1}
                 </span>
                 <h3 className="mb-3 font-display text-2xl text-white">{s.title}</h3>
-                <p className="text-[15px] leading-[1.7] text-white/50">{s.desc}</p>
+                <p className="text-[15px] leading-[1.7] text-white/80">{s.desc}</p>
               </div>
             ))}
           </div>

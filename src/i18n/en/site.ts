@@ -10,22 +10,20 @@ const site = {
   hero: {
     eyebrow: 'The operating partner for European-facing SMEs',
     titleTop: 'Your business,',
-    titleSync: 'in sync.',
+    titleSync: 'from above.',
     subtitle:
-      'We help small and mid-sized companies selling into Europe grow and scale. Five disciplines under one roof: Legal, Digital, Strategy, Operations and Financial. Take the one you need, or all of them.',
+      'We scale your business with the kind of support usually reserved for large companies.',
     ctaPillars: 'Explore the five pillars',
     ctaContact: 'Talk to us',
   },
   pillars: {
     label: '01 / What we do',
-    title: 'Five pillars. Zero silos.',
-    subtitle: 'Start with the one you need. If the work runs into another, the same team picks it up.',
-    cta: 'See what we do',
+    title: 'Five pillars. One integrated view.',
     items: [
       {
         slug: 'legal',
         name: 'Legal',
-        desc: 'Contracts, corporate structure and risk, engineered before problems exist.',
+        desc: 'Contracts, corporate structure and risk.',
         intro:
           'From the first contract to the toughest negotiation: legal structure for a business operating across European markets.',
         services: [
@@ -39,7 +37,7 @@ const site = {
       {
         slug: 'digital',
         name: 'Digital',
-        desc: 'Technology, data and automation that turn your operation into an advantage.',
+        desc: 'Technology, data and automation.',
         intro:
           'Systems, automation and a digital presence built around how the business actually runs day to day.',
         services: [
@@ -53,7 +51,7 @@ const site = {
       {
         slug: 'strategy',
         name: 'Strategy',
-        desc: 'Positioning, priorities and a plan the whole company can actually execute.',
+        desc: 'Positioning, priorities and a plan you can execute.',
         intro:
           'Clarity on where to play and how to win in Europe, and a plan the whole company can execute without translation.',
         services: [
@@ -67,7 +65,7 @@ const site = {
       {
         slug: 'operations',
         name: 'Operations',
-        desc: 'Processes that scale without chaos: measured, refined, repeatable.',
+        desc: 'Processes measured, refined, repeatable.',
         intro:
           'The machine behind the promise: processes that scale without chaos and numbers you can steer by.',
         services: [
@@ -81,7 +79,7 @@ const site = {
       {
         slug: 'financial',
         name: 'Financial',
-        desc: 'Tax, funding and financial architecture that protect your margin.',
+        desc: 'Tax, funding and margin.',
         intro:
           'Financial and tax architecture: margin, funding and the compliance that sits underneath both.',
         services: [
@@ -103,24 +101,12 @@ const site = {
       { title: 'Scale', desc: 'Continuous execution with your team, measured at every step.' },
     ],
   },
-  blog: {
-    label: '02 / What we think & use cases',
-    title: 'What we think, and what it looks like in practice.',
-    subtitle: 'Articles and use cases from all five disciplines: the reasoning, and the work it turned into.',
-    cta: 'Read everything',
-    readArticle: 'Read article',
-    minutesSuffix: 'min read',
-    dateLocale: 'en-GB',
-  },
   portal: {
-    label: '03 / Client area',
+    label: '02 / Client area',
     title: 'Your company, live.',
-    desc: 'Documents, requests and the progress of the work we are doing for you, in one secure place.',
-    cta: 'Enter client area',
-    hint: 'Access reserved for Nieusync clients.',
+    cta: 'Book a demo',
     // Labels rendered inside the mock client-area screenshot
     shot: {
-      caption: 'A preview of the Nieusync client area.',
       workspace: 'Workspace',
       company: 'Acme Comércio, Lda.',
       nav: ['Overview', 'Documents', 'Requests', 'Invoices', 'Team'],
@@ -162,15 +148,14 @@ const site = {
   },
   newsletter: {
     label: 'Free guide',
-    title: 'Legal protections guide for SMEs',
-    desc: 'Subscribe to the newsletter and get the guide “Guia de proteções jurídicas para PME’s”: the contract, structure and compliance basics an SME selling into Europe should have in place.',
+    title: '10 legal protections every SME needs',
     emailPlaceholder: 'your@email.com',
     submit: 'Send me the guide',
     sending: 'Sending…',
     success: 'Subscription received.',
     error: 'Something went wrong. Please email geral@nieusync.com directly.',
     consent: 'We only send the guide and occasional articles. Unsubscribe any time.',
-    mailSubject: 'Newsletter: SME legal protections guide',
+    mailSubject: 'Newsletter: 10 legal protections every SME needs',
   },
   pillarPage: {
     back: 'All pillars',
@@ -254,15 +239,14 @@ const site = {
     back: 'Back to site',
   },
   footer: {
-    description:
-      'Nieusync helps small and mid-sized companies selling into Europe grow and scale, across Legal, Digital, Strategy, Operations and Financial. One team, whether you need one of them or all five.',
     company: 'Company',
     pillars: 'What we do',
     contact: 'Contact',
     legal: 'Legal',
     blog: 'What we think',
     clientArea: 'Client area',
-    copyright: (year: number) => `© ${year} Nieusync. All rights reserved.`,
+    copyright: (year: number) =>
+      `© ${year} Nieusync, Sociedade Multidisciplinar de Advogados e Consultores SP, LDA. Bar registration 17/26 — All rights reserved.`,
   },
 };
 

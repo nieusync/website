@@ -4,11 +4,9 @@ import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
 import { useT } from "../i18n";
 import { useParallax } from "../hooks/useParallax";
 import { useScrollReveal } from "../hooks/useScrollReveal";
-import { useArticles, BLOG_URL } from "../hooks/useArticles";
 import {
 	Nav,
 	Footer,
-	CLIENT_AREA_PATH,
 	PILLAR_ICONS,
 } from "../components/SiteChrome";
 import { ClientAreaShot } from "../components/ClientAreaShot";
@@ -20,11 +18,11 @@ function Orbit() {
 	return (
 		<div
 			aria-hidden="true"
-			className="relative hidden h-[460px] w-[460px] shrink-0 lg:block"
+			className="relative hidden h-[360px] w-[360px] shrink-0 lg:block"
 		>
 			<div className="absolute inset-0 rounded-full border border-white/[0.06]" />
-			<div className="absolute inset-14 rounded-full border border-white/[0.09]" />
-			<div className="absolute inset-28 rounded-full border border-purple/20" />
+			<div className="absolute inset-10 rounded-full border border-white/[0.09]" />
+			<div className="absolute inset-20 rounded-full border border-purple/20" />
 
 			{/* Symbol only: the wordmark would not read at this size inside the rings.
           Centring lives on the wrapper: animate-pulse-soft sets `transform`, which
@@ -33,7 +31,7 @@ function Orbit() {
 				<img
 					src="/assets/logo_s_w_nbg.png"
 					alt=""
-					className="w-32 animate-pulse-soft"
+					className="w-40 animate-pulse-soft"
 				/>
 			</div>
 
@@ -48,11 +46,11 @@ function Orbit() {
 							className="absolute left-1/2 top-1/2"
 							// ponytail: node position is computed from the pillar angle, so it stays inline
 							style={{
-								transform: `translate(calc(-50% + ${(Math.cos(angle) * 230).toFixed(1)}px), calc(-50% + ${(Math.sin(angle) * 230).toFixed(1)}px))`,
+								transform: `translate(calc(-50% + ${(Math.cos(angle) * 180).toFixed(1)}px), calc(-50% + ${(Math.sin(angle) * 230).toFixed(1)}px))`,
 							}}
 						>
-							<div className="flex h-14 w-14 animate-spin-slow items-center justify-center rounded-2xl border border-white/15 bg-white/[0.06] shadow-[0_0_24px_rgba(159,142,194,0.2)] backdrop-blur-sm [animation-direction:reverse] [animation-duration:60s]">
-								<Icon size={24} weight="duotone" className="text-purple" />
+							<div className="flex h-12 w-12 animate-spin-slow items-center justify-center rounded-2xl border border-white/15 bg-white/[0.06] shadow-[0_0_24px_rgba(159,142,194,0.2)] backdrop-blur-sm [animation-direction:reverse] [animation-duration:60s]">
+								<Icon size={22} weight="duotone" className="text-purple" />
 							</div>
 						</div>
 					);
@@ -84,104 +82,6 @@ function Marquee() {
 				))}
 			</div>
 		</div>
-	);
-}
-
-function BlogSection() {
-	const t = useT("site");
-	const { articles, loading } = useArticles(3);
-
-	const formatDate = (dateStr: string) => {
-		if (!dateStr) return "";
-		return new Date(dateStr).toLocaleDateString(t.blog.dateLocale, {
-			month: "short",
-			year: "numeric",
-		});
-	};
-
-	return (
-		<section id="blog" className="relative overflow-hidden py-32">
-			<div
-				data-parallax="0.12"
-				className="pointer-events-none absolute -left-40 top-1/4 h-[380px] w-[380px] rounded-full bg-purple/20 blur-[140px]"
-			/>
-
-			<div className="container relative">
-				<div className="animate-on-scroll mb-14 flex flex-wrap items-end justify-between gap-6">
-					<div className="max-w-[560px]">
-						<span className="mb-4 block text-xs font-bold uppercase tracking-[0.2em] text-purple">
-							{t.blog.label}
-						</span>
-						<h2 className="mb-5 font-display text-[clamp(34px,5vw,60px)] leading-[1.05] text-white">
-							{t.blog.title}
-						</h2>
-						<p className="text-[16px] leading-[1.7] text-white/50">
-							{t.blog.subtitle}
-						</p>
-					</div>
-					<a
-						href={BLOG_URL}
-						className="group inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-xs font-bold uppercase tracking-[0.08em] text-white transition duration-200 hover:-translate-y-0.5 hover:border-purple hover:text-purple"
-					>
-						{t.blog.cta}
-						<ArrowUpRight
-							size={14}
-							weight="bold"
-							className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-						/>
-					</a>
-				</div>
-
-				{/* Cards mount after the Ghost fetch resolves, so they use a mount-time
-            animation, because the scroll-reveal observer only sees elements present at load */}
-				{!loading && articles.length > 0 && (
-					<div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-						{articles.map((a, i) => (
-							<a
-								key={a.id}
-								href={a.url}
-								// ponytail: stagger delay depends on the index, so it stays inline
-								style={{ animationDelay: `${i * 120}ms` }}
-								className="animate-fade-up group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-colors duration-300 hover:border-purple/40"
-							>
-								{a.image && (
-									<div className="h-44 overflow-hidden">
-										<img
-											src={a.image}
-											alt={a.title}
-											loading="lazy"
-											className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-										/>
-									</div>
-								)}
-								<div className="flex flex-1 flex-col p-6">
-									{a.category && (
-										<span className="mb-3 self-start rounded-full bg-purple/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-purple">
-											{a.category}
-										</span>
-									)}
-									<h3 className="mb-3 text-[17px] font-bold leading-[1.4] text-white">
-										{a.title}
-									</h3>
-									<p className="mb-5 flex-1 text-sm leading-[1.6] text-white/45">
-										{a.excerpt}
-									</p>
-									<div className="flex items-center justify-between border-t border-white/10 pt-4">
-										<span className="text-xs text-white/35">
-											{a.readTime} {t.blog.minutesSuffix} ·{" "}
-											{formatDate(a.publishedAt)}
-										</span>
-										<span className="text-[13px] font-bold text-purple">
-											{t.blog.readArticle}
-										</span>
-									</div>
-								</div>
-							</a>
-						))}
-					</div>
-				)}
-			</div>
-		</section>
 	);
 }
 
@@ -222,7 +122,7 @@ export default function Site() {
 				/>
 
 				<div className="container relative flex items-center justify-between gap-12">
-					<div className="max-w-[640px]">
+					<div className="max-w-[760px]">
 						<h1 className="animate-fade-up mb-8 text-[clamp(44px,7.5vw,96px)] leading-[1.02] [animation-delay:100ms]">
 							{t.hero.titleTop}
 							<br />
@@ -231,7 +131,7 @@ export default function Site() {
 							</span>
 						</h1>
 
-						<p className="animate-fade-up mb-10 max-w-[480px] text-[17px] leading-[1.7] text-white/60 [animation-delay:200ms]">
+						<p className="animate-fade-up mb-10 max-w-[560px] text-[17px] leading-[1.7] text-white/85 [animation-delay:200ms]">
 							{t.hero.subtitle}
 						</p>
 
@@ -281,23 +181,9 @@ export default function Site() {
 						<span className="mb-4 block text-xs font-bold uppercase tracking-[0.2em] text-purple">
 							{t.pillars.label}
 						</span>
-						<h2 className="mb-5 font-display text-[clamp(34px,5vw,60px)] leading-[1.05] text-white">
+						<h2 className="font-display text-[clamp(34px,5vw,60px)] leading-[1.05] text-white">
 							{t.pillars.title}
 						</h2>
-						<p className="mb-8 text-[16px] leading-[1.7] text-white/50">
-							{t.pillars.subtitle}
-						</p>
-						<Link
-							to="/demo/what-we-do"
-							className="group inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-xs font-bold uppercase tracking-[0.08em] text-white transition duration-200 hover:-translate-y-0.5 hover:border-purple hover:text-purple"
-						>
-							{t.pillars.cta}
-							<ArrowUpRight
-								size={14}
-								weight="bold"
-								className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-							/>
-						</Link>
 					</div>
 
 					<div className="animate-on-scroll border-t border-white/10">
@@ -318,7 +204,7 @@ export default function Site() {
 									<h3 className="font-display text-[clamp(26px,3.5vw,44px)] leading-none text-white transition-transform duration-300 group-hover:translate-x-2">
 										{p.name}
 									</h3>
-									<p className="col-span-2 text-[15px] leading-[1.7] text-white/45 md:col-span-1">
+									<p className="col-span-2 text-[15px] leading-[1.7] text-white/80 md:col-span-1">
 										{p.desc}
 									</p>
 									<ArrowUpRight
@@ -342,9 +228,6 @@ export default function Site() {
 				</div>
 			</section>
 
-			{/* ── BLOG ── */}
-			<BlogSection />
-
 			{/* ── CLIENT AREA ── */}
 			<section className="relative overflow-hidden py-32">
 				<div
@@ -357,15 +240,12 @@ export default function Site() {
 						<span className="mb-4 block text-xs font-bold uppercase tracking-[0.2em] text-purple">
 							{t.portal.label}
 						</span>
-						<h2 className="mb-5 font-display text-[clamp(34px,5vw,60px)] leading-[1.05] text-white">
+						<h2 className="mb-10 font-display text-[clamp(34px,5vw,60px)] leading-[1.05] text-white">
 							{t.portal.title}
 						</h2>
-						<p className="mb-10 max-w-[440px] text-[16px] leading-[1.7] text-white/50">
-							{t.portal.desc}
-						</p>
 						<Link
-							to={CLIENT_AREA_PATH}
-							className="group inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-grad-main px-9 py-4 text-[13px] font-bold uppercase tracking-[0.08em] text-white shadow-[0_0_30px_rgba(159,142,194,0.4)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_50px_rgba(159,142,194,0.6)]"
+							to="/demo/contact"
+							className="group inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-white px-9 py-4 text-[13px] font-bold uppercase tracking-[0.08em] text-blue transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_40px_rgba(255,255,255,0.25)]"
 						>
 							{t.portal.cta}
 							<ArrowRight
@@ -374,7 +254,6 @@ export default function Site() {
 								className="transition-transform duration-200 group-hover:translate-x-1"
 							/>
 						</Link>
-						<p className="mt-6 text-xs text-white/35">{t.portal.hint}</p>
 					</div>
 
 					<div className="animate-on-scroll">

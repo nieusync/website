@@ -29,8 +29,8 @@ async function submit(subject: string, data: Record<string, string>) {
 }
 
 const fieldCls =
-  'w-full rounded-xl border-white/15 bg-white/[0.04] text-white placeholder:text-white/25 focus:border-purple focus:shadow-[0_0_0_3px_rgba(159,142,194,0.18)]';
-const labelCls = 'mb-2 text-[11px] tracking-[0.14em] text-white/45';
+  'w-full rounded-xl border-white/15 bg-white/[0.04] text-white placeholder:text-white/50 focus:border-purple focus:shadow-[0_0_0_3px_rgba(159,142,194,0.18)]';
+const labelCls = 'mb-2 text-[11px] tracking-[0.14em] text-white/80';
 
 export function ContactForm() {
   const t = useT('site');
@@ -116,7 +116,7 @@ export function ContactForm() {
         </button>
 
         {status === 'sent' && <p className="text-sm text-purple">{t.contact.success}</p>}
-        {status === 'error' && <p className="text-sm text-white/60">{t.contact.error}</p>}
+        {status === 'error' && <p className="text-sm text-white/85">{t.contact.error}</p>}
       </div>
     </form>
   );
@@ -156,7 +156,6 @@ export function NewsletterForm() {
           <h2 className="mb-5 font-display text-[clamp(26px,3.5vw,40px)] leading-[1.1] text-white">
             {t.newsletter.title}
           </h2>
-          <p className="text-[15px] leading-[1.7] text-white/50">{t.newsletter.desc}</p>
         </div>
 
         <form onSubmit={onSubmit}>
@@ -183,10 +182,10 @@ export function NewsletterForm() {
             </button>
           </div>
 
-          <p className="mt-4 text-xs leading-[1.6] text-white/30">{t.newsletter.consent}</p>
+          <p className="mt-4 text-xs leading-[1.6] text-white/70">{t.newsletter.consent}</p>
           {status === 'sent' && <p className="mt-3 text-sm text-purple">{t.newsletter.success}</p>}
           {status === 'error' && (
-            <p className="mt-3 text-sm text-white/60">{t.newsletter.error}</p>
+            <p className="mt-3 text-sm text-white/85">{t.newsletter.error}</p>
           )}
         </form>
       </div>

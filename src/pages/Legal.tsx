@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Info } from '@phosphor-icons/react';
+import { ArrowLeft } from '@phosphor-icons/react';
 import { useT } from '../i18n';
 import { Nav, Footer } from '../components/SiteChrome';
 
@@ -49,7 +49,7 @@ export default function Legal() {
         <div className="container relative max-w-[780px]">
           <Link
             to="/demo/legal"
-            className="mb-12 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/50 transition-colors hover:text-purple"
+            className="mb-12 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/85 transition-colors hover:text-purple"
           >
             <ArrowLeft size={14} weight="bold" />
             {t.back}
@@ -59,8 +59,8 @@ export default function Legal() {
             {t.indexTitle}
           </span>
           <h1 className="mb-6 text-[clamp(34px,5.5vw,64px)] leading-[1.05]">{doc.title}</h1>
-          <p className="mb-4 text-[17px] leading-[1.75] text-white/55">{doc.summary}</p>
-          <p className="text-xs uppercase tracking-[0.14em] text-white/30">
+          <p className="mb-4 text-[17px] leading-[1.75] text-white/90">{doc.summary}</p>
+          <p className="text-xs uppercase tracking-[0.14em] text-white/85">
             {t.updatedLabel}: {t.updated}
           </p>
         </div>
@@ -70,7 +70,7 @@ export default function Legal() {
         <div className="container grid grid-cols-1 gap-12 lg:grid-cols-[220px_minmax(0,780px)]">
           {/* Sticky via CSS; the scroll listener only drives the active highlight */}
           <nav className="hidden self-start lg:block lg:sticky lg:top-28">
-            <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.16em] text-white/35">
+            <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.16em] text-white/85">
               {t.contents}
             </p>
             {doc.sections.map((s, i) => (
@@ -80,7 +80,7 @@ export default function Legal() {
                 className={`block border-l py-2 pl-4 text-[13px] leading-[1.5] transition-colors ${
                   active === i
                     ? 'border-purple text-white'
-                    : 'border-white/10 text-white/40 hover:text-white/70'
+                    : 'border-white/10 text-white/85 hover:text-white/90'
                 }`}
               >
                 <span className="mr-2 text-purple/60">{String(i + 1).padStart(2, '0')}</span>
@@ -90,11 +90,6 @@ export default function Legal() {
           </nav>
 
           <div>
-            <div className="mb-12 flex gap-3 rounded-2xl border border-purple/25 bg-purple/[0.07] px-5 py-4">
-              <Info size={18} weight="duotone" className="mt-0.5 shrink-0 text-purple" />
-              <p className="text-sm leading-[1.6] text-white/55">{t.disclaimer}</p>
-            </div>
-
             {doc.sections.map((s, i) => (
               <article
                 key={s.title}
@@ -106,7 +101,7 @@ export default function Legal() {
                   {s.title}
                 </h2>
                 {s.paragraphs.map((p) => (
-                  <p key={p} className="mb-4 text-[15px] leading-[1.85] text-white/55">
+                  <p key={p} className="mb-4 text-[15px] leading-[1.85] text-white/90">
                     {p}
                   </p>
                 ))}
@@ -114,7 +109,7 @@ export default function Legal() {
             ))}
 
             <div className="border-t border-white/10 pt-8">
-              <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.16em] text-white/35">
+              <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.16em] text-white/85">
                 {t.indexTitle}
               </p>
               <div className="flex flex-wrap gap-3">
@@ -124,7 +119,7 @@ export default function Legal() {
                     <Link
                       key={d.slug}
                       to={`/demo/legal/${d.slug}`}
-                      className="rounded-full border border-white/15 px-5 py-2.5 text-[12px] text-white/60 transition-colors hover:border-purple hover:text-purple"
+                      className="rounded-full border border-white/15 px-5 py-2.5 text-[12px] text-white/90 transition-colors hover:border-purple hover:text-purple"
                     >
                       {d.title}
                     </Link>

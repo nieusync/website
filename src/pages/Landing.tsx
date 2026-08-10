@@ -37,8 +37,7 @@ export default function Landing() {
         {t.headingBefore}<span className="text-[#c9bfe0]">{t.headingHighlight}</span>{t.headingAfter}
       </h1>
 
-      <p className="animate-fade-up relative mb-2 max-w-[480px] text-center text-[clamp(14px,2vw,16px)] leading-[1.6] text-white/80 [animation-delay:300ms]">{t.body}</p>
-      <p className="animate-fade-up relative mb-9 max-w-[480px] text-center text-[clamp(14px,2vw,16px)] leading-[1.6] text-white/80 [animation-delay:400ms]">{t.bodyLast}</p>
+      <p className="animate-fade-up relative mb-9 max-w-[480px] text-center text-[clamp(14px,2vw,16px)] leading-[1.6] text-white/90 [animation-delay:300ms]">{t.body}</p>
 
       <div className="animate-fade-up relative flex gap-2.5 [animation-delay:550ms]">
         <span className="h-2.5 w-2.5 animate-blink rounded-full bg-white" />
@@ -46,7 +45,7 @@ export default function Landing() {
         <span className="h-2.5 w-2.5 animate-blink rounded-full bg-white [animation-delay:0.4s]" />
       </div>
 
-      <footer className="animate-fade-up absolute bottom-6 text-center text-[13px] text-white/60 [animation-delay:700ms]">
+      <footer className="animate-fade-up absolute bottom-6 text-center text-[13px] text-white/85 [animation-delay:700ms]">
         {t.urgentPrefix}{' '}
         <a href="mailto:geral@nieusync.com">geral@nieusync.com</a>
       </footer>

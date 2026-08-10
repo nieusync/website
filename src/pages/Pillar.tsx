@@ -39,7 +39,7 @@ export default function Pillar() {
         <div className="container relative">
           <Link
             to="/demo/what-we-do"
-            className="mb-12 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/50 transition-colors hover:text-purple"
+            className="mb-12 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/80 transition-colors hover:text-purple"
           >
             <ArrowLeft size={14} weight="bold" />
             {t.pillarPage.back}
@@ -59,7 +59,7 @@ export default function Pillar() {
             <span className="text-purple">.</span>
           </h1>
 
-          <p className="animate-fade-up max-w-[560px] text-[18px] leading-[1.75] text-white/60 [animation-delay:200ms]">
+          <p className="animate-fade-up max-w-[560px] text-[18px] leading-[1.75] text-white/85 [animation-delay:200ms]">
             {pillar.intro}
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function Pillar() {
                 className="stagger-child flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-5 transition-colors duration-300 hover:border-purple/40"
               >
                 <CheckCircle size={22} weight="duotone" className="shrink-0 text-purple" />
-                <span className="text-[15px] leading-[1.6] text-white/75">{s}</span>
+                <span className="text-[15px] leading-[1.6] text-white/90">{s}</span>
               </div>
             ))}
           </div>

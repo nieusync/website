@@ -36,6 +36,7 @@ const TEAM_SOCIALS = [
   ],
   [
     { href: 'https://www.linkedin.com/in/ricardo-m-carvalho/', Icon: LinkedinLogo, label: 'LinkedIn' },
+    { href: 'https://x.com/ricardomlc93', Icon: XLogo, label: 'X' },
   ],
 ];
 
@@ -72,7 +73,7 @@ export default function WhoWeAre() {
           <h1 className="animate-fade-up mb-8 text-[clamp(40px,6.5vw,84px)] leading-[1.02] [animation-delay:100ms]">
             {t.whoPage.title}
           </h1>
-          <p className="animate-fade-up text-[18px] leading-[1.8] text-white/60 [animation-delay:200ms]">
+          <p className="animate-fade-up text-[18px] leading-[1.8] text-white/85 [animation-delay:200ms]">
             {t.whoPage.subtitle}
           </p>
         </div>
@@ -108,7 +109,7 @@ export default function WhoWeAre() {
                     <h2 className="mb-4 font-display text-2xl leading-[1.2] text-white">
                       {g.title}
                     </h2>
-                    <p className="text-[15px] leading-[1.75] text-white/50">{g.text}</p>
+                    <p className="text-[15px] leading-[1.75] text-white/80">{g.text}</p>
                   </div>
                 </article>
               );
@@ -132,7 +133,7 @@ export default function WhoWeAre() {
             <h2 className="mb-5 font-display text-[clamp(34px,5vw,60px)] leading-[1.05] text-white">
               {t.whoPage.teamTitle}
             </h2>
-            <p className="text-[16px] leading-[1.7] text-white/50">{t.whoPage.teamSubtitle}</p>
+            <p className="text-[16px] leading-[1.7] text-white/80">{t.whoPage.teamSubtitle}</p>
           </div>
 
           <div className="animate-on-scroll grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -153,10 +154,10 @@ export default function WhoWeAre() {
                 <p className="mb-3 text-center text-[13px] font-bold uppercase tracking-[0.1em] text-purple">
                   {m.role}
                 </p>
-                <p className="mb-5 text-center text-[12px] uppercase tracking-[0.1em] text-white/35">
+                <p className="mb-5 text-center text-[12px] uppercase tracking-[0.1em] text-white/70">
                   {m.pillars}
                 </p>
-                <p className="mb-7 flex-1 text-[15px] leading-[1.7] text-white/50">{m.bio}</p>
+                <p className="mb-7 flex-1 text-[15px] leading-[1.7] text-white/80">{m.bio}</p>
 
                 <div className="flex justify-center gap-4">
                   {TEAM_SOCIALS[i].map(({ href, Icon, label }) => (
@@ -166,7 +167,7 @@ export default function WhoWeAre() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${m.name} on ${label}`}
-                      className="text-white/40 transition-colors hover:text-purple"
+                      className="text-white/75 transition-colors hover:text-purple"
                     >
                       <Icon size={20} />
                     </a>

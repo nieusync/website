@@ -68,7 +68,7 @@ function LangSwitch() {
         onClick={() => setOpen((o) => !o)}
         aria-label="PT / EN"
         aria-expanded={open}
-        className="flex min-h-[40px] cursor-pointer items-center gap-2 border-none bg-transparent px-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white/70 transition-colors hover:text-white"
+        className="flex min-h-[40px] cursor-pointer items-center gap-2 border-none bg-transparent px-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white/90 transition-colors hover:text-white"
       >
         <Globe size={17} />
         {lang.toUpperCase()}
@@ -119,7 +119,7 @@ export function Nav() {
     };
   }, [open]);
 
-  const linkCls = 'text-sm font-bold text-white/60 transition-colors hover:text-white';
+  const linkCls = 'text-sm font-bold text-white/85 transition-colors hover:text-white';
 
   const links = (
     <>
@@ -199,15 +199,14 @@ export function Footer() {
   const legal = useT('legal');
   const year = new Date().getFullYear();
 
-  const colTitle = 'mb-4 text-[11px] font-bold uppercase tracking-[0.16em] text-white/35';
-  const colLink = 'block py-1.5 text-sm text-white/55 transition-colors hover:text-purple';
+  const colTitle = 'mb-4 text-[11px] font-bold uppercase tracking-[0.16em] text-white/70';
+  const colLink = 'block py-1.5 text-sm text-white/85 transition-colors hover:text-purple';
 
   return (
     <footer className="border-t border-white/10">
       <div className="container grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr_1fr]">
-        <div>
-          <img src="/assets/logo_h_w_nbg.png" alt="Nieusync" className="mb-5 h-9 w-auto" loading="lazy" />
-          <p className="mb-6 max-w-[300px] text-sm leading-[1.7] text-white/45">{t.footer.description}</p>
+        <div className="flex flex-col items-center">
+          <img src="/assets/logo_v_w_nbg.png" alt="Nieusync" className="mb-6 h-24 w-auto" loading="lazy" />
           <div className="flex gap-4">
             {SOCIALS.map(({ href, Icon, label }) => (
               <a
@@ -216,7 +215,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="text-white/45 transition-colors hover:text-purple"
+                className="text-white/80 transition-colors hover:text-purple"
               >
                 <Icon size={22} />
               </a>
@@ -257,12 +256,14 @@ export function Footer() {
               {label}
             </a>
           ))}
+          {/* ponytail: reuses the hero CTA label rather than adding a footer-only i18n key */}
+          <Link to="/demo/contact" className={colLink}>{t.hero.ctaContact}</Link>
         </div>
       </div>
 
       <div className="border-t border-white/[0.08]">
         <div className="container py-6">
-          <p className="text-xs text-white/30">{t.footer.copyright(year)}</p>
+          <p className="text-xs text-white/70">{t.footer.copyright(year)}</p>
         </div>
       </div>
     </footer>
