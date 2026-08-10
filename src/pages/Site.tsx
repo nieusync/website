@@ -8,18 +8,19 @@ import {
 	Nav,
 	Footer,
 	PILLAR_ICONS,
+	PILLAR_LIVE,
 } from "../components/SiteChrome";
 import { ClientAreaShot } from "../components/ClientAreaShot";
 import { NewsletterForm } from "../components/Forms";
+
+// Node centres ride the outer ring of the 360px box
+const ORBIT_RADIUS = 180;
 
 function Orbit() {
 	const t = useT("site");
 
 	return (
-		<div
-			aria-hidden="true"
-			className="relative hidden h-[360px] w-[360px] shrink-0 lg:block"
-		>
+		<div className="relative hidden h-[360px] w-[360px] shrink-0 lg:block">
 			<div className="absolute inset-0 rounded-full border border-white/[0.06]" />
 			<div className="absolute inset-10 rounded-full border border-white/[0.09]" />
 			<div className="absolute inset-20 rounded-full border border-purple/20" />
@@ -27,7 +28,10 @@ function Orbit() {
 			{/* Symbol only: the wordmark would not read at this size inside the rings.
           Centring lives on the wrapper: animate-pulse-soft sets `transform`, which
           would otherwise replace the -translate-x/y that centres the image. */}
-			<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+			<div
+				aria-hidden="true"
+				className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+			>
 				<img
 					src="/assets/logo_s_w_nbg.png"
 					alt=""
@@ -46,17 +50,37 @@ function Orbit() {
 							className="absolute left-1/2 top-1/2"
 							// ponytail: node position is computed from the pillar angle, so it stays inline
 							style={{
-								transform: `translate(calc(-50% + ${(Math.cos(angle) * 180).toFixed(1)}px), calc(-50% + ${(Math.sin(angle) * 230).toFixed(1)}px))`,
+								transform: `translate(calc(-50% + ${(Math.cos(angle) * ORBIT_RADIUS).toFixed(1)}px), calc(-50% + ${(Math.sin(angle) * ORBIT_RADIUS).toFixed(1)}px))`,
 							}}
 						>
-							<div className="flex h-12 w-12 animate-spin-slow items-center justify-center rounded-2xl border border-white/15 bg-white/[0.06] shadow-[0_0_24px_rgba(159,142,194,0.2)] backdrop-blur-sm [animation-direction:reverse] [animation-duration:60s]">
-								<Icon size={22} weight="duotone" className="text-purple" />
-							</div>
+							<Link
+								to={`/demo/pillars/${p.slug}`}
+								aria-label={p.name}
+								className="flex h-14 w-14 animate-spin-slow items-center justify-center rounded-2xl border border-white/15 bg-white/[0.06] shadow-[0_0_24px_rgba(159,142,194,0.2)] backdrop-blur-sm transition-colors duration-300 [animation-direction:reverse] [animation-duration:60s] hover:border-purple hover:bg-purple/15"
+							>
+								<Icon size={24} weight="duotone" className="text-purple" />
+							</Link>
 						</div>
 					);
 				})}
 			</div>
 		</div>
+	);
+}
+
+function PillarStatus({ live }: { live: boolean }) {
+	const t = useT("site");
+
+	return (
+		<span
+			className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] ${
+				live
+					? "bg-purple/20 text-purple"
+					: "border border-white/20 text-white/70"
+			}`}
+		>
+			{live ? t.pillars.statusLive : t.pillars.statusSoon}
+		</span>
 	);
 }
 
@@ -126,7 +150,7 @@ export default function Site() {
 						<h1 className="animate-fade-up mb-8 text-[clamp(44px,7.5vw,96px)] leading-[1.02] [animation-delay:100ms]">
 							{t.hero.titleTop}
 							<br />
-							<span className="animate-gradient bg-gradient-to-r from-purple via-white to-purple bg-[length:200%_auto] bg-clip-text text-transparent">
+							<span className="animate-gradient bg-grad-heading bg-[length:200%_auto] bg-clip-text text-transparent">
 								{t.hero.titleSync}
 							</span>
 						</h1>
@@ -201,8 +225,9 @@ export default function Site() {
 									<div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] transition-colors duration-300 group-hover:border-purple/50 md:h-14 md:w-14">
 										<Icon size={26} weight="duotone" className="text-purple" />
 									</div>
-									<h3 className="font-display text-[clamp(26px,3.5vw,44px)] leading-none text-white transition-transform duration-300 group-hover:translate-x-2">
+									<h3 className="flex flex-wrap items-center gap-3 font-display text-[clamp(26px,3.5vw,44px)] leading-none text-white transition-transform duration-300 group-hover:translate-x-2">
 										{p.name}
+										<PillarStatus live={PILLAR_LIVE[i]} />
 									</h3>
 									<p className="col-span-2 text-[15px] leading-[1.7] text-white/80 md:col-span-1">
 										{p.desc}

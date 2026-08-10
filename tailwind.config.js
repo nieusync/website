@@ -19,6 +19,9 @@ export default {
         'grad-main': 'linear-gradient(135deg, #233877 0%, #9F8EC2 100%)',
         'grad-reverse': 'linear-gradient(135deg, #9F8EC2 0%, #233877 100%)',
         'grad-vertical': 'linear-gradient(180deg, #233877 0%, #9F8EC2 100%)',
+        // Headline sweep: purple-dominant, white only as a narrow highlight
+        'grad-heading':
+          'linear-gradient(90deg, #6D5CA6 0%, #9F8EC2 22%, #FFFFFF 45%, #9F8EC2 68%, #6D5CA6 100%)',
       },
       boxShadow: {
         card: '0 2px 18px rgba(35, 56, 119, 0.07)',

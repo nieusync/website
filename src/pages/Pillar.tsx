@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, CheckCircle } from '@phosphor-icons/react';
+import { ArrowLeft, CheckCircle } from '@phosphor-icons/react';
 import { useT } from '../i18n';
 import { useParallax } from '../hooks/useParallax';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Nav, Footer, PILLAR_ICONS } from '../components/SiteChrome';
+import { Nav, Footer, PILLAR_ICONS, PILLAR_LIVE } from '../components/SiteChrome';
 
 export default function Pillar() {
   const { slug } = useParams();
@@ -52,6 +52,15 @@ export default function Pillar() {
             <span className="font-display text-sm tracking-[0.15em] text-purple/70">
               0{idx + 1} / 05
             </span>
+            <span
+              className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] ${
+                PILLAR_LIVE[idx]
+                  ? 'bg-purple/20 text-purple'
+                  : 'border border-white/20 text-white/70'
+              }`}
+            >
+              {PILLAR_LIVE[idx] ? t.pillars.statusLive : t.pillars.statusSoon}
+            </span>
           </div>
 
           <h1 className="animate-fade-up mb-8 text-[clamp(48px,8vw,104px)] leading-[1.0] [animation-delay:100ms]">
@@ -59,7 +68,7 @@ export default function Pillar() {
             <span className="text-purple">.</span>
           </h1>
 
-          <p className="animate-fade-up max-w-[560px] text-[18px] leading-[1.75] text-white/85 [animation-delay:200ms]">
+          <p className="animate-fade-up max-w-[620px] text-[18px] leading-[1.75] text-white/85 [animation-delay:200ms]">
             {pillar.intro}
           </p>
         </div>
@@ -84,27 +93,6 @@ export default function Pillar() {
                 <span className="text-[15px] leading-[1.6] text-white/90">{s}</span>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="pb-32 pt-12">
-        <div className="container">
-          <div className="animate-on-scroll relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.02] px-8 py-14 text-center md:px-16">
-            <div className="tech-grid-white pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]" />
-            <div className="relative">
-              <h2 className="mb-8 font-display text-[clamp(26px,3.5vw,40px)] leading-[1.1] text-white">
-                {t.pillarPage.ctaTitle}
-              </h2>
-              <Link
-                to="/demo/contact"
-                className="group inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-grad-main px-9 py-4 text-[13px] font-bold uppercase tracking-[0.08em] text-white shadow-[0_0_30px_rgba(159,142,194,0.4)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_50px_rgba(159,142,194,0.6)]"
-              >
-                {t.pillarPage.cta}
-                <ArrowRight size={17} weight="bold" className="transition-transform duration-200 group-hover:translate-x-1" />
-              </Link>
-            </div>
           </div>
         </div>
       </section>

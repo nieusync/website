@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight, CheckCircle } from '@phosphor-icons/react';
+import { ArrowUpRight, CheckCircle } from '@phosphor-icons/react';
 import { useT } from '../i18n';
 import { useParallax } from '../hooks/useParallax';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Nav, Footer, PILLAR_ICONS } from '../components/SiteChrome';
+import { Nav, Footer, PILLAR_ICONS, PILLAR_LIVE } from '../components/SiteChrome';
+
+// The full list lives on each pillar page; the card is a teaser
+const SERVICES_SHOWN = 3;
 
 export default function WhatWeDo() {
   const t = useT('site');
@@ -55,7 +58,12 @@ export default function WhatWeDo() {
                 <Link
                   key={p.slug}
                   to={`/demo/pillars/${p.slug}`}
-                  className="animate-on-scroll group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-purple/40"
+                  // ponytail: five pillars means the last card is always alone on its row
+                  className={`animate-on-scroll group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-purple/40 ${
+                    i === t.pillars.items.length - 1
+                      ? 'lg:col-span-2 lg:mx-auto lg:w-[calc(50%-12px)]'
+                      : ''
+                  }`}
                 >
                   <div className="mb-6 flex items-center gap-4">
                     <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-purple/40 bg-purple/10">
@@ -65,14 +73,25 @@ export default function WhatWeDo() {
                       <span className="font-display text-xs tracking-[0.15em] text-purple/70">
                         0{i + 1} / 05
                       </span>
-                      <h2 className="font-display text-[28px] leading-none text-white">{p.name}</h2>
+                      <h2 className="flex flex-wrap items-center gap-3 font-display text-[28px] leading-none text-white">
+                        {p.name}
+                        <span
+                          className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] ${
+                            PILLAR_LIVE[i]
+                              ? 'bg-purple/20 text-purple'
+                              : 'border border-white/20 text-white/70'
+                          }`}
+                        >
+                          {PILLAR_LIVE[i] ? t.pillars.statusLive : t.pillars.statusSoon}
+                        </span>
+                      </h2>
                     </div>
                   </div>
 
                   <p className="mb-7 text-[15px] leading-[1.75] text-white/85">{p.intro}</p>
 
                   <ul className="mb-8 flex-1 space-y-3">
-                    {p.services.map((s) => (
+                    {p.services.slice(0, SERVICES_SHOWN).map((s) => (
                       <li key={s} className="flex items-start gap-3">
                         <CheckCircle
                           size={18}
@@ -82,6 +101,11 @@ export default function WhatWeDo() {
                         <span className="text-[14px] leading-[1.6] text-white/85">{s}</span>
                       </li>
                     ))}
+                    {p.services.length > SERVICES_SHOWN && (
+                      <li className="pl-[30px] text-[14px] leading-[1.6] text-white/70">
+                        {t.pillars.more(p.services.length - SERVICES_SHOWN)}
+                      </li>
+                    )}
                   </ul>
 
                   <span className="inline-flex items-center gap-2 self-start text-[12px] font-bold uppercase tracking-[0.1em] text-white transition-colors group-hover:text-purple">
@@ -95,60 +119,6 @@ export default function WhatWeDo() {
                 </Link>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── METHOD ── */}
-      <section className="py-20">
-        <div className="container">
-          <div className="animate-on-scroll mb-12 max-w-[640px]">
-            <span className="mb-4 block text-xs font-bold uppercase tracking-[0.2em] text-purple">
-              {t.approach.label}
-            </span>
-            <h2 className="font-display text-[clamp(34px,5vw,60px)] leading-[1.05] text-white">
-              {t.approach.title}
-            </h2>
-          </div>
-
-          <div className="animate-on-scroll grid grid-cols-1 gap-6 md:grid-cols-3">
-            {t.approach.steps.map((s, i) => (
-              <div
-                key={s.title}
-                className="stagger-child relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-8 pt-24 transition-colors duration-300 hover:border-purple/40"
-              >
-                <span className="pointer-events-none absolute -top-7 right-3 font-display text-[120px] leading-none text-white/[0.05]">
-                  0{i + 1}
-                </span>
-                <h3 className="mb-3 font-display text-2xl text-white">{s.title}</h3>
-                <p className="text-[15px] leading-[1.7] text-white/80">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="pb-32 pt-8">
-        <div className="container">
-          <div className="animate-on-scroll relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.02] px-8 py-14 text-center md:px-16">
-            <div className="tech-grid-white pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]" />
-            <div className="relative">
-              <h2 className="mb-8 font-display text-[clamp(26px,3.5vw,40px)] leading-[1.1] text-white">
-                {t.whatPage.ctaTitle}
-              </h2>
-              <Link
-                to="/demo/contact"
-                className="group inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-grad-main px-9 py-4 text-[13px] font-bold uppercase tracking-[0.08em] text-white shadow-[0_0_30px_rgba(159,142,194,0.4)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_50px_rgba(159,142,194,0.6)]"
-              >
-                {t.whatPage.cta}
-                <ArrowRight
-                  size={17}
-                  weight="bold"
-                  className="transition-transform duration-200 group-hover:translate-x-1"
-                />
-              </Link>
-            </div>
           </div>
         </div>
       </section>

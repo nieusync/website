@@ -28,6 +28,10 @@ export const CLIENT_AREA_PATH = '/demo/client-area';
 // One icon per pillar, same order as the i18n `pillars.items` array
 export const PILLAR_ICONS = [Scales, Cpu, Compass, Gear, Calculator];
 
+// Which pillars we already deliver; the rest are announced but not yet open.
+// Same order as the i18n `pillars.items` array.
+export const PILLAR_LIVE = [true, true, false, false, false];
+
 const CONTACTS = [
   { label: '(+351) 269 030 096', href: 'tel:+351269030096' },
   { label: 'geral@nieusync.com', href: 'mailto:geral@nieusync.com' },
