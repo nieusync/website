@@ -145,7 +145,7 @@ export function Nav() {
     >
       <div className="container flex h-20 items-center justify-between gap-4">
         <Link to="/demo" className="shrink-0" onClick={() => setOpen(false)}>
-          <img src="/assets/logo_h_w_nbg.png" alt="NieuSync" className="h-7 w-auto md:h-9" />
+          <img src="/assets/logo_h_w_nbg.png" alt="Nieusync" className="h-7 w-auto md:h-9" />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">{links}</nav>
@@ -206,7 +206,7 @@ export function Footer() {
     <footer className="border-t border-white/10">
       <div className="container grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr_1fr]">
         <div>
-          <img src="/assets/logo_h_w_nbg.png" alt="NieuSync" className="mb-5 h-9 w-auto" loading="lazy" />
+          <img src="/assets/logo_h_w_nbg.png" alt="Nieusync" className="mb-5 h-9 w-auto" loading="lazy" />
           <p className="mb-6 max-w-[300px] text-sm leading-[1.7] text-white/45">{t.footer.description}</p>
           <div className="flex gap-4">
             {SOCIALS.map(({ href, Icon, label }) => (

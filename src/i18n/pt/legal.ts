@@ -4,7 +4,7 @@ const legal: Legal = {
   back: 'Todos os documentos legais',
   indexTitle: 'Legal',
   contents: 'Índice',
-  indexDocumentTitle: 'Legal | NieuSync',
+  indexDocumentTitle: 'Legal | Nieusync',
   indexHeading: 'Documentos legais.',
   indexSubtitle:
     'As condições em que este site é disponibilizado, o que fazemos com os seus dados e o padrão que exigimos de nós próprios.',
@@ -25,21 +25,21 @@ const legal: Legal = {
         {
           title: 'Titular do site',
           paragraphs: [
-            'Este site é propriedade e é explorado por [NOME DA ENTIDADE], com sede em [MORADA], NIPC [NIF], matriculada na [CONSERVATÓRIA DO REGISTO COMERCIAL] sob o mesmo número («NieuSync», «nós»).',
+            'Este site é propriedade e é explorado por [NOME DA ENTIDADE], com sede em [MORADA], NIPC [NIF], matriculada na [CONSERVATÓRIA DO REGISTO COMERCIAL] sob o mesmo número («Nieusync», «nós»).',
             'Pode contactar-nos através de geral@nieusync.com ou (+351) 269 030 096. As chamadas para a rede fixa nacional são cobradas ao custo de uma chamada nacional.',
           ],
         },
         {
           title: 'Finalidade do site',
           paragraphs: [
-            'Este site apresenta a NieuSync e os serviços que prestamos nos nossos cinco pilares: Legal, Digital, Estratégia, Operações e Financeira. O conteúdo é informativo e não constitui aconselhamento jurídico, fiscal, financeiro ou de qualquer outra natureza profissional, nem uma proposta vinculativa.',
-            'Qualquer relação profissional com a NieuSync inicia-se apenas com um contrato escrito assinado por ambas as partes.',
+            'Este site apresenta a Nieusync e os serviços que prestamos nos nossos cinco pilares: Legal, Digital, Estratégia, Operações e Financeira. O conteúdo é informativo e não constitui aconselhamento jurídico, fiscal, financeiro ou de qualquer outra natureza profissional, nem uma proposta vinculativa.',
+            'Qualquer relação profissional com a Nieusync inicia-se apenas com um contrato escrito assinado por ambas as partes.',
           ],
         },
         {
           title: 'Propriedade intelectual',
           paragraphs: [
-            'A denominação e o logótipo NieuSync, o design do site, os seus textos, imagens e código-fonte pertencem à NieuSync ou aos seus licenciadores e estão protegidos pelo direito de propriedade intelectual.',
+            'A denominação e o logótipo Nieusync, o design do site, os seus textos, imagens e código-fonte pertencem à Nieusync ou aos seus licenciadores e estão protegidos pelo direito de propriedade intelectual.',
             'Pode consultar e partilhar o conteúdo para uso pessoal e não comercial, citando a fonte. Qualquer reprodução, adaptação ou utilização comercial carece da nossa autorização prévia por escrito.',
           ],
         },
@@ -66,7 +66,7 @@ const legal: Legal = {
         {
           title: 'Âmbito',
           paragraphs: [
-            'Este código aplica-se a todos os sócios, colaboradores, prestadores e fornecedores que atuem em nome da NieuSync, em qualquer projeto e em qualquer mercado.',
+            'Este código aplica-se a todos os sócios, colaboradores, prestadores e fornecedores que atuem em nome da Nieusync, em qualquer projeto e em qualquer mercado.',
           ],
         },
         {
@@ -209,7 +209,7 @@ const legal: Legal = {
         {
           title: 'Quem tem acesso',
           paragraphs: [
-            'Apenas os membros da equipa NieuSync que precisam dos dados para a finalidade indicada e os prestadores que alojam o site e entregam o nosso email. Esses prestadores atuam segundo as nossas instruções, ao abrigo de contrato de subcontratação. Não vendemos os seus dados.',
+            'Apenas os membros da equipa Nieusync que precisam dos dados para a finalidade indicada e os prestadores que alojam o site e entregam o nosso email. Esses prestadores atuam segundo as nossas instruções, ao abrigo de contrato de subcontratação. Não vendemos os seus dados.',
             'Quando um prestador trata dados fora do Espaço Económico Europeu, recorremos às cláusulas contratuais-tipo da Comissão Europeia.',
           ],
         },
@@ -236,7 +236,7 @@ const legal: Legal = {
         {
           title: 'Âmbito',
           paragraphs: [
-            'Esta política aplica-se a este site, à área de cliente e a qualquer sistema que a NieuSync disponibilize a um cliente ou ao público.',
+            'Esta política aplica-se a este site, à área de cliente e a qualquer sistema que a Nieusync disponibilize a um cliente ou ao público.',
           ],
         },
         {

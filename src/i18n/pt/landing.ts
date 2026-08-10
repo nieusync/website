@@ -1,7 +1,7 @@
 import type { Landing } from "../en/landing";
 
 const landing: Landing = {
-  documentTitle: "NieuSync | Brevemente",
+  documentTitle: "Nieusync | Brevemente",
   headingBefore: "WE ARE THE BASIS FOR ",
   headingHighlight: "YOUR BUSINESS",
   headingAfter: " TO FLY",

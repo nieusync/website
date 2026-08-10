@@ -20,7 +20,7 @@ export default function Pillar() {
   }, [slug]);
 
   useEffect(() => {
-    if (pillar) document.title = `${pillar.name} | NieuSync`;
+    if (pillar) document.title = `${pillar.name} | Nieusync`;
   }, [pillar]);
 
   if (!pillar) return <Navigate to="/demo" replace />;

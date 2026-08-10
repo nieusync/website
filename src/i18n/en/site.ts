@@ -1,5 +1,5 @@
 const site = {
-  documentTitle: 'NieuSync | Five pillars. One partner.',
+  documentTitle: 'Nieusync | Five pillars. One partner.',
   nav: {
     whoWeAre: 'Who we are',
     whatWeDo: 'What we do',
@@ -117,10 +117,10 @@ const site = {
     title: 'Your company, live.',
     desc: 'Documents, requests and the progress of the work we are doing for you, in one secure place.',
     cta: 'Enter client area',
-    hint: 'Access reserved for NieuSync clients.',
+    hint: 'Access reserved for Nieusync clients.',
     // Labels rendered inside the mock client-area screenshot
     shot: {
-      caption: 'A preview of the NieuSync client area.',
+      caption: 'A preview of the Nieusync client area.',
       workspace: 'Workspace',
       company: 'Acme Comércio, Lda.',
       nav: ['Overview', 'Documents', 'Requests', 'Invoices', 'Team'],
@@ -144,7 +144,7 @@ const site = {
     },
   },
   contact: {
-    documentTitle: 'Talk to us | NieuSync',
+    documentTitle: 'Talk to us | Nieusync',
     label: 'Talk to us',
     title: 'Tell us where it hurts.',
     subtitle:
@@ -179,7 +179,7 @@ const site = {
     cta: 'Talk to us',
   },
   whoPage: {
-    documentTitle: 'Who we are | NieuSync',
+    documentTitle: 'Who we are | Nieusync',
     label: 'Who we are',
     title: 'One partner, five disciplines.',
     subtitle:
@@ -229,7 +229,7 @@ const site = {
     cta: 'Talk to us',
   },
   whatPage: {
-    documentTitle: 'What we do | NieuSync',
+    documentTitle: 'What we do | Nieusync',
     label: 'What we do',
     title: 'Five pillars. One engagement.',
     subtitle:
@@ -238,7 +238,7 @@ const site = {
     cta: 'Talk to us',
   },
   clientAreaPage: {
-    documentTitle: 'Client area | NieuSync',
+    documentTitle: 'Client area | Nieusync',
     label: 'Client area',
     title: 'Welcome back.',
     subtitle: 'Sign in to your documents, your requests and the progress of your work with us.',
@@ -250,19 +250,19 @@ const site = {
     noAccount: 'No access yet?',
     noAccountCta: 'Talk to us',
     // Shown instead of authenticating. The real client area is a separate app
-    preview: 'The client area is not live yet. Speak to your NieuSync contact about access.',
+    preview: 'The client area is not live yet. Speak to your Nieusync contact about access.',
     back: 'Back to site',
   },
   footer: {
     description:
-      'NieuSync helps small and mid-sized companies selling into Europe grow and scale, across Legal, Digital, Strategy, Operations and Financial. One team, whether you need one of them or all five.',
+      'Nieusync helps small and mid-sized companies selling into Europe grow and scale, across Legal, Digital, Strategy, Operations and Financial. One team, whether you need one of them or all five.',
     company: 'Company',
     pillars: 'What we do',
     contact: 'Contact',
     legal: 'Legal',
     blog: 'What we think',
     clientArea: 'Client area',
-    copyright: (year: number) => `© ${year} NieuSync. All rights reserved.`,
+    copyright: (year: number) => `© ${year} Nieusync. All rights reserved.`,
   },
 };
 

@@ -28,7 +28,7 @@ export default function Landing() {
         <img
           className="w-[260px] max-w-[65vw] animate-pulse-soft"
           src="/assets/logo_v_w_nbg.png"
-          alt="NieuSync"
+          alt="Nieusync"
         />
       </div>
 

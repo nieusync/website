@@ -41,7 +41,7 @@ export default function ClientArea() {
 
           <img
             src="/assets/logo_h_w_nbg.png"
-            alt="NieuSync"
+            alt="Nieusync"
             className="mx-auto mb-10 h-9 w-auto"
             loading="lazy"
           />

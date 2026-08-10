@@ -6,7 +6,7 @@ const legal = {
   back: 'All legal documents',
   indexTitle: 'Legal',
   contents: 'Contents',
-  indexDocumentTitle: 'Legal | NieuSync',
+  indexDocumentTitle: 'Legal | Nieusync',
   indexHeading: 'Legal documents.',
   indexSubtitle:
     'The terms this site is provided under, what we do with your data, and the standards we hold ourselves to.',
@@ -27,21 +27,21 @@ const legal = {
         {
           title: 'Owner of the website',
           paragraphs: [
-            'This website is owned and operated by [ENTITY NAME], with registered office at [ADDRESS], taxpayer number [VAT NUMBER], registered at the [COMMERCIAL REGISTRY] under the same number (“NieuSync”, “we”).',
+            'This website is owned and operated by [ENTITY NAME], with registered office at [ADDRESS], taxpayer number [VAT NUMBER], registered at the [COMMERCIAL REGISTRY] under the same number (“Nieusync”, “we”).',
             'You can contact us at geral@nieusync.com or (+351) 269 030 096. Calls to Portuguese landline numbers are charged at the national landline rate.',
           ],
         },
         {
           title: 'Purpose of the site',
           paragraphs: [
-            'This site presents NieuSync and the services we provide across our five pillars: Legal, Digital, Strategy, Operations and Financial. Its content is informational and does not constitute legal, tax, financial or any other professional advice, nor a binding offer.',
-            'Any professional relationship with NieuSync starts only with a written engagement signed by both parties.',
+            'This site presents Nieusync and the services we provide across our five pillars: Legal, Digital, Strategy, Operations and Financial. Its content is informational and does not constitute legal, tax, financial or any other professional advice, nor a binding offer.',
+            'Any professional relationship with Nieusync starts only with a written engagement signed by both parties.',
           ],
         },
         {
           title: 'Intellectual property',
           paragraphs: [
-            'The NieuSync name and logo, the site design, its texts, images and source code belong to NieuSync or to its licensors and are protected by intellectual property law.',
+            'The Nieusync name and logo, the site design, its texts, images and source code belong to Nieusync or to its licensors and are protected by intellectual property law.',
             'You may consult and share the content for personal, non-commercial use, citing the source. Any reproduction, adaptation or commercial use requires our prior written permission.',
           ],
         },
@@ -68,7 +68,7 @@ const legal = {
         {
           title: 'Scope',
           paragraphs: [
-            'This code applies to every partner, employee, contractor and supplier acting on behalf of NieuSync, in any engagement and in any market.',
+            'This code applies to every partner, employee, contractor and supplier acting on behalf of Nieusync, in any engagement and in any market.',
           ],
         },
         {
@@ -211,7 +211,7 @@ const legal = {
         {
           title: 'Who has access',
           paragraphs: [
-            'Only NieuSync team members who need the data for the purpose above, plus the service providers who host our site and deliver our email. Those providers act on our instructions under a data processing agreement. We do not sell your data.',
+            'Only Nieusync team members who need the data for the purpose above, plus the service providers who host our site and deliver our email. Those providers act on our instructions under a data processing agreement. We do not sell your data.',
             'Where a provider processes data outside the European Economic Area, we rely on the European Commission’s standard contractual clauses.',
           ],
         },
@@ -238,7 +238,7 @@ const legal = {
         {
           title: 'Scope',
           paragraphs: [
-            'This policy applies to this website, to the client area and to any system NieuSync makes available to a client or to the public.',
+            'This policy applies to this website, to the client area and to any system Nieusync makes available to a client or to the public.',
           ],
         },
         {

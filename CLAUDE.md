@@ -1,6 +1,6 @@
 # nieusync-website
 
-Marketing site for NIEUSYNC. React 18 + TypeScript + Vite, deployed to GitHub Pages on push to `main`.
+Marketing site for Nieusync. React 18 + TypeScript + Vite, deployed to GitHub Pages on push to `main`.
 
 ## Commands
 

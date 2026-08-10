@@ -1,7 +1,7 @@
 import type { Site } from '../en/site';
 
 const site: Site = {
-  documentTitle: 'NieuSync | Cinco pilares. Um parceiro.',
+  documentTitle: 'Nieusync | Cinco pilares. Um parceiro.',
   nav: {
     whoWeAre: 'Quem somos',
     whatWeDo: 'O que fazemos',
@@ -119,9 +119,9 @@ const site: Site = {
     title: 'A sua empresa, em direto.',
     desc: 'Documentos, pedidos e o progresso do trabalho que estamos a fazer para si, num só lugar seguro.',
     cta: 'Entrar na área de cliente',
-    hint: 'Acesso reservado a clientes NieuSync.',
+    hint: 'Acesso reservado a clientes Nieusync.',
     shot: {
-      caption: 'Uma antevisão da área de cliente NieuSync.',
+      caption: 'Uma antevisão da área de cliente Nieusync.',
       workspace: 'Área de trabalho',
       company: 'Acme Comércio, Lda.',
       nav: ['Resumo', 'Documentos', 'Pedidos', 'Faturas', 'Equipa'],
@@ -145,7 +145,7 @@ const site: Site = {
     },
   },
   contact: {
-    documentTitle: 'Falar connosco | NieuSync',
+    documentTitle: 'Falar connosco | Nieusync',
     label: 'Falar connosco',
     title: 'Diga-nos onde dói.',
     subtitle:
@@ -180,7 +180,7 @@ const site: Site = {
     cta: 'Falar connosco',
   },
   whoPage: {
-    documentTitle: 'Quem somos | NieuSync',
+    documentTitle: 'Quem somos | Nieusync',
     label: 'Quem somos',
     title: 'Um parceiro, cinco disciplinas.',
     subtitle:
@@ -230,7 +230,7 @@ const site: Site = {
     cta: 'Falar connosco',
   },
   whatPage: {
-    documentTitle: 'O que fazemos | NieuSync',
+    documentTitle: 'O que fazemos | Nieusync',
     label: 'O que fazemos',
     title: 'Cinco pilares. Um só projeto.',
     subtitle:
@@ -239,7 +239,7 @@ const site: Site = {
     cta: 'Falar connosco',
   },
   clientAreaPage: {
-    documentTitle: 'Área de cliente | NieuSync',
+    documentTitle: 'Área de cliente | Nieusync',
     label: 'Área de cliente',
     title: 'Bem-vindo de volta.',
     subtitle: 'Entre nos seus documentos, nos seus pedidos e no progresso do seu trabalho connosco.',
@@ -250,19 +250,19 @@ const site: Site = {
     forgot: 'Esqueceu-se da palavra-passe?',
     noAccount: 'Ainda sem acesso?',
     noAccountCta: 'Falar connosco',
-    preview: 'A área de cliente ainda não está ativa. Fale com o seu contacto NieuSync sobre o acesso.',
+    preview: 'A área de cliente ainda não está ativa. Fale com o seu contacto Nieusync sobre o acesso.',
     back: 'Voltar ao site',
   },
   footer: {
     description:
-      'A NieuSync ajuda PME que vendem para a Europa a crescer e escalar, em Legal, Digital, Estratégia, Operações e Financeira. Uma equipa, precise de um pilar ou dos cinco.',
+      'A Nieusync ajuda PME que vendem para a Europa a crescer e escalar, em Legal, Digital, Estratégia, Operações e Financeira. Uma equipa, precise de um pilar ou dos cinco.',
     company: 'Empresa',
     pillars: 'O que fazemos',
     contact: 'Contacto',
     legal: 'Legal',
     blog: 'O que pensamos',
     clientArea: 'Área de cliente',
-    copyright: (year: number) => `© ${year} NieuSync. Todos os direitos reservados.`,
+    copyright: (year: number) => `© ${year} Nieusync. Todos os direitos reservados.`,
   },
 };
 

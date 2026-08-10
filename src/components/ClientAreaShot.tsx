@@ -39,7 +39,7 @@ export function ClientAreaShot() {
             <div className="mb-6 flex items-center gap-2">
               <img src="/assets/logo_s_w_nbg.png" alt="" className="h-6 w-auto" loading="lazy" />
               <span className="font-display text-[13px] tracking-[0.08em] text-white/70">
-                NieuSync
+                Nieusync
               </span>
             </div>
 

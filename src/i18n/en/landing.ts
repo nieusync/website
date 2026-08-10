@@ -1,5 +1,5 @@
 const landing = {
-  documentTitle: 'NieuSync | Coming soon',
+  documentTitle: 'Nieusync | Coming soon',
   headingBefore: 'WE ARE THE BASIS FOR ',
   headingHighlight: 'YOUR BUSINESS',
   headingAfter: ' TO FLY',

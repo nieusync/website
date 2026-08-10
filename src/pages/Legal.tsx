@@ -33,7 +33,7 @@ export default function Legal() {
   }, [doc]);
 
   useEffect(() => {
-    if (doc) document.title = `${doc.title} | NieuSync`;
+    if (doc) document.title = `${doc.title} | Nieusync`;
   }, [doc]);
 
   if (!doc) return <Navigate to="/demo" replace />;
