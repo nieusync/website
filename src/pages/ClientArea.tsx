@@ -1,5 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import L from '../components/L';
+// react-router-dom no longer needed here
 import { ArrowLeft, ArrowRight, LockKey } from '@phosphor-icons/react';
 import { useT } from '../i18n';
 
@@ -31,13 +32,13 @@ export default function ClientArea() {
 
       <div className="container relative flex min-h-screen items-center justify-center py-16">
         <div className="animate-fade-up w-full max-w-[440px]">
-          <Link
-            to="/demo"
+          <L
+            to="home"
             className="mb-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/80 transition-colors hover:text-purple"
           >
             <ArrowLeft size={14} weight="bold" />
             {c.back}
-          </Link>
+          </L>
 
           <img
             src="/assets/logo_h_w_nbg.png"
@@ -117,9 +118,9 @@ export default function ClientArea() {
             </button>
             <span className="text-white/70">
               {c.noAccount}{' '}
-              <Link to="/demo/contact" className="font-bold text-purple">
+              <L to="contact" className="font-bold text-purple">
                 {c.noAccountCta}
-              </Link>
+              </L>
             </span>
           </div>
         </div>

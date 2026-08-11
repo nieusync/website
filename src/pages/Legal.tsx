@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import L, { useHref } from '../components/L';
+import { Navigate, useParams } from 'react-router-dom';
 import { ArrowLeft } from '@phosphor-icons/react';
 import { useT } from '../i18n';
 import { Nav, Footer } from '../components/SiteChrome';
@@ -8,6 +9,7 @@ const sectionId = (i: number) => `sec-${i + 1}`;
 
 export default function Legal() {
   const { slug } = useParams();
+  const link = useHref();
   const t = useT('legal');
   const doc = t.docs.find((d) => d.slug === slug) ?? null;
   const [active, setActive] = useState(0);
@@ -36,7 +38,7 @@ export default function Legal() {
     if (doc) document.title = `${doc.title} | Nieusync`;
   }, [doc]);
 
-  if (!doc) return <Navigate to="/demo" replace />;
+  if (!doc) return <Navigate to={link('home')} replace />;
 
   return (
     <div className="min-h-screen overflow-x-clip bg-ink text-white">
@@ -47,13 +49,13 @@ export default function Legal() {
         <div className="pointer-events-none absolute -right-40 -top-20 h-[380px] w-[380px] glow glow-purple" />
 
         <div className="container relative max-w-[780px]">
-          <Link
-            to="/demo/legal"
+          <L
+            to="legal"
             className="mb-12 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/85 transition-colors hover:text-purple"
           >
             <ArrowLeft size={14} weight="bold" />
             {t.back}
-          </Link>
+          </L>
 
           <span className="mb-5 block text-xs font-bold uppercase tracking-[0.2em] text-purple">
             {t.indexTitle}
@@ -116,13 +118,13 @@ export default function Legal() {
                 {t.docs
                   .filter((d) => d.slug !== doc.slug)
                   .map((d) => (
-                    <Link
+                    <L
                       key={d.slug}
-                      to={`/demo/legal/${d.slug}`}
+                      to="legal" param={d.slug}
                       className="rounded-full border border-white/15 px-5 py-2.5 text-[12px] text-white/90 transition-colors hover:border-purple hover:text-purple"
                     >
                       {d.title}
-                    </Link>
+                    </L>
                   ))}
               </div>
             </div>

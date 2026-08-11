@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { ArrowRight, EnvelopeSimple, FilePdf } from '@phosphor-icons/react';
 import { useT } from '../i18n';
-import { BLOG_URL } from '../hooks/useArticles';
+import { useBlogUrl } from '../hooks/useArticles';
 
 export const CONTACT_EMAIL = 'geral@nieusync.com';
 
@@ -26,8 +26,12 @@ async function submit(data: Record<string, string>) {
 // public and unauthenticated by design, and it sends the confirmation email
 // itself, so subscribing is double opt-in with no key and no backend here.
 // `label` tags the member in Ghost admin so staff can see where they signed up.
-async function subscribe(email: string, label: string) {
-  const res = await fetch(`${BLOG_URL}/members/api/send-magic-link/`, {
+//
+// `blogUrl` is passed in rather than imported because the two blogs have
+// separate member databases: posting to the wrong one does not fail, it just
+// quietly files an English reader on the Portuguese list.
+async function subscribe(blogUrl: string, email: string, label: string) {
+  const res = await fetch(`${blogUrl}/members/api/send-magic-link/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -138,6 +142,7 @@ export function ContactForm() {
 
 export function NewsletterForm() {
   const t = useT('site');
+  const blogUrl = useBlogUrl();
   const [status, setStatus] = useState<Status>('idle');
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -146,7 +151,7 @@ export function NewsletterForm() {
     const f = new FormData(form);
     setStatus('sending');
     try {
-      await subscribe(String(f.get('email') ?? ''), 'website-newsletter');
+      await subscribe(blogUrl, String(f.get('email') ?? ''), 'website-newsletter');
       setStatus('sent');
       form.reset();
     } catch {

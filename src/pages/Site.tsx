@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import L from '../components/L';
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
 import { useT } from "../i18n";
@@ -53,13 +54,13 @@ function Orbit() {
 								transform: `translate(calc(-50% + ${(Math.cos(angle) * ORBIT_RADIUS).toFixed(1)}px), calc(-50% + ${(Math.sin(angle) * ORBIT_RADIUS).toFixed(1)}px))`,
 							}}
 						>
-							<Link
-								to={`/demo/pillars/${p.slug}`}
+							<L
+								to="pillars" param={p.slug}
 								aria-label={p.name}
 								className="flex h-14 w-14 animate-spin-slow items-center justify-center rounded-2xl border border-white/15 bg-white/[0.06] shadow-[0_0_24px_rgba(159,142,194,0.2)] backdrop-blur-sm transition-colors duration-300 [animation-direction:reverse] [animation-duration:60s] hover:border-purple hover:bg-purple/15"
 							>
 								<Icon size={24} weight="duotone" className="text-purple" />
-							</Link>
+							</L>
 						</div>
 					);
 				})}
@@ -160,19 +161,19 @@ export default function Site() {
 						</p>
 
 						<div className="animate-fade-up flex flex-wrap items-center gap-4 [animation-delay:300ms]">
-							<Link
-								to="/demo/what-we-do"
+							<L
+								to="whatWeDo"
 								className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-white px-8 py-3.5 text-[13px] font-bold uppercase tracking-[0.08em] text-blue transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_40px_rgba(255,255,255,0.25)]"
 							>
 								{t.hero.ctaPillars}
 								<ArrowRight size={16} weight="bold" />
-							</Link>
-							<Link
-								to="/demo/contact"
+							</L>
+							<L
+								to="contact"
 								className="inline-flex min-h-[48px] items-center gap-2 rounded-full border border-white/25 px-8 py-3.5 text-[13px] font-bold uppercase tracking-[0.08em] text-white transition duration-200 hover:-translate-y-0.5 hover:border-purple hover:text-purple"
 							>
 								{t.hero.ctaContact}
-							</Link>
+							</L>
 						</div>
 					</div>
 
@@ -209,9 +210,9 @@ export default function Site() {
 						{t.pillars.items.map((p, i) => {
 							const Icon = PILLAR_ICONS[i];
 							return (
-								<Link
+								<L
 									key={p.slug}
-									to={`/demo/pillars/${p.slug}`}
+									to="pillars" param={p.slug}
 									className="stagger-child group grid grid-cols-[48px_1fr] items-center gap-x-5 gap-y-3 border-b border-white/10 px-2 py-8 transition-colors duration-300 hover:bg-white/[0.03] md:grid-cols-[72px_64px_1fr_1.1fr_48px] md:gap-8 md:px-6 md:py-10"
 								>
 									<span className="hidden font-display text-sm tracking-[0.1em] text-purple/70 md:block">
@@ -232,7 +233,7 @@ export default function Site() {
 										weight="bold"
 										className="hidden -translate-x-2 text-purple opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 md:block"
 									/>
-								</Link>
+								</L>
 							);
 						})}
 					</div>
@@ -263,8 +264,8 @@ export default function Site() {
 						<h2 className="mb-10 font-display text-[clamp(34px,5vw,60px)] leading-[1.05] text-white">
 							{t.portal.title}
 						</h2>
-						<Link
-							to="/demo/contact"
+						<L
+							to="contact"
 							className="group inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-white px-9 py-4 text-[13px] font-bold uppercase tracking-[0.08em] text-blue transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_40px_rgba(255,255,255,0.25)]"
 						>
 							{t.portal.cta}
@@ -273,7 +274,7 @@ export default function Site() {
 								weight="bold"
 								className="transition-transform duration-200 group-hover:translate-x-1"
 							/>
-						</Link>
+						</L>
 					</div>
 
 					<div className="animate-on-scroll">

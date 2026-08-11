@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import L from '../components/L';
+// react-router-dom no longer needed here
 import { ArrowUpRight, CheckCircle } from '@phosphor-icons/react';
 import { useT } from '../i18n';
 import { useParallax } from '../hooks/useParallax';
@@ -52,9 +53,9 @@ export default function WhatWeDo() {
             {t.pillars.items.map((p, i) => {
               const Icon = PILLAR_ICONS[i];
               return (
-                <Link
+                <L
                   key={p.slug}
-                  to={`/demo/pillars/${p.slug}`}
+                  to="pillars" param={p.slug}
                   // ponytail: five pillars means the last card is always alone on its row
                   className={`animate-on-scroll group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-purple/40 ${
                     i === t.pillars.items.length - 1
@@ -113,7 +114,7 @@ export default function WhatWeDo() {
                       className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                     />
                   </span>
-                </Link>
+                </L>
               );
             })}
           </div>

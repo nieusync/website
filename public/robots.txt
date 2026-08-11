@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /demo
+Allow: /
 
 Sitemap: https://nieusync.com/sitemap.xml
