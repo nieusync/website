@@ -9,10 +9,10 @@ const site = {
   },
   hero: {
     eyebrow: 'The operating partner for European-facing SMEs',
-    titleTop: 'Your business,',
-    titleSync: 'from above.',
+    titleTop: 'Business is hard.',
+    titleSync: 'We like it.',
     subtitle:
-      'We scale your business with the kind of support usually reserved for large companies.',
+      'We help scale your business with the kind of support usually reserved for large companies.',
     ctaPillars: 'Explore the five pillars',
     ctaContact: 'Talk to us',
   },
@@ -26,9 +26,9 @@ const site = {
       {
         slug: 'legal',
         name: 'Legal',
-        desc: 'Risk and compliance, and full legal services.',
+        desc: 'Risk analysis, compliance and legal support.',
         intro:
-          'Compliance and full legal services, for a company operating across European markets. From internal control design to representation in court, the same team follows the matter from start to finish, and answers when the regulator, the counterparty or the judge shows up.',
+          'Compliance and legal services, for a company operating across European markets. From internal control design to representation in court, one team follows the matter from start to finish.',
         services: [
           'Regulatory reviews and legal compliance audits',
           'Internal control design',
@@ -140,7 +140,7 @@ const site = {
     label: 'Contact',
     title: 'Talk to us.',
     subtitle:
-      'Tell us about your company and what you need. Your message goes straight to the partners.',
+      'Tell us about your company and what you need.',
     name: 'Name',
     company: 'Company',
     email: 'Email',
@@ -170,19 +170,19 @@ const site = {
   whoPage: {
     documentTitle: 'Who we are | Nieusync',
     label: 'Who we are',
-    title: 'One partner, five disciplines.',
+    title: 'One partner, five pillars.',
     subtitle:
-      'We were born from the absolute conviction that startups and SMEs deserve the same specialist expertise usually reserved for large companies. We help SMEs grow and scale, with a team that has already built small companies at home and abroad.',
+      'We were born from the absolute conviction that startups and SMEs deserve the same specialist expertise usually reserved for large companies. We help SMEs grow and scale, with a team that has helped create several companies at home and abroad.',
     golden: [
       {
         key: 'Why',
         title: 'Why we exist',
-        text: 'Because good European companies stall for reasons that have nothing to do with their product: a contract nobody read, a market entry nobody planned, a process nobody wrote down. We believe an SME deserves the same calibre of legal, technical and strategic thinking that a funded company buys piece by piece.',
+        text: 'Because good companies stall for reasons that have nothing to do with their product: a contract nobody read, a market entry nobody planned, a process nobody wrote down. We believe an SME deserves the same calibre of legal, technical and strategic thinking that a multinational has at its disposal.',
       },
       {
         key: 'How',
         title: 'How we do it',
-        text: 'One team working inside your business rather than sending reports to it. We agree one plan with owners and dates and stay through execution. Most engagements start in a single pillar, and when the work crosses into another the same team carries it, instead of you hiring a second supplier who has to be briefed from scratch.',
+        text: 'One team working inside your business rather than sending reports to it. We agree one plan, with an owner for each area and fixed dates, and stay through execution. A project can start in a single pillar, and when the work crosses into another the coordination is already in place, sparing you the trouble of finding a second supplier who has to be briefed from scratch.',
       },
       {
         key: 'What',
@@ -193,7 +193,7 @@ const site = {
     teamLabel: 'Executive team',
     teamTitle: 'Operators, not observers.',
     teamSubtitle:
-      'Our expertise comes from working with small companies, from the inside, with the same constraints you have.',
+      'Our expertise comes from working with small companies, from the inside, knowing the difficulties they face.',
     team: [
       {
         name: 'Ricardo Serrão de Carvalho',
@@ -205,7 +205,7 @@ const site = {
         name: 'João Carvalho',
         role: 'Partner & COO',
         pillars: 'Digital · Strategy · Operations',
-        bio: 'Previously CTO of two VC-backed US companies. Builds the technology, the data and the operating processes that let a small team run like a much larger one, and keeps the plan moving once it is agreed.',
+        bio: 'Previously CTO of two VC-backed US companies. Builds the technology, the data and the operating processes that let a small team run like a much larger one. Keeps the plan moving once it is agreed.',
       },
       {
         name: 'Ricardo Carvalho',

@@ -11,10 +11,10 @@ const site: Site = {
   },
   hero: {
     eyebrow: 'O parceiro operacional das PME com mercado europeu',
-    titleTop: 'O seu negócio,',
-    titleSync: 'visto de cima.',
+    titleTop: 'Os negócios são difíceis.',
+    titleSync: 'Nós gostamos disso.',
     subtitle:
-      'Escalamos o seu negócio com o apoio que normalmente só as grandes empresas têm.',
+      'Ajudamos a escalar o seu negócio com o apoio que normalmente só as grandes empresas têm.',
     ctaPillars: 'Explorar os cinco pilares',
     ctaContact: 'Falar connosco',
   },
@@ -28,9 +28,9 @@ const site: Site = {
       {
         slug: 'legal',
         name: 'Legal',
-        desc: 'Risco e Compliance, e serviços jurídicos completos.',
+        desc: 'Análise de Risco, Compliance e apoio jurídico.',
         intro:
-          'Compliance e serviços jurídicos completos, para uma empresa que opera em mercados europeus. Do desenho dos controlos internos à representação em litígio, é a mesma equipa que acompanha o processo do princípio ao fim, e que responde quando o regulador, a contraparte ou o tribunal aparecem.',
+          'Compliance e serviços jurídicos, para uma empresa que opera em mercados europeus. Do desenho dos controlos internos à representação em litígio, uma equipa que acompanha o processo do princípio ao fim.',
         services: [
           'Revisões regulatórias e auditorias de conformidade legal',
           'Desenho de controlos internos',
@@ -141,7 +141,7 @@ const site: Site = {
     label: 'Contacto',
     title: 'Fale connosco.',
     subtitle:
-      'Conte-nos sobre a sua empresa e o que precisa. A sua mensagem vai diretamente para os sócios.',
+      'Conte-nos sobre a sua empresa e o que precisa.',
     name: 'Nome',
     company: 'Empresa',
     email: 'Email',
@@ -171,19 +171,19 @@ const site: Site = {
   whoPage: {
     documentTitle: 'Quem somos | Nieusync',
     label: 'Quem somos',
-    title: 'Um parceiro, cinco disciplinas.',
+    title: 'Um parceiro, cinco pilares.',
     subtitle:
-      'Nascemos da convicção absoluta de que as Startups e PME’s merecem o mesmo nível de conhecimento especializado apenas reservado às grandes empresas. Apoiamos as PME’s a crescer e escalar, com uma equipa que já construiu empresas pequenas nacional e internacionalmente.',
+      'Nascemos da convicção absoluta de que as Startups e PME’s merecem o mesmo nível de conhecimento especializado apenas reservado às grandes empresas. Apoiamos as PME’s a crescer e escalar, com uma equipa que já participou na criação de várias empresas nacional e internacionalmente.',
     golden: [
       {
         key: 'Porquê',
         title: 'Porque existimos',
-        text: 'Porque boas empresas europeias estagnam por razões que nada têm a ver com o produto: um contrato que ninguém leu, uma entrada em mercado que ninguém planeou, um processo que ninguém escreveu. Acreditamos que uma PME merece o mesmo nível de pensamento jurídico, técnico e estratégico que uma empresa financiada compra peça a peça.',
+        text: 'Porque boas empresas estagnam por razões que nada têm a ver com o produto: um contrato que ninguém leu, uma entrada em mercado que ninguém planeou, um processo que ninguém escreveu. Acreditamos que uma PME merece o mesmo nível de pensamento jurídico, técnico e estratégico que uma multinacional tem à sua disposição.',
       },
       {
         key: 'Como',
         title: 'Como o fazemos',
-        text: 'Uma equipa a trabalhar dentro do seu negócio e não a enviar-lhe relatórios. Acordamos um plano com responsáveis e datas e ficamos durante a execução. A maioria dos projetos começa num único pilar e, quando o trabalho passa para outro, é a mesma equipa que o leva, em vez de contratar um segundo fornecedor que tem de ser posto a par do zero.',
+        text: 'Uma equipa a trabalhar dentro do seu negócio e não a enviar-lhe relatórios. Acordamos um plano, com responsáveis por cada área, datas definidas e ficamos durante a execução. Um projeto pode começar num único pilar sendo que quando o trabalho passa para outro, a coordenação está garantida, evitando o incómodo de procurar outro fornecedor que tem de ser posto a par de tudo desde o zero.',
       },
       {
         key: 'O quê',
@@ -194,7 +194,7 @@ const site: Site = {
     teamLabel: 'Equipa executiva',
     teamTitle: 'Operadores, não observadores.',
     teamSubtitle:
-      'A nossa experiência vem de trabalhar com empresas pequenas, por dentro, com as mesmas restrições que tem.',
+      'A nossa experiência vem de trabalhar com empresas pequenas, por dentro, conhecendo as dificuldades com que se deparam.',
     team: [
       {
         name: 'Ricardo Serrão de Carvalho',
@@ -206,7 +206,7 @@ const site: Site = {
         name: 'João Carvalho',
         role: 'Sócio & COO',
         pillars: 'Digital · Estratégia · Operações',
-        bio: 'Anteriormente CTO de duas empresas norte-americanas financiadas por capital de risco. Constrói a tecnologia, os dados e os processos que permitem a uma equipa pequena operar como uma muito maior, e mantém o plano em andamento depois de acordado.',
+        bio: 'Anteriormente CTO de duas empresas norte-americanas financiadas por capital de risco. Constrói a tecnologia, os dados e os processos que permitem a uma equipa pequena operar como uma muito maior. Mantém o plano em andamento depois de acordado.',
       },
       {
         name: 'Ricardo Carvalho',

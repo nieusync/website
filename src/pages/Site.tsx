@@ -146,8 +146,8 @@ export default function Site() {
 				/>
 
 				<div className="container relative flex items-center justify-between gap-12">
-					<div className="max-w-[760px]">
-						<h1 className="animate-fade-up mb-8 text-[clamp(44px,7.5vw,96px)] leading-[1.02] [animation-delay:100ms]">
+					<div className="max-w-[760px] lg:max-w-[860px]">
+						<h1 className="animate-fade-up mb-8 text-[clamp(36px,5vw,64px)] leading-[1.02] md:whitespace-nowrap [animation-delay:100ms]">
 							{t.hero.titleTop}
 							<br />
 							<span className="animate-gradient bg-grad-heading bg-[length:200%_auto] bg-clip-text text-transparent">
