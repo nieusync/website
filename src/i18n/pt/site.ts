@@ -151,7 +151,6 @@ const site: Site = {
     sending: 'A enviar…',
     success: 'Obrigado, a sua mensagem está connosco.',
     error: 'Algo correu mal. Escreva-nos diretamente para geral@nieusync.com.',
-    mailSubject: 'Contacto do site',
   },
   newsletter: {
     label: 'Guia gratuito',
@@ -159,10 +158,9 @@ const site: Site = {
     emailPlaceholder: 'o.seu@email.com',
     submit: 'Enviar-me o guia',
     sending: 'A enviar…',
-    success: 'Subscrição registada.',
+    success: 'Falta um passo: confirme a subscrição no email que lhe enviámos.',
     error: 'Algo correu mal. Escreva-nos diretamente para geral@nieusync.com.',
     consent: 'Enviamos apenas o guia e artigos ocasionais. Pode cancelar quando quiser.',
-    mailSubject: 'Newsletter: 10 Proteções Legais que toda a PME precisa',
   },
   pillarPage: {
     back: 'Todos os pilares',

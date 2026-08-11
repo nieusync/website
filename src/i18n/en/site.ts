@@ -150,7 +150,6 @@ const site = {
     sending: 'Sending…',
     success: 'Thank you, your message is with us.',
     error: 'Something went wrong. Please email geral@nieusync.com directly.',
-    mailSubject: 'Website contact',
   },
   newsletter: {
     label: 'Free guide',
@@ -158,10 +157,9 @@ const site = {
     emailPlaceholder: 'your@email.com',
     submit: 'Send me the guide',
     sending: 'Sending…',
-    success: 'Subscription received.',
+    success: 'One step left: confirm your subscription in the email we just sent.',
     error: 'Something went wrong. Please email geral@nieusync.com directly.',
     consent: 'We only send the guide and occasional articles. Unsubscribe any time.',
-    mailSubject: 'Newsletter: 10 legal protections every SME needs',
   },
   pillarPage: {
     back: 'All pillars',

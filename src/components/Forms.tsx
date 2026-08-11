@@ -1,31 +1,45 @@
 import { useState, type FormEvent } from 'react';
 import { ArrowRight, EnvelopeSimple, FilePdf } from '@phosphor-icons/react';
 import { useT } from '../i18n';
+import { BLOG_URL } from '../hooks/useArticles';
 
 export const CONTACT_EMAIL = 'geral@nieusync.com';
 
-// ponytail: no backend on this site. Set VITE_FORM_ENDPOINT (Formspree, Basin,
-// a Worker: anything that accepts a JSON POST) and the forms post to it;
-// without it they hand the message to the visitor's mail client instead.
-const ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT as string | undefined;
+// The staff API, which turns a submission into a lead in the pipeline. Same
+// default as internal/ and app/: an empty base means same-origin, which only
+// happens behind a dev proxy.
+const API_URL = (import.meta.env.VITE_API_URL as string | undefined) ?? 'https://api.nieusync.com';
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
-async function submit(subject: string, data: Record<string, string>) {
-  if (ENDPOINT) {
-    const res = await fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({ _subject: subject, ...data }),
-    });
-    if (!res.ok) throw new Error(`form endpoint responded ${res.status}`);
-    return;
-  }
+async function submit(data: Record<string, string>) {
+  const res = await fetch(`${API_URL}/api/contact`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    // `website` is the honeypot the API checks: always empty from a real form.
+    body: JSON.stringify({ website: '', ...data }),
+  });
+  if (!res.ok) throw new Error(`/api/contact responded ${res.status}`);
+}
 
-  const body = Object.entries(data)
-    .map(([k, v]) => `${k}: ${v}`)
-    .join('\n');
-  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+// Ghost's own members endpoint, the one its `data-members-form` posts to. It is
+// public and unauthenticated by design, and it sends the confirmation email
+// itself, so subscribing is double opt-in with no key and no backend here.
+// `label` tags the member in Ghost admin so staff can see where they signed up.
+async function subscribe(email: string, label: string) {
+  const res = await fetch(`${BLOG_URL}/members/api/send-magic-link/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email,
+      emailType: 'subscribe',
+      labels: [label],
+      // Ghost rejects the request when this field is filled: a bot trap it
+      // expects to be present and empty.
+      honeypot: '',
+    }),
+  });
+  if (!res.ok) throw new Error(`ghost members responded ${res.status}`);
 }
 
 const fieldCls =
@@ -42,7 +56,7 @@ export function ContactForm() {
     const f = new FormData(form);
     setStatus('sending');
     try {
-      await submit(t.contact.mailSubject, {
+      await submit({
         name: String(f.get('name') ?? ''),
         company: String(f.get('company') ?? ''),
         email: String(f.get('email') ?? ''),
@@ -132,10 +146,7 @@ export function NewsletterForm() {
     const f = new FormData(form);
     setStatus('sending');
     try {
-      await submit(t.newsletter.mailSubject, {
-        email: String(f.get('email') ?? ''),
-        guide: t.newsletter.title,
-      });
+      await subscribe(String(f.get('email') ?? ''), 'website-newsletter');
       setStatus('sent');
       form.reset();
     } catch {
