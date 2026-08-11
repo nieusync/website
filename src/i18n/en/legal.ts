@@ -198,7 +198,7 @@ const legal = {
     },
     {
       slug: 'terms-and-conditions',
-      title: 'Terms and conditions of use',
+      title: 'Terms and conditions',
       summary: 'The rules for accessing and using this site and the client area.',
       sections: [
         {
