@@ -198,6 +198,14 @@
   }
 
   /* Faint blueprint grid. Layer over sections, fade with a mask utility at the call site */
+  /* Ambient glow. A radial gradient, not a blurred circle: `filter: blur(150px)`
+     on a 480px element costs a full-screen GPU pass per frame, which stalled
+     scrolling on phones. Same look, no filter. */
+  .glow { border-radius: 9999px; }
+  .glow-blue { background: radial-gradient(closest-side, rgba(35, 56, 119, 0.55), transparent); }
+  .glow-purple { background: radial-gradient(closest-side, rgba(159, 142, 194, 0.28), transparent); }
+  .glow-white { background: radial-gradient(closest-side, rgba(255, 255, 255, 0.10), transparent); }
+
   .tech-grid {
     background-image:
       linear-gradient(rgba(35, 56, 119, 0.06) 1px, transparent 1px),

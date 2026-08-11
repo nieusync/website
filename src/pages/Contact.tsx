@@ -26,8 +26,8 @@ export default function Contact() {
 
       <section className="relative pb-24 pt-40">
         <div className="tech-grid-white pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black_20%,transparent_70%)]" />
-        <div className="pointer-events-none absolute -left-40 top-0 h-[440px] w-[440px] rounded-full bg-blue/60 blur-[150px]" />
-        <div className="pointer-events-none absolute -right-32 bottom-0 h-[400px] w-[400px] rounded-full bg-purple/25 blur-[140px]" />
+        <div className="pointer-events-none absolute -left-40 top-0 h-[440px] w-[440px] glow glow-blue" />
+        <div className="pointer-events-none absolute -right-32 bottom-0 h-[400px] w-[400px] glow glow-purple" />
 
         <div className="container relative grid grid-cols-1 gap-14 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="animate-fade-up">

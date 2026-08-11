@@ -26,8 +26,8 @@ export default function ClientArea() {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-ink text-white">
       <div className="tech-grid-white pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]" />
-      <div className="pointer-events-none absolute -left-40 top-0 h-[480px] w-[480px] animate-drift rounded-full bg-blue/70 blur-[150px]" />
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-[420px] w-[420px] animate-drift rounded-full bg-purple/25 blur-[140px] [animation-delay:-9s]" />
+      <div className="pointer-events-none absolute -left-40 top-0 h-[480px] w-[480px] animate-drift glow glow-blue" />
+      <div className="pointer-events-none absolute -right-32 bottom-0 h-[420px] w-[420px] animate-drift glow glow-purple [animation-delay:-9s]" />
 
       <div className="container relative flex min-h-screen items-center justify-center py-16">
         <div className="animate-fade-up w-full max-w-[440px]">

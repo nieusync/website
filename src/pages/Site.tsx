@@ -138,11 +138,11 @@ export default function Site() {
 				<div className="tech-grid-white pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_75%)]" />
 				<div
 					data-parallax="0.15"
-					className="pointer-events-none absolute -left-40 top-1/4 h-[480px] w-[480px] rounded-full bg-blue/70 blur-[150px]"
+					className="pointer-events-none absolute -left-40 top-1/4 h-[480px] w-[480px] glow glow-blue"
 				/>
 				<div
 					data-parallax="0.25"
-					className="pointer-events-none absolute -right-32 top-1/3 h-[420px] w-[420px] rounded-full bg-purple/30 blur-[140px]"
+					className="pointer-events-none absolute -right-32 top-1/3 h-[420px] w-[420px] glow glow-purple"
 				/>
 
 				<div className="container relative flex items-center justify-between gap-12">
@@ -252,7 +252,7 @@ export default function Site() {
 			<section className="relative py-32">
 				<div
 					data-parallax="0.12"
-					className="pointer-events-none absolute -right-40 top-1/3 h-[420px] w-[420px] rounded-full bg-blue/60 blur-[150px]"
+					className="pointer-events-none absolute -right-40 top-1/3 h-[420px] w-[420px] glow glow-blue"
 				/>
 
 				<div className="container relative grid grid-cols-1 items-center gap-14 lg:grid-cols-[1fr_1.15fr]">

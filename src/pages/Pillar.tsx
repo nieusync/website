@@ -33,8 +33,8 @@ export default function Pillar() {
       {/* ── HERO ── */}
       <section className="relative pb-20 pt-40">
         <div className="tech-grid-white pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black_20%,transparent_70%)]" />
-        <div data-parallax="0.15" className="pointer-events-none absolute -right-40 -top-20 h-[420px] w-[420px] rounded-full bg-purple/25 blur-[140px]" />
-        <div data-parallax="0.1" className="pointer-events-none absolute -left-40 top-1/2 h-[380px] w-[380px] rounded-full bg-blue/60 blur-[140px]" />
+        <div data-parallax="0.15" className="pointer-events-none absolute -right-40 -top-20 h-[420px] w-[420px] glow glow-purple" />
+        <div data-parallax="0.1" className="pointer-events-none absolute -left-40 top-1/2 h-[380px] w-[380px] glow glow-blue" />
 
         <div className="container relative">
           <Link

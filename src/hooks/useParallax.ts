@@ -7,7 +7,9 @@ import { useEffect } from 'react';
 // own rect after translating it would feed back into itself.
 export function useParallax() {
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // Phones skip it: the win is decorative and the per-frame layout read is
+    // the most expensive thing on the page there.
+    if (window.matchMedia('(prefers-reduced-motion: reduce), (max-width: 767px)').matches) return;
     const els = Array.from(document.querySelectorAll<HTMLElement>('[data-parallax]'));
     if (els.length === 0) return;
 

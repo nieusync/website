@@ -14,8 +14,8 @@ export default function Landing() {
     <div className="fixed inset-0 flex flex-col items-center justify-center overflow-hidden bg-grad-main px-6">
       {/* Tech texture + drifting glows behind the content */}
       <div className="tech-grid-white pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_75%)]" />
-      <div className="pointer-events-none absolute -left-32 top-1/4 h-[420px] w-[420px] animate-drift rounded-full bg-purple/40 blur-[130px]" />
-      <div className="pointer-events-none absolute -right-32 bottom-1/4 h-[380px] w-[380px] animate-drift rounded-full bg-white/10 blur-[110px] [animation-delay:-9s]" />
+      <div className="pointer-events-none absolute -left-32 top-1/4 h-[420px] w-[420px] animate-drift glow glow-purple" />
+      <div className="pointer-events-none absolute -right-32 bottom-1/4 h-[380px] w-[380px] animate-drift glow glow-white [animation-delay:-9s]" />
       <div className="pointer-events-none absolute -right-24 -top-24 h-[380px] w-[380px]">
         <div className="absolute inset-0 animate-spin-slow rounded-full border border-white/10">
           <span className="absolute left-1/2 top-0 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/70" />
