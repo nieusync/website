@@ -7,23 +7,24 @@ Marketing site for Nieusync. React 18 + TypeScript + Vite, deployed to GitHub Pa
 ```bash
 pnpm dev          # local dev server
 pnpm typecheck    # tsc --noEmit (CI gate)
-pnpm check:i18n   # en/pt parity (CI gate)
+pnpm check        # check:i18n (en/pt parity) + check:routes (slug table)
 pnpm build        # vite build (CI gate)
 pnpm lint
 ```
 
-Package manager is **pnpm** — never `npm` or `yarn`. CI runs `typecheck && check:i18n && build`; run all three before saying a change is done.
+Package manager is **pnpm** — never `npm` or `yarn`. CI runs `typecheck && check:i18n && build`; run all of those plus `check:routes` before saying a change is done.
 
 ## Layout
 
 ```
 src/
-  App.tsx        routes: "/" = Landing, "/demo/*" = full site behind MarketingLayout
+  App.tsx        two locale subtrees, /pt/* and /en/*, built from routes.ts
+  routes.ts      the slug table: every page's URL segment per language
   i18n/          en/ and pt/ dictionaries, one file per page namespace
   pages/         one file per route, lazy-loaded from App.tsx
   components/    Navbar, Footer, LegalPage, GlobalComponents
   hooks/         useArticles (Ghost content API), useScrollReveal
-scripts/         check-i18n.ts
+scripts/         check-i18n.ts, check-routes.ts
 ```
 
 ## Rules
@@ -38,9 +39,15 @@ Responsive is mobile-first Tailwind (`md:`, `lg:`); use `max-[480px]:` only wher
 
 Two conflicting utilities of the same type in one `className` (e.g. `text-sm` and `text-[13px]`) resolve by CSS order, not by string order — split shared class constants so each call site sets the size itself.
 
-**Routing.** New pages: add to `src/pages/`, `lazy()` it in `App.tsx`, register under the `/demo` route. Old Portuguese URLs stay indexed — if a route moves, add a redirect to `LEGACY_ROUTES`. Deep links work on Pages via the `404.html` copy in CI; don't remove that step.
+**Routing is locale-first.** Every page lives under `/pt/…` or `/en/…`, with translated slugs (`/pt/quem-somos`, `/en/who-we-are`). `src/routes.ts` is the only place a slug is written: the router builds both subtrees from it, links resolve through it, and the language switch reverses it. New page: add a key to `ROUTES` in both languages, `lazy()` it in `App.tsx`, add one `<Route>` line inside the map.
 
-**The blog is Ghost**, at `blog.nieusync.com` (theme in [`nieusync/blog`](https://github.com/nieusync/blog)). This site has no blog pages of its own: the nav link and the home preview point outwards, and `/demo/blog/*` redirects to the matching Ghost URL so old links keep working. `src/hooks/useArticles.ts` reads the public Ghost content API — that key is read-only and safe in the bundle. No secrets in this repo.
+**Never write a path literal.** Internal links use `<L to="whoWeAre">` (`src/components/L.tsx`), which resolves against the reader's current language, or `useHref()` where a string is needed. A hardcoded `/pt/...` silently strands English readers.
+
+The language in the URL is the source of truth — `I18nProvider` is fed by the route, not by state. `localStorage` only decides where `/` sends a first-time visitor. If a route moves, add the old path to `LEGACY_ROUTES` in `routes.ts`; the pre-split `/demo/*` URLs are already there. Deep links work on Pages via the `404.html` copy in CI; don't remove that step.
+
+**The blog is two Ghost instances**, `blog.nieusync.com/pt` and `/en` (one theme, in [`nieusync/blog`](https://github.com/nieusync/blog)). They share nothing: separate databases, separate members, separate content API keys. Always link to the one matching the reader's language via `useBlogUrl()` — this matters most in `Forms.tsx`, where posting a subscription to the wrong instance does not fail, it just files an English reader on the Portuguese list. The content keys are read-only and meant to ship in the bundle. No secrets in this repo.
+
+The blog's `locales/*.json` builds the same links from its own header using `path.*` keys. Those must match `ROUTES` exactly, or the blog's nav 404s.
 
 **Icons:** [Phosphor](https://phosphoricons.com/) (`@phosphor-icons/react`) only.
 

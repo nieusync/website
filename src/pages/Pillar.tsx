@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import L, { useHref } from '../components/L';
+import { Navigate, useParams } from 'react-router-dom';
 import { ArrowLeft, CheckCircle } from '@phosphor-icons/react';
 import { useT } from '../i18n';
 import { useParallax } from '../hooks/useParallax';
@@ -8,6 +9,7 @@ import { Nav, Footer, PILLAR_ICONS, PILLAR_LIVE } from '../components/SiteChrome
 
 export default function Pillar() {
   const { slug } = useParams();
+  const link = useHref();
   const t = useT('site');
   useParallax();
   useScrollReveal();
@@ -23,7 +25,7 @@ export default function Pillar() {
     if (pillar) document.title = `${pillar.name} | Nieusync`;
   }, [pillar]);
 
-  if (!pillar) return <Navigate to="/demo" replace />;
+  if (!pillar) return <Navigate to={link('home')} replace />;
   const Icon = PILLAR_ICONS[idx];
 
   return (
@@ -37,13 +39,13 @@ export default function Pillar() {
         <div data-parallax="0.1" className="pointer-events-none absolute -left-40 top-1/2 h-[380px] w-[380px] glow glow-blue" />
 
         <div className="container relative">
-          <Link
-            to="/demo/what-we-do"
+          <L
+            to="whatWeDo"
             className="mb-12 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/80 transition-colors hover:text-purple"
           >
             <ArrowLeft size={14} weight="bold" />
             {t.pillarPage.back}
-          </Link>
+          </L>
 
           <div className="animate-fade-up mb-8 flex items-center gap-5">
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-purple/40 bg-purple/10 shadow-[0_0_40px_rgba(159,142,194,0.3)]">

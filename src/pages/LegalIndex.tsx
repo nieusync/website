@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import L from '../components/L';
+// react-router-dom no longer needed here
 import { ArrowLeft, ArrowUpRight, Info } from '@phosphor-icons/react';
 import { useT } from '../i18n';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -23,13 +24,13 @@ export default function LegalIndex() {
         <div className="pointer-events-none absolute -right-40 -top-20 h-[380px] w-[380px] glow glow-purple" />
 
         <div className="container relative max-w-[780px]">
-          <Link
-            to="/demo"
+          <L
+            to="home"
             className="mb-12 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/85 transition-colors hover:text-purple"
           >
             <ArrowLeft size={14} weight="bold" />
             {t.indexBack}
-          </Link>
+          </L>
 
           <span className="mb-5 block text-xs font-bold uppercase tracking-[0.2em] text-purple">
             {t.indexTitle}
@@ -51,9 +52,9 @@ export default function LegalIndex() {
 
           <div className="animate-on-scroll mx-auto grid max-w-[780px] grid-cols-1 gap-5 md:grid-cols-2">
             {t.docs.map((d, i) => (
-              <Link
+              <L
                 key={d.slug}
-                to={`/demo/legal/${d.slug}`}
+                to="legal" param={d.slug}
                 className="stagger-child group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:-translate-y-1 hover:border-purple/40"
               >
                 <span className="mb-4 font-display text-sm tracking-[0.15em] text-purple/70">
@@ -69,7 +70,7 @@ export default function LegalIndex() {
                     className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   />
                 </span>
-              </Link>
+              </L>
             ))}
           </div>
         </div>

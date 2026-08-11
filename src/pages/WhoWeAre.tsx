@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import L from '../components/L';
+// react-router-dom no longer needed here
 import {
   ArrowRight,
   GithubLogo,
@@ -188,8 +189,8 @@ export default function WhoWeAre() {
               <h2 className="mb-8 font-display text-[clamp(26px,3.5vw,40px)] leading-[1.1] text-white">
                 {t.whoPage.ctaTitle}
               </h2>
-              <Link
-                to="/demo/contact"
+              <L
+                to="contact"
                 className="group inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-grad-main px-9 py-4 text-[13px] font-bold uppercase tracking-[0.08em] text-white shadow-[0_0_30px_rgba(159,142,194,0.4)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_50px_rgba(159,142,194,0.6)]"
               >
                 {t.whoPage.cta}
@@ -198,7 +199,7 @@ export default function WhoWeAre() {
                   weight="bold"
                   className="transition-transform duration-200 group-hover:translate-x-1"
                 />
-              </Link>
+              </L>
             </div>
           </div>
         </div>
