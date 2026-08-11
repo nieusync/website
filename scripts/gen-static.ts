@@ -69,6 +69,12 @@ for (const pair of paths) {
   }
 }
 
+// Pages serves these as directories, so it 301s /pt/quem-somos to
+// /pt/quem-somos/ and the app's canonical tag reads the trailing-slash form off
+// location.pathname. Emit the same thing here or the sitemap advertises a URL
+// that redirects to one whose canonical disagrees with it.
+const slash = (path: string) => (path.endsWith('/') ? path : `${path}/`);
+
 const priority = (path: string) =>
   /^\/(pt|en)$/.test(path) ? '1.0' : path.includes('/legal/') ? '0.3' : path.includes('/pilares/') || path.includes('/pillars/') ? '0.7' : '0.8';
 
@@ -76,12 +82,12 @@ const urls = paths
   .flatMap((pair) =>
     LANGS.map((lang) => {
       const alts = [
-        `<xhtml:link rel="alternate" hreflang="pt-PT" href="${ORIGIN}${pair.pt}"/>`,
-        `<xhtml:link rel="alternate" hreflang="en" href="${ORIGIN}${pair.en}"/>`,
-        `<xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${pair.pt}"/>`,
+        `<xhtml:link rel="alternate" hreflang="pt-PT" href="${ORIGIN}${slash(pair.pt)}"/>`,
+        `<xhtml:link rel="alternate" hreflang="en" href="${ORIGIN}${slash(pair.en)}"/>`,
+        `<xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${slash(pair.pt)}"/>`,
       ];
       return `  <url>
-    <loc>${ORIGIN}${pair[lang]}</loc>
+    <loc>${ORIGIN}${slash(pair[lang])}</loc>
     <priority>${priority(pair[lang])}</priority>
     ${alts.join('\n    ')}
   </url>`;
