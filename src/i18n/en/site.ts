@@ -137,10 +137,10 @@ const site = {
   },
   contact: {
     documentTitle: 'Talk to us | Nieusync',
-    label: 'Talk to us',
-    title: 'Tell us where it hurts.',
+    label: 'Contact',
+    title: 'Talk to us.',
     subtitle:
-      'Tell us about your company and what you need. Your message goes to the partners, not to a queue.',
+      'Tell us about your company and what you need. Your message goes straight to the partners.',
     name: 'Name',
     company: 'Company',
     email: 'Email',

@@ -138,10 +138,10 @@ const site: Site = {
   },
   contact: {
     documentTitle: 'Falar connosco | Nieusync',
-    label: 'Falar connosco',
-    title: 'Diga-nos onde dói.',
+    label: 'Contacto',
+    title: 'Fale connosco.',
     subtitle:
-      'Conte-nos sobre a sua empresa e o que precisa. A sua mensagem vai para os sócios, não para uma fila.',
+      'Conte-nos sobre a sua empresa e o que precisa. A sua mensagem vai diretamente para os sócios.',
     name: 'Nome',
     company: 'Empresa',
     email: 'Email',
