@@ -172,7 +172,7 @@ const site = {
     label: 'Who we are',
     title: 'One partner, five disciplines.',
     subtitle:
-      'We help SMEs targeting the European market grow and scale, with people who have actually built and run small companies.',
+      'We were born from the absolute conviction that startups and SMEs deserve the same specialist expertise usually reserved for large companies. We help SMEs grow and scale, with a team that has already built small companies at home and abroad.',
     golden: [
       {
         key: 'Why',
@@ -214,15 +214,13 @@ const site = {
         bio: 'Comes from digital marketing and video production. Runs the brand, the content and the campaigns: the part of Digital your clients actually see, made in-house rather than bought by the hour.',
       },
     ],
-    ctaTitle: 'Want the same team behind your company?',
+    ctaTitle: 'Want this team alongside your company?',
     cta: 'Talk to us',
   },
   whatPage: {
     documentTitle: 'What we do | Nieusync',
     label: 'What we do',
-    title: 'Five pillars. One engagement.',
-    subtitle:
-      'Take the pillar you need. Nothing here obliges you to buy the other four.',
+    title: 'Five pillars. One goal.',
   },
   clientAreaPage: {
     documentTitle: 'Client area | Nieusync',

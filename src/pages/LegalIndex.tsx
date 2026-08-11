@@ -15,10 +15,10 @@ export default function LegalIndex() {
   }, [t.indexDocumentTitle]);
 
   return (
-    <div className="min-h-screen bg-ink text-white">
+    <div className="min-h-screen overflow-x-clip bg-ink text-white">
       <Nav />
 
-      <section className="relative overflow-hidden pb-16 pt-40">
+      <section className="relative pb-16 pt-40">
         <div className="tech-grid-white pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black_20%,transparent_70%)]" />
         <div className="pointer-events-none absolute -right-40 -top-20 h-[380px] w-[380px] rounded-full bg-purple/20 blur-[140px]" />
 

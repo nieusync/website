@@ -20,11 +20,11 @@ export default function WhatWeDo() {
   }, [t.whatPage.documentTitle]);
 
   return (
-    <div className="min-h-screen bg-ink text-white">
+    <div className="min-h-screen overflow-x-clip bg-ink text-white">
       <Nav />
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden pb-20 pt-40">
+      <section className="relative pb-20 pt-40">
         <div className="tech-grid-white pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black_20%,transparent_70%)]" />
         <div
           data-parallax="0.15"
@@ -42,14 +42,11 @@ export default function WhatWeDo() {
           <h1 className="animate-fade-up mb-8 text-[clamp(40px,6.5vw,84px)] leading-[1.02] [animation-delay:100ms]">
             {t.whatPage.title}
           </h1>
-          <p className="animate-fade-up text-[18px] leading-[1.8] text-white/85 [animation-delay:200ms]">
-            {t.whatPage.subtitle}
-          </p>
         </div>
       </section>
 
       {/* ── PILLARS, IN FULL ── */}
-      <section className="py-16">
+      <section className="pb-32 pt-16">
         <div className="container">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             {t.pillars.items.map((p, i) => {

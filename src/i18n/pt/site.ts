@@ -173,7 +173,7 @@ const site: Site = {
     label: 'Quem somos',
     title: 'Um parceiro, cinco disciplinas.',
     subtitle:
-      'Ajudamos PME com o mercado europeu como alvo a crescer e escalar, com pessoas que já construíram e geriram empresas pequenas.',
+      'Nascemos da convicção absoluta de que as Startups e PME’s merecem o mesmo nível de conhecimento especializado apenas reservado às grandes empresas. Apoiamos as PME’s a crescer e escalar, com uma equipa que já construiu empresas pequenas nacional e internacionalmente.',
     golden: [
       {
         key: 'Porquê',
@@ -215,15 +215,13 @@ const site: Site = {
         bio: 'Vem do marketing digital e da produção de vídeo. Trata da marca, dos conteúdos e das campanhas: a parte do Digital que os seus clientes veem, feita em casa e não comprada à hora.',
       },
     ],
-    ctaTitle: 'Quer esta equipa por trás da sua empresa?',
+    ctaTitle: 'Quer esta equipa ao lado da sua empresa?',
     cta: 'Falar connosco',
   },
   whatPage: {
     documentTitle: 'O que fazemos | Nieusync',
     label: 'O que fazemos',
-    title: 'Cinco pilares. Um só projeto.',
-    subtitle:
-      'Escolha o pilar de que precisa. Nada aqui o obriga a comprar os outros quatro.',
+    title: 'Cinco pilares. Um só objetivo.',
   },
   clientAreaPage: {
     documentTitle: 'Área de cliente | Nieusync',

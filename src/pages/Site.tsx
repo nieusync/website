@@ -21,7 +21,7 @@ function Orbit() {
 
 	return (
 		<div className="relative hidden h-[360px] w-[360px] shrink-0 lg:block">
-			<div className="absolute inset-0 rounded-full border border-white/[0.06]" />
+			<div className="absolute inset-0 rounded-full border border-white/[0.14]" />
 			<div className="absolute inset-10 rounded-full border border-white/[0.09]" />
 			<div className="absolute inset-20 rounded-full border border-purple/20" />
 
@@ -130,11 +130,11 @@ export default function Site() {
 	}, [hash]);
 
 	return (
-		<div className="min-h-screen bg-ink text-white">
+		<div className="min-h-screen overflow-x-clip bg-ink text-white">
 			<Nav />
 
 			{/* ── HERO ── */}
-			<section className="relative flex min-h-screen items-center overflow-hidden pb-24 pt-32">
+			<section className="relative flex min-h-screen items-center pb-24 pt-32">
 				<div className="tech-grid-white pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_75%)]" />
 				<div
 					data-parallax="0.15"
@@ -194,12 +194,7 @@ export default function Site() {
 			<Marquee />
 
 			{/* ── PILLARS ── */}
-			<section id="pillars" className="relative overflow-hidden py-32">
-				<div
-					data-parallax="0.12"
-					className="pointer-events-none absolute -right-40 top-0 h-[400px] w-[400px] rounded-full bg-purple/20 blur-[140px]"
-				/>
-
+			<section id="pillars" className="relative py-32">
 				<div className="container relative">
 					<div className="animate-on-scroll mb-16 max-w-[640px]">
 						<span className="mb-4 block text-xs font-bold uppercase tracking-[0.2em] text-purple">
@@ -254,7 +249,7 @@ export default function Site() {
 			</section>
 
 			{/* ── CLIENT AREA ── */}
-			<section className="relative overflow-hidden py-32">
+			<section className="relative py-32">
 				<div
 					data-parallax="0.12"
 					className="pointer-events-none absolute -right-40 top-1/3 h-[420px] w-[420px] rounded-full bg-blue/60 blur-[150px]"
