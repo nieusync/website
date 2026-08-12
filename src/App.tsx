@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate, Outlet, useLocation } from 'rea
 import { lazy, Suspense, useEffect } from 'react';
 import { I18nProvider, detect, type Lang } from './i18n';
 import { ROUTES, LANGS, href, swapLang, legacyTarget } from './routes';
+import { ClientAreaRedirect } from './components/AppLink';
 
 const Site = lazy(() => import('./pages/Site'));
 const Pillar = lazy(() => import('./pages/Pillar'));
