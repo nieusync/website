@@ -31,6 +31,13 @@ async function submit(data: Record<string, string>) {
 // separate member databases: posting to the wrong one does not fail, it just
 // quietly files an English reader on the Portuguese list.
 async function subscribe(blogUrl: string, email: string, label: string) {
+  // Ghost expects a short-lived token minted by the blog itself on every
+  // signup, and answers 400 without one. Fetch it here rather than on mount:
+  // it expires, and most visitors never submit the form.
+  const tokenRes = await fetch(`${blogUrl}/members/api/integrity-token/`);
+  if (!tokenRes.ok) throw new Error(`ghost integrity token responded ${tokenRes.status}`);
+  const integrityToken = await tokenRes.text();
+
   const res = await fetch(`${blogUrl}/members/api/send-magic-link/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -38,6 +45,7 @@ async function subscribe(blogUrl: string, email: string, label: string) {
       email,
       emailType: 'subscribe',
       labels: [label],
+      integrityToken,
       // Ghost rejects the request when this field is filled: a bot trap it
       // expects to be present and empty.
       honeypot: '',
