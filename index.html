@@ -18,6 +18,18 @@
 			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap"
 			rel="stylesheet"
 		/>
+		<!-- Umami, self-hosted on nieusync-prod. No cookies and no personal
+		     data, which is why this site carries no consent banner — see the
+		     Cookie Policy. The website id is public by design; it identifies
+		     the property, it does not authorise anything.
+
+		     No route hook in the app: the tracker patches history.pushState,
+		     so react-router navigations are counted on their own. -->
+		<script
+			defer
+			src="https://analytics.nieusync.com/script.js"
+			data-website-id="4c71573f-9fd6-43f9-82b6-79a59890e681"
+		></script>
 	</head>
 	<body>
 		<div id="root"></div>
