@@ -7,7 +7,6 @@ const Site = lazy(() => import('./pages/Site'));
 const Pillar = lazy(() => import('./pages/Pillar'));
 const WhoWeAre = lazy(() => import('./pages/WhoWeAre'));
 const WhatWeDo = lazy(() => import('./pages/WhatWeDo'));
-const ClientArea = lazy(() => import('./pages/ClientArea'));
 const Legal = lazy(() => import('./pages/Legal'));
 const LegalIndex = lazy(() => import('./pages/LegalIndex'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -79,7 +78,7 @@ export default function App() {
             <Route index element={<Site />} />
             <Route path={ROUTES.whoWeAre[lang]} element={<WhoWeAre />} />
             <Route path={ROUTES.whatWeDo[lang]} element={<WhatWeDo />} />
-            <Route path={ROUTES.clientArea[lang]} element={<ClientArea />} />
+            <Route path={ROUTES.clientArea[lang]} element={<ClientAreaRedirect />} />
             <Route path={ROUTES.contact[lang]} element={<Contact />} />
             <Route path={ROUTES.legal[lang]} element={<LegalIndex />} />
             <Route path={`${ROUTES.legal[lang]}/:slug`} element={<Legal />} />

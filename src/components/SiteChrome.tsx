@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import L from './L';
+import AppLink from './AppLink';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   ArrowUpRight,
@@ -21,11 +22,6 @@ import {
 import { useT, useLang, remember, type Lang } from '../i18n';
 import { useBlogUrl } from '../hooks/useArticles';
 import { LANGS, swapLang } from '../routes';
-
-// ponytail: the real client area is the "platform" app on its own domain, and it
-// is not live yet, so every entry point goes to the mock sign-in page for now.
-// Point this at VITE_PLATFORM_URL once that app ships; until then it is an
-// ordinary route and resolves through <L to="clientArea">.
 
 // One icon per pillar, same order as the i18n `pillars.items` array
 export const PILLAR_ICONS = [Scales, Cpu, Compass, Gear, Calculator];
@@ -168,8 +164,7 @@ export function Nav() {
         <div className="flex items-center gap-1 md:gap-4">
           <LangSwitch />
 
-          <L
-            to="clientArea"
+          <AppLink
             className="group hidden items-center gap-2 rounded-full border border-white/25 px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.1em] text-white transition duration-200 hover:-translate-y-0.5 hover:border-purple hover:text-purple sm:inline-flex md:px-5"
           >
             <LockKey size={15} weight="bold" />
@@ -179,7 +174,7 @@ export function Nav() {
               weight="bold"
               className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             />
-          </L>
+          </AppLink>
 
           <button
             onClick={() => setOpen((o) => !o)}
@@ -195,14 +190,13 @@ export function Nav() {
       {open && (
         <nav className="flex flex-col gap-1 border-t border-white/10 bg-ink/95 px-6 pb-8 pt-4 backdrop-blur-xl lg:hidden">
           <div className="flex flex-col gap-5 py-4 text-lg [&>*]:text-lg">{links}</div>
-          <L
-            to="clientArea"
+          <AppLink
             onClick={() => setOpen(false)}
             className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-[11px] font-bold uppercase tracking-[0.1em] text-white"
           >
             <LockKey size={15} weight="bold" />
             {t.nav.clientArea}
-          </L>
+          </AppLink>
         </nav>
       )}
     </header>
@@ -244,7 +238,7 @@ export function Footer() {
           <L to="whoWeAre" className={colLink}>{t.nav.whoWeAre}</L>
           <L to="whatWeDo" className={colLink}>{t.nav.whatWeDo}</L>
           <a href={blogUrl} className={colLink}>{t.footer.blog}</a>
-          <L to="clientArea" className={colLink}>{t.footer.clientArea}</L>
+          <AppLink className={colLink}>{t.footer.clientArea}</AppLink>
         </div>
 
         <div>

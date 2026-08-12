@@ -220,22 +220,6 @@ const site = {
     label: 'What we do',
     title: 'Five pillars. One goal.',
   },
-  clientAreaPage: {
-    documentTitle: 'Client area | Nieusync',
-    label: 'Client area',
-    title: 'Welcome back.',
-    subtitle: 'Sign in to your documents, your requests and the progress of your work with us.',
-    email: 'Email',
-    password: 'Password',
-    emailPlaceholder: 'your@email.com',
-    submit: 'Sign in',
-    forgot: 'Forgot your password?',
-    noAccount: 'No access yet?',
-    noAccountCta: 'Talk to us',
-    // Shown instead of authenticating. The real client area is a separate app
-    preview: 'The client area is not live yet. Speak to your Nieusync contact about access.',
-    back: 'Back to site',
-  },
   footer: {
     company: 'Company',
     pillars: 'What we do',
