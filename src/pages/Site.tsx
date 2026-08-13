@@ -279,6 +279,7 @@ export default function Site() {
 
 					<div className="animate-on-scroll">
 						<ClientAreaShot />
+						<p className="mt-4 text-center text-xs text-white/50">{t.portal.disclaimer}</p>
 					</div>
 				</div>
 			</section>

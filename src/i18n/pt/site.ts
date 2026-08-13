@@ -23,7 +23,7 @@ const site: Site = {
     title: 'Cinco pilares. Uma visão integrada.',
     statusLive: 'Atual',
     statusSoon: 'Futuro',
-    more: (n: number) => `+ ${n} outros serviços`,
+    more: (n: number) => (n === 1 ? '+ 1 outro serviço' : `+ ${n} outros serviços`),
     items: [
       {
         slug: 'legal',
@@ -94,7 +94,7 @@ const site: Site = {
         services: [
           'Orçamentação e previsão',
           'Relatório financeiro e controlo de gestão',
-          'Apoio à captação de capital e estruturação financeira',
+          'Consultoria na estruturação financeira para captação de capital',
           'Planeamento e análise financeira (FP&A)',
         ],
       },
@@ -113,6 +113,7 @@ const site: Site = {
     label: '02 / Área de cliente',
     title: 'A sua empresa, em direto.',
     cta: 'Marcar uma demonstração',
+    disclaimer: 'Ilustração. Dados fictícios.',
     shot: {
       workspace: 'Área de trabalho',
       company: 'Acme Comércio, Lda.',
@@ -171,7 +172,7 @@ const site: Site = {
     label: 'Quem somos',
     title: 'Um parceiro, cinco pilares.',
     subtitle:
-      'Nascemos da convicção absoluta de que as Startups e PME’s merecem o mesmo nível de conhecimento especializado apenas reservado às grandes empresas. Apoiamos as PME’s a crescer e escalar, com uma equipa que já participou na criação de várias empresas nacional e internacionalmente.',
+      'Nascemos da convicção absoluta de que as Startups e PME’s merecem o mesmo nível de conhecimento especializado apenas reservado às grandes empresas. Somos uma Sociedade de Advogados Multidisciplinar que apoia as PME’s a crescer e escalar, com uma equipa que já participou na criação de várias empresas nacional e internacionalmente.',
     golden: [
       {
         key: 'Porquê',
@@ -196,19 +197,19 @@ const site: Site = {
     team: [
       {
         name: 'Ricardo Serrão de Carvalho',
-        role: 'Sócio Gerente & CEO',
+        role: 'Sócio Gerente & Advogado',
         pillars: 'Legal · Financeira · Estratégia',
         bio: 'Mais de 15 anos a trabalhar com PME em Legal e Estratégia: estrutura societária, contratos, negociações, arquitetura fiscal e planos de crescimento para empresas que operam em mercados europeus. É o sócio que fica mais perto do trabalho.',
       },
       {
         name: 'João Carvalho',
-        role: 'Sócio & COO',
+        role: 'Sócio',
         pillars: 'Digital · Estratégia · Operações',
         bio: 'Anteriormente CTO de duas empresas norte-americanas financiadas por capital de risco. Constrói a tecnologia, os dados e os processos que permitem a uma equipa pequena operar como uma muito maior. Mantém o plano em andamento depois de acordado.',
       },
       {
         name: 'Ricardo Carvalho',
-        role: 'Sócio & CMO',
+        role: 'Sócio',
         pillars: 'Digital',
         bio: 'Vem do marketing digital e da produção de vídeo. Trata da marca, dos conteúdos e das campanhas: a parte do Digital que os seus clientes veem, feita em casa e não comprada à hora.',
       },

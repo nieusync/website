@@ -21,7 +21,7 @@ const site = {
     title: 'Five pillars. One integrated view.',
     statusLive: 'Current',
     statusSoon: 'Future',
-    more: (n: number) => `+ ${n} more services`,
+    more: (n: number) => (n === 1 ? '+ 1 more service' : `+ ${n} more services`),
     items: [
       {
         slug: 'legal',
@@ -92,7 +92,7 @@ const site = {
         services: [
           'Budgeting and forecasting',
           'Financial reporting and management control',
-          'Capital raising support and financial structuring',
+          'Advisory on financial structuring for capital raising',
           'Financial planning and analysis (FP&A)',
         ],
       },
@@ -111,6 +111,7 @@ const site = {
     label: '02 / Client area',
     title: 'Your company, live.',
     cta: 'Book a demo',
+    disclaimer: 'Illustration. Fictional data.',
     // Labels rendered inside the mock client-area screenshot
     shot: {
       workspace: 'Workspace',
@@ -170,7 +171,7 @@ const site = {
     label: 'Who we are',
     title: 'One partner, five pillars.',
     subtitle:
-      'We were born from the absolute conviction that startups and SMEs deserve the same specialist expertise usually reserved for large companies. We help SMEs grow and scale, with a team that has helped create several companies at home and abroad.',
+      'We were born from the absolute conviction that startups and SMEs deserve the same specialist expertise usually reserved for large companies. We are a multidisciplinary law firm that helps SMEs grow and scale, with a team that has helped create several companies at home and abroad.',
     golden: [
       {
         key: 'Why',
@@ -195,19 +196,19 @@ const site = {
     team: [
       {
         name: 'Ricardo Serrão de Carvalho',
-        role: 'Managing Partner & CEO',
+        role: 'Managing Partner & Lawyer',
         pillars: 'Legal · Financial · Strategy',
         bio: 'More than 15 years working with SMEs on Legal and Strategy: corporate structure, contracts, negotiations, tax architecture and growth plans for companies operating across European markets. He is the partner who stays closest to the work.',
       },
       {
         name: 'João Carvalho',
-        role: 'Partner & COO',
+        role: 'Partner',
         pillars: 'Digital · Strategy · Operations',
         bio: 'Previously CTO of two VC-backed US companies. Builds the technology, the data and the operating processes that let a small team run like a much larger one. Keeps the plan moving once it is agreed.',
       },
       {
         name: 'Ricardo Carvalho',
-        role: 'Partner & CMO',
+        role: 'Partner',
         pillars: 'Digital',
         bio: 'Comes from digital marketing and video production. Runs the brand, the content and the campaigns: the part of Digital your clients actually see, made in-house rather than bought by the hour.',
       },
