@@ -15,7 +15,7 @@ const legal = {
     'The Portuguese version of these documents is the original and prevails in case of discrepancy. For any question, write to geral@nieusync.com.',
   read: 'Read',
   updatedLabel: 'Last updated',
-  updated: '10 August 2026',
+  updated: '23 August 2026',
   docs: [
     {
       slug: 'legal-notice',
@@ -167,7 +167,7 @@ const legal = {
           title: 'What we use',
           paragraphs: [
             'This site uses strictly necessary storage only: we keep your chosen language in your browser’s local storage so the site opens in the same language next time. It holds no personal data and is shared with no one.',
-            'We use no advertising or profiling cookies. If we later add analytics or third party cookies, we will ask for your consent before setting them and update this policy.',
+            'We use no advertising or profiling cookies. For statistical analysis of visits we use Umami, a tool hosted on our own servers. Umami sets no cookies and collects no personal data that could identify you, recording only aggregated session data, and it shares no information with third party servers. Because it relies on no cookies and no processing that requires consent, this analytics is not subject to the consent banner. If we later add other analytics or third party cookies, we will ask for your consent before setting them and update this policy.',
           ],
         },
         {
