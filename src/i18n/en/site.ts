@@ -56,7 +56,6 @@ const site = {
           'Brand positioning',
           'Customer acquisition: channel strategy and funnel design',
           'Pricing optimisation',
-          'Job ad management on digital platforms (LinkedIn, Glassdoor)',
         ],
       },
       {
@@ -112,27 +111,27 @@ const site = {
     title: 'Your company, live.',
     cta: 'Book a demo',
     disclaimer: 'Illustration. Fictional data.',
-    // Labels rendered inside the mock client-area screenshot
+    // Labels rendered inside the mock client-area screenshot. It mirrors the
+    // portal's own Overview, so when that page changes, this changes with it.
     shot: {
-      workspace: 'Workspace',
       company: 'Acme Comércio, Lda.',
-      nav: ['Overview', 'Documents', 'Requests', 'Invoices', 'Team'],
+      nav: ['Overview', 'Documents', 'Requests', 'Team'],
       greeting: 'Good morning, Marta',
-      subgreeting: '4 open items on your active engagements',
       stats: [
         { label: 'Open requests', value: '4' },
         { label: 'Documents', value: '128' },
       ],
-      progressTitle: 'Your engagements',
-      progress: [
-        { name: 'Legal · Supplier contracts', value: 82 },
-        { name: 'Digital · Website rebuild', value: 64 },
+      requestsTitle: 'Your recent requests',
+      requests: [
+        { title: 'Supplier agreement review', meta: 'P-0412 · 12 Aug' },
+        { title: 'Trademark filing', meta: 'P-0408 · 5 Aug' },
+        { title: 'Staging site sign-off', meta: 'P-0401 · 28 Jul' },
       ],
-      activityTitle: 'Recent activity',
-      activity: [
-        { title: 'Supplier agreement reviewed', meta: 'Legal · 2h ago' },
-        { title: 'Staging site handed over', meta: 'Digital · yesterday' },
-        { title: 'Trademark filing submitted', meta: 'Legal · 3 days ago' },
+      documentsTitle: 'Recent documents',
+      documents: [
+        { title: 'Agreement v3.pdf', meta: 'Shared by Nieusync · 12 Aug' },
+        { title: 'Trademark filing.pdf', meta: 'Shared by Nieusync · 5 Aug' },
+        { title: 'Company certificate.pdf', meta: 'Sent by you · 22 Jul' },
       ],
     },
   },

@@ -3,11 +3,15 @@ import { useLang } from '../i18n';
 
 /** The client area, which is a separate app on its own domain.
  *
- *  It used to be a mock page on this site. Now it is `app.nieusync.com`, so
+ *  It used to be a mock page on this site. Now it is `portal.nieusync.com`, so
  *  this is an `<a>` and not an `<L>`: react-router cannot route out of the
  *  bundle, and a `<Link>` here would push a path this site has no route for.
+ *
+ *  It answered on `app.nieusync.com` until 2026-08-31, when the portal moved to
+ *  Praxis. That name still resolves and is the one in the wild, so keep this in
+ *  step with whatever Traefik actually routes.
  */
-const APP_URL = import.meta.env.VITE_APP_URL || 'https://app.nieusync.com';
+const APP_URL = import.meta.env.VITE_APP_URL || 'https://portal.nieusync.com';
 
 /** Carries the reader's language across the domain boundary.
  *

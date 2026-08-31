@@ -58,7 +58,6 @@ const site: Site = {
           'Posicionamento de marca',
           'Aquisição de clientes: estratégia de canais e desenho de funis',
           'Otimização de preços',
-          'Gestão de anúncios de emprego em plataformas digitais (LinkedIn, Glassdoor)',
         ],
       },
       {
@@ -115,25 +114,24 @@ const site: Site = {
     cta: 'Marcar uma demonstração',
     disclaimer: 'Ilustração. Dados fictícios.',
     shot: {
-      workspace: 'Área de trabalho',
       company: 'Acme Comércio, Lda.',
-      nav: ['Resumo', 'Documentos', 'Pedidos', 'Faturas', 'Equipa'],
+      nav: ['Resumo', 'Documentos', 'Pedidos', 'Equipa'],
       greeting: 'Bom dia, Marta',
-      subgreeting: '4 assuntos em aberto nos seus projetos ativos',
       stats: [
         { label: 'Pedidos abertos', value: '4' },
         { label: 'Documentos', value: '128' },
       ],
-      progressTitle: 'Os seus projetos',
-      progress: [
-        { name: 'Legal · Contratos de fornecimento', value: 82 },
-        { name: 'Digital · Novo site', value: 64 },
+      requestsTitle: 'Os seus pedidos recentes',
+      requests: [
+        { title: 'Revisão do contrato', meta: 'P-0412 · 12 ago' },
+        { title: 'Registo de marca', meta: 'P-0408 · 5 ago' },
+        { title: 'Aprovação do site', meta: 'P-0401 · 28 jul' },
       ],
-      activityTitle: 'Atividade recente',
-      activity: [
-        { title: 'Contrato de fornecimento revisto', meta: 'Legal · há 2h' },
-        { title: 'Site em pré-produção entregue', meta: 'Digital · ontem' },
-        { title: 'Pedido de marca submetido', meta: 'Legal · há 3 dias' },
+      documentsTitle: 'Documentos recentes',
+      documents: [
+        { title: 'Contrato v3.pdf', meta: 'Partilhado pela Nieusync · 12 ago' },
+        { title: 'Pedido de marca.pdf', meta: 'Partilhado pela Nieusync · 5 ago' },
+        { title: 'Certidão permanente.pdf', meta: 'Enviado por si · 22 jul' },
       ],
     },
   },
