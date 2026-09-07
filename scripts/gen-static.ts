@@ -33,21 +33,43 @@ const params: Partial<Record<RouteKey, (lang: 'pt' | 'en') => string[]>> = {
 // `legal` does have an index (LegalIndex), so it is not in here.
 const PARAM_ONLY: RouteKey[] = ['pillars'];
 
+// The <title> each page sets for itself at runtime, resolved statically. Every
+// value is read from the dictionaries the pages read, so the crawler and the
+// reader are never told two different things. Anything not listed (clientArea,
+// which only redirects) falls back to the site title.
+const titles: Partial<Record<RouteKey, (lang: 'pt' | 'en', slug?: string) => string | undefined>> = {
+  home: (l) => dicts[l].site.documentTitle,
+  whoWeAre: (l) => dicts[l].site.whoPage.documentTitle,
+  whatWeDo: (l) => dicts[l].site.whatPage.documentTitle,
+  contact: (l) => dicts[l].site.contact.documentTitle,
+  legal: (l, slug) =>
+    slug
+      ? `${dicts[l].legal.docs.find((d) => d.slug === slug)?.title} | Nieusync`
+      : dicts[l].legal.indexDocumentTitle,
+  pillars: (l, slug) =>
+    `${dicts[l].site.pillars.items.find((p) => p.slug === slug)?.name} | Nieusync`,
+};
+
+const titleFor = (lang: 'pt' | 'en', key: RouteKey, slug?: string) =>
+  titles[key]?.(lang, slug) ?? dicts[lang].site.documentTitle;
+
+type Page = Record<'pt' | 'en', { path: string; title: string }>;
+
 /** Every real URL on the site, grouped so a page and its translation stay paired. */
-function allPaths(): Array<Record<'pt' | 'en', string>> {
-  const out: Array<Record<'pt' | 'en', string>> = [];
+function allPaths(): Page[] {
+  const out: Page[] = [];
+  const page = (key: RouteKey, ptSlug?: string, enSlug?: string): Page => ({
+    pt: { path: href('pt', key, ptSlug), title: titleFor('pt', key, ptSlug) },
+    en: { path: href('en', key, enSlug), title: titleFor('en', key, enSlug) },
+  });
   for (const key of Object.keys(ROUTES) as RouteKey[]) {
-    if (!PARAM_ONLY.includes(key)) {
-      out.push({ pt: href('pt', key), en: href('en', key) });
-    }
+    if (!PARAM_ONLY.includes(key)) out.push(page(key));
     const slugs = params[key];
     if (!slugs) continue;
     // Slugs are identical across dictionaries by design (see routes.ts), so
-    // pairing by index is safe — and check:i18n already fails if the two
+    // pairing by index is safe, and check:i18n already fails if the two
     // dictionaries ever disagree on length.
-    slugs('pt').forEach((slug, i) => {
-      out.push({ pt: href('pt', key, slug), en: href('en', key, slugs('en')[i]) });
-    });
+    slugs('pt').forEach((slug, i) => out.push(page(key, slug, slugs('en')[i])));
   }
   return out;
 }
@@ -55,25 +77,52 @@ function allPaths(): Array<Record<'pt' | 'en', string>> {
 const paths = allPaths();
 const shell = readFileSync(join(dist, 'index.html'), 'utf8');
 
-for (const pair of paths) {
-  for (const lang of LANGS) {
-    const path = pair[lang];
-    if (path === `/${lang}`) {
-      mkdirSync(join(dist, lang), { recursive: true });
-      writeFileSync(join(dist, lang, 'index.html'), shell);
-      continue;
-    }
-    const dir = join(dist, path);
-    mkdirSync(dir, { recursive: true });
-    writeFileSync(join(dir, 'index.html'), shell);
-  }
-}
-
 // Pages serves these as directories, so it 301s /pt/quem-somos to
 // /pt/quem-somos/ and the app's canonical tag reads the trailing-slash form off
 // location.pathname. Emit the same thing here or the sitemap advertises a URL
 // that redirects to one whose canonical disagrees with it.
 const slash = (path: string) => (path.endsWith('/') ? path : `${path}/`);
+
+const escape = (text: string) =>
+  text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+
+// Everything between the markers in index.html is per page. Without this every
+// URL on the site shipped the same title and a Portuguese description, English
+// pages included, because they are all copies of one shell.
+const META = /<!-- meta:start[\s\S]*?meta:end -->/;
+
+function head(lang: 'pt' | 'en', path: string, title: string): string {
+  const description = dicts[lang].site.metaDescription;
+  return [
+    `<title>${escape(title)}</title>`,
+    `<meta name="description" content="${escape(description)}" />`,
+    `<meta property="og:url" content="${ORIGIN}${slash(path)}" />`,
+    `<meta property="og:title" content="${escape(title)}" />`,
+    `<meta property="og:description" content="${escape(description)}" />`,
+    `<meta property="og:locale" content="${lang === 'pt' ? 'pt_PT' : 'en_GB'}" />`,
+  ].join('\n\t\t');
+}
+
+function pageHtml(lang: 'pt' | 'en', path: string, title: string): string {
+  if (!META.test(shell)) throw new Error('index.html has no meta:start/meta:end block');
+  return shell
+    .replace(META, head(lang, path, title))
+    .replace('<html lang="pt-PT">', `<html lang="${lang === 'pt' ? 'pt-PT' : 'en'}">`);
+}
+
+for (const pair of paths) {
+  for (const lang of LANGS) {
+    const { path, title } = pair[lang];
+    const dir = path === `/${lang}` ? join(dist, lang) : join(dist, path);
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, 'index.html'), pageHtml(lang, path, title));
+  }
+}
+
+// The root index.html is the Portuguese home page: `/` redirects to `/pt` in
+// the client, and an unfurler that never runs the redirect should still read
+// the right thing.
+writeFileSync(join(dist, 'index.html'), pageHtml('pt', href('pt', 'home'), titleFor('pt', 'home')));
 
 const priority = (path: string) =>
   /^\/(pt|en)$/.test(path) ? '1.0' : path.includes('/legal/') ? '0.3' : path.includes('/pilares/') || path.includes('/pillars/') ? '0.7' : '0.8';
@@ -82,13 +131,13 @@ const urls = paths
   .flatMap((pair) =>
     LANGS.map((lang) => {
       const alts = [
-        `<xhtml:link rel="alternate" hreflang="pt-PT" href="${ORIGIN}${slash(pair.pt)}"/>`,
-        `<xhtml:link rel="alternate" hreflang="en" href="${ORIGIN}${slash(pair.en)}"/>`,
-        `<xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${slash(pair.pt)}"/>`,
+        `<xhtml:link rel="alternate" hreflang="pt-PT" href="${ORIGIN}${slash(pair.pt.path)}"/>`,
+        `<xhtml:link rel="alternate" hreflang="en" href="${ORIGIN}${slash(pair.en.path)}"/>`,
+        `<xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${slash(pair.pt.path)}"/>`,
       ];
       return `  <url>
-    <loc>${ORIGIN}${slash(pair[lang])}</loc>
-    <priority>${priority(pair[lang])}</priority>
+    <loc>${ORIGIN}${slash(pair[lang].path)}</loc>
+    <priority>${priority(pair[lang].path)}</priority>
     ${alts.join('\n    ')}
   </url>`;
     }),

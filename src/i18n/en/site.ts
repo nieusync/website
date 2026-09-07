@@ -1,5 +1,10 @@
 const site = {
   documentTitle: 'Nieusync | Five pillars. One partner.',
+  // One sentence per language, used for <meta name="description"> and og:description
+  // on every static page (scripts/gen-static.ts). Kept short enough that Google
+  // shows it whole.
+  metaDescription:
+    'A multidisciplinary firm for European-facing SMEs: legal, digital, strategy, operations and finance under one roof.',
   nav: {
     whoWeAre: 'Who we are',
     whatWeDo: 'What we do',
