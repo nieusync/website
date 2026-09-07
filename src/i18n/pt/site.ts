@@ -2,6 +2,8 @@ import type { Site } from '../en/site';
 
 const site: Site = {
   documentTitle: 'Nieusync | Cinco pilares. Um parceiro.',
+  metaDescription:
+    'Sociedade multidisciplinar para PME com mercado europeu: Legal, Digital, Estratégia, Operações e Financeira sob o mesmo teto.',
   nav: {
     whoWeAre: 'Quem somos',
     whatWeDo: 'O que fazemos',
