@@ -17,6 +17,13 @@ export const ROUTES = {
   contact: { pt: 'contacto', en: 'contact' },
   legal: { pt: 'legal', en: 'legal' },
   pillars: { pt: 'pilares', en: 'pillars' },
+  tools: { pt: 'ferramentas', en: 'tools' },
+  // Flat, not nested under `tools`: swapLang only translates the first segment,
+  // so a `ferramentas/x` slug would strand a reader on the homepage when they
+  // switch language. check-routes.ts enforces the bare-segment rule.
+  funding: { pt: 'calculadora-apoios', en: 'funding-calculator' },
+  pmeCheck: { pt: 'diagnostico-pme', en: 'sme-check' },
+  rgpcCheck: { pt: 'diagnostico-rgpc', en: 'rgpc-check' },
 } as const;
 
 export type RouteKey = keyof typeof ROUTES;

@@ -113,8 +113,11 @@ function LangSwitch() {
 export function Nav() {
   const blogUrl = useBlogUrl();
   const t = useT('site');
+  const tools = useT('tools');
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
+  const toolsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -131,6 +134,24 @@ export function Nav() {
   }, [open]);
 
   const linkCls = 'text-sm font-bold text-white/85 transition-colors hover:text-white';
+  const toolRoutes = ['funding', 'pmeCheck', 'rgpcCheck'] as const;
+  const toolLinks = tools.items.map((item, index) => ({ ...item, route: toolRoutes[index]! }));
+
+  useEffect(() => {
+    if (!toolsOpen) return;
+    const onClick = (event: MouseEvent) => {
+      if (!toolsRef.current?.contains(event.target as Node)) setToolsOpen(false);
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setToolsOpen(false);
+    };
+    document.addEventListener('mousedown', onClick);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onClick);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [toolsOpen]);
 
   const links = (
     <>
@@ -140,6 +161,29 @@ export function Nav() {
       <L to="whatWeDo" className={linkCls} onClick={() => setOpen(false)}>
         {t.nav.whatWeDo}
       </L>
+      <div ref={toolsRef} className="relative">
+        <button
+          type="button"
+          onClick={() => setToolsOpen((current) => !current)}
+          aria-expanded={toolsOpen}
+          aria-haspopup="menu"
+          className={`${linkCls} inline-flex cursor-pointer items-center gap-1 border-none bg-transparent p-0`}
+        >
+          {t.nav.tools}
+          <CaretDown size={12} weight="bold" className={toolsOpen ? 'rotate-180' : ''} />
+        </button>
+        {toolsOpen && (
+          <div role="menu" className="absolute left-0 top-full mt-3 w-72 rounded-xl border border-white/10 bg-ink/95 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+            <L to="tools" role="menuitem" onClick={() => setToolsOpen(false)} className="block rounded-lg px-3 py-2 text-sm font-bold text-white hover:bg-white/[0.06]">{tools.nav}</L>
+            {toolLinks.map(({ id, name, desc, route }) => (
+              <L key={id} to={route} role="menuitem" onClick={() => setToolsOpen(false)} className="block rounded-lg px-3 py-2.5 hover:bg-white/[0.06]">
+                <span className="block text-sm font-bold text-white">{name}</span>
+                <span className="mt-1 block text-xs leading-5 text-white/65">{desc}</span>
+              </L>
+            ))}
+          </div>
+        )}
+      </div>
       <a href={blogUrl} className={linkCls}>
         {t.nav.whatWeThink}
       </a>
@@ -189,7 +233,18 @@ export function Nav() {
 
       {open && (
         <nav className="flex flex-col gap-1 border-t border-white/10 bg-ink/95 px-6 pb-8 pt-4 backdrop-blur-xl lg:hidden">
-          <div className="flex flex-col gap-5 py-4 text-lg [&>*]:text-lg">{links}</div>
+          <div className="flex flex-col gap-5 py-4 text-lg [&>*]:text-lg">
+            <L to="whoWeAre" className={linkCls} onClick={() => setOpen(false)}>{t.nav.whoWeAre}</L>
+            <L to="whatWeDo" className={linkCls} onClick={() => setOpen(false)}>{t.nav.whatWeDo}</L>
+            <details className="text-white/85">
+              <summary className="cursor-pointer text-sm font-bold">{t.nav.tools}</summary>
+              <div className="mt-3 flex flex-col gap-3 border-l border-white/10 pl-4">
+                <L to="tools" onClick={() => setOpen(false)} className="text-sm font-bold">{tools.nav}</L>
+                {toolLinks.map(({ id, name, route }) => <L key={id} to={route} onClick={() => setOpen(false)} className="text-sm text-white/75">{name}</L>)}
+              </div>
+            </details>
+            <a href={blogUrl} className={linkCls}>{t.nav.whatWeThink}</a>
+          </div>
           <AppLink
             onClick={() => setOpen(false)}
             className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-[11px] font-bold uppercase tracking-[0.1em] text-white"
@@ -206,7 +261,9 @@ export function Nav() {
 export function Footer() {
   const blogUrl = useBlogUrl();
   const t = useT('site');
+  const tools = useT('tools');
   const legal = useT('legal');
+  const toolRoutes = ['funding', 'pmeCheck', 'rgpcCheck'] as const;
   const year = new Date().getFullYear();
 
   const colTitle = 'mb-4 text-[11px] font-bold uppercase tracking-[0.16em] text-white/70';
@@ -214,7 +271,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-white/10">
-      <div className="container grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr_1fr]">
+      <div className="container grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1.2fr_1fr]">
         <div className="flex flex-col items-center">
           <img src="/assets/logo_v_w_nbg.png" alt="Nieusync" className="mb-6 h-24 w-auto" loading="lazy" />
           <div className="flex gap-4">
@@ -246,6 +303,17 @@ export function Footer() {
           {t.pillars.items.map((p) => (
             <L key={p.slug} to="pillars" param={p.slug} className={colLink}>
               {p.name}
+            </L>
+          ))}
+        </div>
+
+        <div>
+          {/* The column heading already says Ferramentas, so the index link
+              would repeat it. The three tools are the useful links. */}
+          <p className={colTitle}>{tools.nav}</p>
+          {tools.items.map((item, index) => (
+            <L key={item.id} to={toolRoutes[index]!} className={colLink}>
+              {item.name}
             </L>
           ))}
         </div>

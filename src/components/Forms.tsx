@@ -1,26 +1,12 @@
 import { useState, type FormEvent } from 'react';
 import { ArrowRight, EnvelopeSimple, FilePdf } from '@phosphor-icons/react';
 import { useT } from '../i18n';
+import { post } from '../api';
 import { useBlogUrl } from '../hooks/useArticles';
 
 export const CONTACT_EMAIL = 'geral@nieusync.com';
 
-// The staff API, which turns a submission into a lead in the pipeline. Same
-// default as internal/ and app/: an empty base means same-origin, which only
-// happens behind a dev proxy.
-const API_URL = (import.meta.env.VITE_API_URL as string | undefined) ?? 'https://api.nieusync.com';
-
 type Status = 'idle' | 'sending' | 'sent' | 'error';
-
-async function submit(data: Record<string, string>) {
-  const res = await fetch(`${API_URL}/api/contact`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    // `website` is the honeypot the API checks: always empty from a real form.
-    body: JSON.stringify({ website: '', ...data }),
-  });
-  if (!res.ok) throw new Error(`/api/contact responded ${res.status}`);
-}
 
 // Ghost's own members endpoint, the one its `data-members-form` posts to. It is
 // public and unauthenticated by design, and it sends the confirmation email
@@ -30,7 +16,11 @@ async function submit(data: Record<string, string>) {
 // `blogUrl` is passed in rather than imported because the two blogs have
 // separate member databases: posting to the wrong one does not fail, it just
 // quietly files an English reader on the Portuguese list.
-async function subscribe(blogUrl: string, email: string, label: string) {
+//
+// Exported for ToolFlow, which offers the same subscription off the back of a
+// tool rather than the footer form. One copy, so a change to Ghost's signup
+// contract is one edit.
+export async function subscribe(blogUrl: string, email: string, label: string) {
   // Ghost expects a short-lived token minted by the blog itself on every
   // signup, and answers 400 without one. Fetch it here rather than on mount:
   // it expires, and most visitors never submit the form.
@@ -68,7 +58,7 @@ export function ContactForm() {
     const f = new FormData(form);
     setStatus('sending');
     try {
-      await submit({
+      await post('/api/contact', {
         name: String(f.get('name') ?? ''),
         company: String(f.get('company') ?? ''),
         email: String(f.get('email') ?? ''),

@@ -28,7 +28,9 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm typecheck && pnpm check:i18n && pnpm build
+      # `check` not `check:i18n`: the funding and tools checks are what stop an
+      # expired aviso or an uncited legal claim reaching production.
+      - run: pnpm typecheck && pnpm check && pnpm build
       # ponytail: SPA fallback for react-router deep links on Pages
       - run: cp dist/index.html dist/404.html
       - uses: actions/configure-pages@v5
