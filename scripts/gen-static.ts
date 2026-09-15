@@ -8,7 +8,7 @@
 //
 // 404.html stays as the fallback for genuinely unknown URLs, which is what
 // makes LEGACY_ROUTES work.
-import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { ROUTES, LANGS, href, type RouteKey } from '../src/routes';
 import en from '../src/i18n/en';
@@ -19,6 +19,11 @@ import pt from '../src/i18n/pt';
 // package root.
 const dist = join(process.cwd(), 'dist');
 const ORIGIN = 'https://nieusync.com';
+
+// A staging build is the same commit on a different host, so it would otherwise
+// ship production's robots.txt and CNAME and invite Google to index a duplicate
+// of the real site. Set STAGING=1 on that deploy and nowhere else.
+const STAGING = process.env.STAGING === '1';
 
 // Params come from the dictionaries rather than a second hardcoded list, so a
 // new pillar or legal document appears here the moment it is written.
@@ -160,4 +165,12 @@ ${urls}
 `,
 );
 
-console.log(`✓ ${paths.length * LANGS.length} static paths + sitemap`);
+// Staging is not a second copy of the site for search engines to find, and the
+// CNAME is a GitHub Pages artefact that names the production host.
+if (STAGING) {
+  writeFileSync(join(dist, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
+  rmSync(join(dist, 'CNAME'), { force: true });
+  rmSync(join(dist, 'sitemap.xml'), { force: true });
+}
+
+console.log(`✓ ${paths.length * LANGS.length} static paths + sitemap${STAGING ? ' (staging: crawlers blocked)' : ''}`);
