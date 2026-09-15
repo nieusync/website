@@ -287,8 +287,11 @@ function Check({
   required?: boolean;
   children: ReactNode;
 }) {
+  // Same size and leading as the intro paragraph above the fields: these two
+  // checkboxes are the sentence a visitor actually has to read, so setting them
+  // smaller than the copy that introduces them reads as fine print.
   return (
-    <label className="flex cursor-pointer items-start gap-3 text-sm leading-[1.65] text-white/75">
+    <label className="flex cursor-pointer items-start gap-3 text-[15px] leading-[1.7] text-white/75">
       <input
         type="checkbox"
         required={required}
