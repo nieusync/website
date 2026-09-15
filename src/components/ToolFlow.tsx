@@ -293,8 +293,17 @@ function Check({
   // 12px, bold, uppercase, letter-spaced. That is right above an input and
   // wrong around a sentence, so all four are undone here. Size and colour alone
   // are not enough: the case and the weight are what made it shout.
+  //
+  // The required one keeps a little weight, because it is the one a visitor
+  // cannot skip and the two otherwise look equally optional. It reads off
+  // `required` rather than a prop of its own: two ways to say the same thing
+  // would eventually disagree.
   return (
-    <label className="flex cursor-pointer items-start gap-3 text-[15px] font-normal normal-case leading-[1.7] tracking-normal text-white/75">
+    <label
+      className={`flex cursor-pointer items-start gap-3 text-[15px] normal-case leading-[1.7] tracking-normal text-white/75 ${
+        required ? 'font-semibold' : 'font-normal'
+      }`}
+    >
       <input
         type="checkbox"
         required={required}

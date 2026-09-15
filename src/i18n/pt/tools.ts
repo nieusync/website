@@ -31,7 +31,9 @@ const tools: Tools = {
     privacy: 'política de privacidade',
     after: ', e concordo que as minhas respostas sejam guardadas.',
   },
-  marketing: 'Quero receber email ocasional sobre conformidade e financiamento. Pode cancelar quando quiser.',
+  // Says "optional" outright, because the other checkbox is not and a reader
+  // skimming two ticked-off sentences cannot otherwise tell them apart.
+  marketing: 'Quero receber email ocasional sobre conformidade e financiamento. Pode cancelar quando quiser. (opcional)',
   start: 'Começar',
   seeResults: 'Ver resultados',
   answerFirst: 'Responda pelo menos a uma pergunta.',
