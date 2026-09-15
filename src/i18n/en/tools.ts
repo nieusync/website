@@ -31,7 +31,7 @@ const tools = {
   },
   // Says "optional" outright, because the other checkbox is not and a reader
   // skimming two ticked-off sentences cannot otherwise tell them apart.
-  marketing: 'Send me occasional email about compliance and funding. Unsubscribe any time. (optional)',
+  marketing: 'Subscribe me to the Nieusync newsletter. Unsubscribe any time. (optional)',
   start: 'Start',
   seeResults: 'See results',
   answerFirst: 'Answer at least one question first.',

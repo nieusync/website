@@ -33,7 +33,7 @@ const tools: Tools = {
   },
   // Says "optional" outright, because the other checkbox is not and a reader
   // skimming two ticked-off sentences cannot otherwise tell them apart.
-  marketing: 'Quero receber email ocasional sobre conformidade e financiamento. Pode cancelar quando quiser. (opcional)',
+  marketing: 'Quero subscrever a newsletter da Nieusync. Pode cancelar quando quiser. (opcional)',
   start: 'Começar',
   seeResults: 'Ver resultados',
   answerFirst: 'Responda pelo menos a uma pergunta.',
