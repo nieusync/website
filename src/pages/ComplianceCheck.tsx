@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ArrowSquareOut, Info, WarningCircle } from '@phosphor-icons/react';
 import { Nav, Footer } from '../components/SiteChrome';
+import { ToolFlow, type Details, type Step } from '../components/ToolFlow';
 import { useParallax } from '../hooks/useParallax';
 import { useT } from '../i18n';
 import { evaluateFramework, isVisible } from '../tools/evaluate';
@@ -13,6 +14,8 @@ const ANSWERS: Answer[] = ['yes', 'no', 'partial', 'toConfirm'];
 export function ComplianceCheck({ framework, kind }: { framework: Framework; kind: 'pme' | 'rgpc' }) {
   const t = useT('tools');
   const [answers, setAnswers] = useState<ToolAnswers>({});
+  const [step, setStep] = useState<Step>('details');
+  const [details, setDetails] = useState<Details>({ name: '', company: '', email: '', marketing: false });
   useParallax();
 
   const page = t[kind];
@@ -44,14 +47,31 @@ export function ComplianceCheck({ framework, kind }: { framework: Framework; kin
 
       <section className="pb-32">
         <div className="container max-w-[820px]">
-          <p className="flex gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-[1.7] text-white/70">
+          <p className="mb-10 flex gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-[1.7] text-white/70">
             <Info size={18} weight="duotone" className="mt-0.5 shrink-0 text-white/45" />
             {t.disclaimer}
           </p>
 
-          {/* Questions are rows, not cards: they are a sequence to work through,
-              and boxing each one would make eleven equal-weight containers. */}
-          <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
+          <ToolFlow
+            form={kind}
+            step={step}
+            onStep={setStep}
+            details={details}
+            onDetails={setDetails}
+            canSubmit={answered}
+            // Read once, when the visitor asks for their results. The findings
+            // go in beside the answers because what someone was told is the
+            // half that matters later, and it is derived from a table of fines
+            // that will not stay still.
+            payload={() => ({
+              answers,
+              findings: findings.map((finding) => ({ key: finding.question.key, status: finding.status })),
+              checkedOn: framework.checkedOn,
+            })}
+            questions={
+          /* Questions are rows, not cards: they are a sequence to work through,
+              and boxing each one would make eleven equal-weight containers. */
+          <div className="divide-y divide-white/10 border-y border-white/10">
             {visible.map((question) => (
               <div key={question.key} className="grid gap-4 py-6 md:grid-cols-[1fr_auto] md:items-center md:gap-8">
                 <p className="text-[15px] leading-[1.6] text-white/90">{t.questions[question.key as keyof typeof t.questions]}</p>
@@ -89,13 +109,18 @@ export function ComplianceCheck({ framework, kind }: { framework: Framework; kin
               </div>
             ))}
           </div>
+            }
+            results={
+              <>
+                <Findings title={t.possibleGaps} findings={possible} tone="gap" t={t} />
+                <Findings title={t.needsConfirmation} findings={unknown} tone="info" t={t} />
 
-          <Findings title={t.possibleGaps} findings={possible} tone="gap" t={t} />
-          <Findings title={t.needsConfirmation} findings={unknown} tone="info" t={t} />
-
-          {answered && !possible.length && !unknown.length && (
-            <p className="mt-10 rounded-xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-[1.7] text-white/70">{t.noFindings}</p>
-          )}
+                {!possible.length && !unknown.length && (
+                  <p className="rounded-xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-[1.7] text-white/70">{t.noFindings}</p>
+                )}
+              </>
+            }
+          />
         </div>
       </section>
 

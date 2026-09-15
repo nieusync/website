@@ -12,6 +12,30 @@ const tools: Tools = {
     { id: 'rgpc', name: 'Diagnóstico RGPC', desc: 'Possíveis falhas de conformidade anticorrupção.' },
   ],
   open: 'Abrir ferramenta',
+  // The three-step flow, shared by all three tools. See ToolFlow.tsx.
+  steps: {
+    details: 'Os seus dados',
+    questions: 'Perguntas',
+    results: 'Resultados',
+  },
+  detailsIntro: 'Diga-nos quem é e as respostas são suas. Guardamo-las para retomarmos a conversa onde a deixar.',
+  name: 'Nome',
+  company: 'Empresa',
+  email: 'Email',
+  // Split around the two links, because a sentence with a document name inside
+  // it cannot be one string and still be a link.
+  consent: {
+    before: 'Aceito os ',
+    terms: 'termos e condições',
+    between: ' e a ',
+    privacy: 'política de privacidade',
+    after: ', e concordo que as minhas respostas sejam guardadas.',
+  },
+  marketing: 'Quero receber email ocasional sobre conformidade e financiamento. Pode cancelar quando quiser.',
+  start: 'Começar',
+  seeResults: 'Ver resultados',
+  answerFirst: 'Responda pelo menos a uma pergunta.',
+  changeAnswers: 'Alterar respostas',
   answer: 'Responder',
   yes: 'Sim',
   no: 'Não',

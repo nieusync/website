@@ -18,7 +18,6 @@ const funding = {
   deMinimisHint: 'Total in euros over the last three fiscal years. If never, write 0.',
   purpose: 'What do you need the money for?',
   purposeHint: 'Pick everything that applies.',
-  calculate: 'Show programmes',
   yes: 'Yes',
   no: 'No',
   unsure: 'I do not know',

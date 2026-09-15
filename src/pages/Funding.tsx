@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { ArrowSquareOut, CheckCircle, Info, Prohibit } from '@phosphor-icons/react';
 import { Nav, Footer } from '../components/SiteChrome';
+import { ToolFlow, type Details, type Step } from '../components/ToolFlow';
 import { useParallax } from '../hooks/useParallax';
 import { useT } from '../i18n';
 import { matchAll, type Answers, type Match, type Purpose } from '../funding/match';
@@ -21,10 +22,11 @@ const hintCls = 'mt-2 block text-xs normal-case leading-5 tracking-normal text-w
 export default function Funding() {
   const t = useT('funding');
   const [answers, setAnswers] = useState(blank);
-  const [submitted, setSubmitted] = useState(false);
+  const [step, setStep] = useState<Step>('details');
+  const [details, setDetails] = useState<Details>({ name: '', company: '', email: '', marketing: false });
   useParallax();
 
-  const matches = submitted ? matchAll(PROGRAMMES, answers) : [];
+  const matches = matchAll(PROGRAMMES, answers);
   // A region we have not swept must say so. Silence would read as "no regional
   // programmes exist", which is the one wrong answer this page can give.
   const uncovered = answers.region !== 'unknown' && !COVERED_REGIONS.includes(answers.region);
@@ -63,13 +65,25 @@ export default function Funding() {
 
       <section className="pb-32">
         <div className="container max-w-[980px]">
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              setSubmitted(true);
-            }}
-            className="animate-fade-up grid grid-cols-1 gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-7 md:grid-cols-2 md:p-9 [animation-delay:300ms]"
-          >
+          <ToolFlow
+            form="funding"
+            step={step}
+            onStep={setStep}
+            details={details}
+            onDetails={setDetails}
+            // A region is the one answer the matcher cannot work without: with
+            // none of them given, every programme comes back as "needs info",
+            // which is a page of shrugs rather than a result.
+            canSubmit={answers.region !== 'unknown' || answers.cae !== '' || answers.size !== 'unknown'}
+            payload={() => ({
+              answers,
+              // What the visitor was actually shown. The programme list moves
+              // as calls open and close, so the ids alone would not say what
+              // this person saw on the day.
+              matches: matches.map((match) => ({ id: match.programme.id, status: match.status, outcome: match.outcome })),
+            })}
+            questions={
+          <div className="grid grid-cols-1 gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-7 md:grid-cols-2 md:p-9">
             <label>
               <span className={labelCls}>{t.region}</span>
               <select value={answers.region} onChange={(event) => set('region', event.target.value as Answers['region'])} className={`${fieldCls} bg-ink`}>
@@ -159,45 +173,38 @@ export default function Funding() {
               </div>
             </fieldset>
 
-            <div className="md:col-span-2">
-              <button
-                type="submit"
-                className="btn-gradient cursor-pointer border-none px-8 py-3.5 active:translate-y-0 active:scale-[0.98]"
-              >
-                {t.calculate}
-              </button>
-            </div>
-          </form>
-
-          {submitted && (
-            <div className="mt-12">
-              <p className="flex gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-[1.7] text-white/70">
-                <Info size={18} weight="duotone" className="mt-0.5 shrink-0 text-white/45" />
-                {t.disclaimer}
-              </p>
-
-              {uncovered && answers.region !== 'unknown' && (
-                <p className="mt-4 rounded-xl border border-purple/40 bg-purple/[0.10] p-5 text-sm leading-[1.7] text-white/85">
-                  {t.uncovered(t.regions[answers.region])}
+          </div>
+            }
+            results={
+              <div>
+                <p className="flex gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-[1.7] text-white/70">
+                  <Info size={18} weight="duotone" className="mt-0.5 shrink-0 text-white/45" />
+                  {t.disclaimer}
                 </p>
-              )}
 
-              <Group title={t.worthChecking} tone="good" matches={groups.worthChecking} t={t} />
-              <Group title={t.needsInfo} tone="info" matches={groups.needsInfo} t={t} />
-              <Group title={t.previousEditions} tone="info" matches={groups.previous} t={t} />
+                {uncovered && answers.region !== 'unknown' && (
+                  <p className="mt-4 rounded-xl border border-purple/40 bg-purple/[0.10] p-5 text-sm leading-[1.7] text-white/85">
+                    {t.uncovered(t.regions[answers.region])}
+                  </p>
+                )}
 
-              {groups.ruledOut.length > 0 && (
-                <details className="group mt-12">
-                  <summary className="flex cursor-pointer list-none items-center gap-2.5 text-sm font-bold text-white/60 transition-colors hover:text-white/85">
-                    <Prohibit size={17} weight="duotone" />
-                    {t.ruledOut}
-                    <span className="text-white/40">({groups.ruledOut.length})</span>
-                  </summary>
-                  <Group matches={groups.ruledOut} tone="muted" t={t} />
-                </details>
-              )}
-            </div>
-          )}
+                <Group title={t.worthChecking} tone="good" matches={groups.worthChecking} t={t} />
+                <Group title={t.needsInfo} tone="info" matches={groups.needsInfo} t={t} />
+                <Group title={t.previousEditions} tone="info" matches={groups.previous} t={t} />
+
+                {groups.ruledOut.length > 0 && (
+                  <details className="group mt-12">
+                    <summary className="flex cursor-pointer list-none items-center gap-2.5 text-sm font-bold text-white/60 transition-colors hover:text-white/85">
+                      <Prohibit size={17} weight="duotone" />
+                      {t.ruledOut}
+                      <span className="text-white/40">({groups.ruledOut.length})</span>
+                    </summary>
+                    <Group matches={groups.ruledOut} tone="muted" t={t} />
+                  </details>
+                )}
+              </div>
+            }
+          />
         </div>
       </section>
 

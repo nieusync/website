@@ -10,6 +10,30 @@ const tools = {
     { id: 'rgpc', name: 'RGPC check', desc: 'Possible anti-corruption compliance gaps.' },
   ],
   open: 'Open tool',
+  // The three-step flow, shared by all three tools. See ToolFlow.tsx.
+  steps: {
+    details: 'Your details',
+    questions: 'Questions',
+    results: 'Results',
+  },
+  detailsIntro: 'Tell us who you are and the answers are yours. We keep them so we can pick the conversation up where you left it.',
+  name: 'Name',
+  company: 'Company',
+  email: 'Email',
+  // Split around the two links, because a sentence with a document name inside
+  // it cannot be one string and still be a link.
+  consent: {
+    before: 'I accept the ',
+    terms: 'terms and conditions',
+    between: ' and the ',
+    privacy: 'privacy policy',
+    after: ', and agree that my answers are stored.',
+  },
+  marketing: 'Send me occasional email about compliance and funding. Unsubscribe any time.',
+  start: 'Start',
+  seeResults: 'See results',
+  answerFirst: 'Answer at least one question first.',
+  changeAnswers: 'Change my answers',
   answer: 'Answer',
   yes: 'Yes',
   no: 'No',
