@@ -42,6 +42,10 @@ const titles: Partial<Record<RouteKey, (lang: 'pt' | 'en', slug?: string) => str
   whoWeAre: (l) => dicts[l].site.whoPage.documentTitle,
   whatWeDo: (l) => dicts[l].site.whatPage.documentTitle,
   contact: (l) => dicts[l].site.contact.documentTitle,
+  tools: (l) => dicts[l].tools.indexDocumentTitle,
+  funding: (l) => dicts[l].funding.documentTitle,
+  pmeCheck: (l) => dicts[l].tools.pme.documentTitle,
+  rgpcCheck: (l) => dicts[l].tools.rgpc.documentTitle,
   legal: (l, slug) =>
     slug
       ? `${dicts[l].legal.docs.find((d) => d.slug === slug)?.title} | Nieusync`

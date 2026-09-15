@@ -57,6 +57,13 @@
   }
   input:focus, select:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(35, 56, 119, 0.10); }
 
+  /* Number spinners are a light-theme widget the browser draws itself, so on a
+     dark field they render as a grey chip nobody asked for. Nothing on this
+     site wants stepper arrows: every number field here is typed, not nudged. */
+  input[type='number'] { -moz-appearance: textfield; appearance: textfield; }
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
   label {
     display: block;
     font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px;

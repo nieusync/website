@@ -9,6 +9,7 @@ const site = {
     whoWeAre: 'Who we are',
     whatWeDo: 'What we do',
     whatWeThink: 'What we think',
+    tools: 'Tools',
     clientArea: 'Client area',
     menu: 'Menu',
   },
