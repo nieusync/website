@@ -287,11 +287,14 @@ function Check({
   required?: boolean;
   children: ReactNode;
 }) {
-  // Same size and leading as the intro paragraph above the fields: these two
-  // checkboxes are the sentence a visitor actually has to read, so setting them
-  // smaller than the copy that introduces them reads as fine print.
+  // Reads as the paragraph it is, matching the intro copy above the fields.
+  //
+  // `label` carries a global rule in index.css that makes it a field caption:
+  // 12px, bold, uppercase, letter-spaced. That is right above an input and
+  // wrong around a sentence, so all four are undone here. Size and colour alone
+  // are not enough: the case and the weight are what made it shout.
   return (
-    <label className="flex cursor-pointer items-start gap-3 text-[15px] leading-[1.7] text-white/75">
+    <label className="flex cursor-pointer items-start gap-3 text-[15px] font-normal normal-case leading-[1.7] tracking-normal text-white/75">
       <input
         type="checkbox"
         required={required}
