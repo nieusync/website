@@ -49,10 +49,6 @@ const tools = {
   noFindings: 'No possible gaps from the answers given. This is not a compliance assessment.',
   noFine: 'Fine depends on the facts and the offence classification.',
   fine: (min: number, max: number) => `Fine: €${min.toLocaleString('en-GB')} to €${max.toLocaleString('en-GB')}.`,
-  // Labour fines are set in UC, not euros, and the band moves with turnover and
-  // with negligence versus intent. Naming the bracket is the difference between
-  // a useful number and a misleading one.
-  fineUc: (min: number, max: number) => `Fine: ${min} UC to ${max} UC.`,
   fineUpTo: (max: number) => `Fine up to €${max.toLocaleString('en-GB')}.`,
   brackets: {
     rgpdTier5: 'GDPR article 83(5): up to €20,000,000 or 4% of worldwide annual turnover, whichever is higher. Controller and processor duties (article 83(4)) are capped at €10,000,000 or 2%.',
@@ -63,7 +59,7 @@ const tools = {
     graveSmallNegligence: 'Serious offence, company with turnover under €500,000, by negligence (Código do Trabalho art. 554.º). Rises with turnover and if intent is found.',
     muitoGraveSmallNegligence: 'Very serious offence, company with turnover under €500,000, by negligence (Código do Trabalho art. 554.º). For health and safety the maximum doubles (art. 556.º). Rises with turnover and if intent is found.',
   },
-  ucNote: 'UC is the Portuguese procedural unit of account. Check the current value to convert to euros.',
+  ucNote: (value: number, year: number) => `1 UC = €${value.toLocaleString('en-GB')} in ${year}.`,
   source: 'Read source',
   disclaimer: 'Indicative result based on your answers and cited sources. It is not legal, tax or financial advice, does not create an attorney-client relationship, and is not a compliance assessment.',
   pme: {

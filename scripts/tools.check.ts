@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { evaluateFramework, isVisible } from '../src/tools/evaluate';
-import { PME } from '../src/tools/pme';
+import { PME, UC_2026 } from '../src/tools/pme';
 import { RGPC } from '../src/tools/rgpc';
 import type { Framework, ToolAnswers } from '../src/tools/types';
 
@@ -96,9 +96,13 @@ assert.equal(RGPC.questions.length <= 20, true, `RGPC screener has grown to ${RG
 // to be "corrected" from memory by a later edit, so they are pinned here with
 // the source in the message.
 const ct = 'Código do Trabalho art. 554.º, https://files.dre.pt/1s/2009/02/03000/0092601029.pdf';
+assert.equal(UC_2026.year, 2026, 'UC conversion year is 2026');
+assert.equal(UC_2026.eurPerUc, 102, '1 UC is €102 in 2026');
 const fineOf = (key: string) => PME.questions.find((question) => question.key === key)?.finding?.fine;
 assert.deepEqual(fineOf('workingTimeRecords'), { min: 6, max: 12, unit: 'UC', bracket: 'graveSmallNegligence' }, `grave band is 6 UC to 12 UC, ${ct}`);
 assert.deepEqual(fineOf('occupationalRiskAssessment'), { min: 20, max: 40, unit: 'UC', bracket: 'muitoGraveSmallNegligence' }, `muito grave band is 20 UC to 40 UC, ${ct}`);
+assert.deepEqual([6 * UC_2026.eurPerUc, 12 * UC_2026.eurPerUc], [612, 1_224], 'grave display range is €612 to €1,224');
+assert.deepEqual([20 * UC_2026.eurPerUc, 40 * UC_2026.eurPerUc], [2_040, 4_080], 'muito grave display range is €2,040 to €4,080');
 
 // RGPC artigo 20.º, read verbatim on DR. The odd 44 891,81 is the statute's own
 // figure, not a typo, and it is exactly the kind of number a later edit rounds.

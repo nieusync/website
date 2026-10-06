@@ -2,6 +2,8 @@ import type { Framework } from './types';
 
 const checkedOn = '2026-09-14';
 
+export const UC_2026 = { year: 2026, eurPerUc: 102 } as const;
+
 export const PME: Framework = {
   id: 'pme',
   sourceUrl: 'https://github.com/ziku-io/whitelabel-praxis/blob/af73195dfdc8857069b9c8b0b354a371fa247aa6/packages/compliance/src/frameworks/pme.ts',

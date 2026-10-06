@@ -48,13 +48,9 @@ const tools: Tools = {
   possibleGaps: 'Possíveis falhas a confirmar agora',
   needsConfirmation: 'Precisa de confirmação',
   notApplicable: 'Fora do âmbito com estas respostas',
-  noFindings: 'Não surgem possíveis falhas nas respostas dadas. Isto não é uma avaliação de conformidade.',
+  noFindings: 'Considerando as respostas dadas, não foram identificadas falhas. Isto não é uma avaliação de conformidade.',
   noFine: 'A coima depende dos factos e da classificação da infração.',
   fine: (min: number, max: number) => `Coima: ${min.toLocaleString('pt-PT')} € a ${max.toLocaleString('pt-PT')} €.`,
-  // Labour fines are set in UC, not euros, and the band moves with turnover and
-  // with negligence versus dolo. Naming the bracket is the difference between a
-  // useful number and a misleading one.
-  fineUc: (min: number, max: number) => `Coima: ${min} UC a ${max} UC.`,
   fineUpTo: (max: number) => `Coima até ${max.toLocaleString('pt-PT')} €.`,
   brackets: {
     rgpdTier5: 'Artigo 83.º, n.º 5 do RGPD: até 20 000 000 € ou 4 % do volume de negócios anual mundial, consoante o que for mais elevado. Os deveres do responsável e do subcontratante (artigo 83.º, n.º 4) têm um teto de 10 000 000 € ou 2 %.',
@@ -65,7 +61,7 @@ const tools: Tools = {
     graveSmallNegligence: 'Contraordenação grave, empresa com volume de negócios inferior a 500 000 €, por negligência (art. 554.º do Código do Trabalho). Sobe com o volume de negócios e se houver dolo.',
     muitoGraveSmallNegligence: 'Contraordenação muito grave, empresa com volume de negócios inferior a 500 000 €, por negligência (art. 554.º do Código do Trabalho). Em segurança e saúde no trabalho o máximo duplica (art. 556.º). Sobe com o volume de negócios e se houver dolo.',
   },
-  ucNote: 'UC é a unidade de conta processual. Confirme o valor em vigor para converter em euros.',
+  ucNote: (value: number, year: number) => `1 UC = ${value.toLocaleString('pt-PT')} € em ${year}.`,
   source: 'Ler fonte',
   disclaimer: 'Resultado indicativo, baseado nas respostas e nas fontes citadas. Não constitui aconselhamento jurídico, fiscal ou financeiro, não cria uma relação advogado-cliente e não é uma avaliação de conformidade.',
   pme: {
@@ -82,17 +78,18 @@ const tools: Tools = {
   },
   questions: {
     hasEmployees: 'Tem trabalhadores?',
-    writtenEmploymentTerms: 'Todos os trabalhadores receberam os elementos escritos obrigatórios?',
+    writtenEmploymentTerms:
+      'O empregador entregou a cada trabalhador todos os documentos e informações que, por lei, devem ser entregues por escrito no início ou durante a relação de trabalho? (Contratos de trabalho, informações sobre segurança e saúde no trabalho, recibos de vencimento, comprovativos de formação e alterações ao contrato.)',
     workingTimeRecords: 'Os registos de tempo de trabalho estão completos e acessíveis?',
     occupationalRiskAssessment: 'Tem avaliações de riscos profissionais e medidas preventivas documentadas?',
-    healthSurveillance: 'Os trabalhadores recebem a vigilância de saúde no trabalho exigida?',
-    beneficialOwnerCurrent: 'A declaração de beneficiário efetivo está atualizada?',
+    healthSurveillance: 'Os trabalhadores têm acesso aos serviços de Higiene e Segurança no Trabalho?',
+    beneficialOwnerCurrent: 'A declaração de beneficiário efetivo (RCBE) está atualizada?',
     processesPersonalData: 'Trata dados pessoais?',
     gdprControls: 'Tem controlos RGPD documentados para esse tratamento?',
     servesConsumers: 'Vende ou presta serviços a consumidores?',
     complaintsBook: 'Mantém e trata o livro de reclamações exigido?',
     subjectToAml: 'É uma entidade obrigada pela lei de prevenção do branqueamento?',
-    amlControls: 'Tem os controlos ABC exigidos?',
+    amlControls: 'Tem políticas e mecanismos de prevenção do branqueamento de capitais implantados?',
     seatInPortugal: 'Tem sede ou sucursal em Portugal?',
     employeeCount: 'Quantos trabalhadores tem?',
     isRegulator: 'É um regulador económico independente ou o Banco de Portugal?',

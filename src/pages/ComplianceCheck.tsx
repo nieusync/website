@@ -5,6 +5,7 @@ import { ToolFlow, type Details, type Step } from '../components/ToolFlow';
 import { useParallax } from '../hooks/useParallax';
 import { useT } from '../i18n';
 import { evaluateFramework, isVisible } from '../tools/evaluate';
+import { UC_2026 } from '../tools/pme';
 import type { Answer, Finding, Framework, ToolAnswers } from '../tools/types';
 
 type Copy = ReturnType<typeof useT<'tools'>>;
@@ -160,16 +161,19 @@ function Findings({ title, findings, tone, t }: { title: string; findings: Findi
                     <p className="mt-3 text-[15px] font-bold leading-[1.5] text-white">
                       {question.finding.fine.min === undefined
                         ? t.fineUpTo(question.finding.fine.max)
-                        : question.finding.fine.unit === 'UC'
-                          ? t.fineUc(question.finding.fine.min, question.finding.fine.max)
-                          : t.fine(question.finding.fine.min, question.finding.fine.max)}
+                        : t.fine(
+                            question.finding.fine.unit === 'UC' ? question.finding.fine.min * UC_2026.eurPerUc : question.finding.fine.min,
+                            question.finding.fine.unit === 'UC' ? question.finding.fine.max * UC_2026.eurPerUc : question.finding.fine.max,
+                          )}
                     </p>
                     {question.finding.fine.bracket && (
                       <p className="mt-2 text-sm leading-[1.65] text-white/65">
                         {t.brackets[question.finding.fine.bracket as keyof typeof t.brackets]}
                       </p>
                     )}
-                    {question.finding.fine.unit === 'UC' && <p className="mt-2 text-xs leading-[1.6] text-white/50">{t.ucNote}</p>}
+                    {question.finding.fine.unit === 'UC' && (
+                      <p className="mt-2 text-xs leading-[1.6] text-white/50">{t.ucNote(UC_2026.eurPerUc, UC_2026.year)}</p>
+                    )}
                   </>
                 ) : (
                   <p className="mt-3 text-sm leading-[1.65] text-white/70">{t.noFine}</p>
