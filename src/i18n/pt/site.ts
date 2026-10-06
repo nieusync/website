@@ -8,6 +8,7 @@ const site: Site = {
     whoWeAre: 'Quem somos',
     whatWeDo: 'O que fazemos',
     whatWeThink: 'O que pensamos',
+    tools: 'Ferramentas',
     clientArea: 'Área de cliente',
     menu: 'Menu',
   },
