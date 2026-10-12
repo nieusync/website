@@ -40,7 +40,7 @@ const legal = {
           paragraphs: [
             'NIEUSYNC practises law among its other activities and is registered with and supervised by the Portuguese Bar Association, the public professional body that regulates access to and practice of the profession in Portugal.',
             'The lawyers of the Firm are bound by the Statute of the Portuguese Bar Association and the other applicable rules of professional conduct, in particular on professional secrecy, independence, prevention of conflicts of interest and the prohibition of unlawful client solicitation.',
-            'Lawyer in charge / managing partner: Dr. Ricardo Serrão de Carvalho, Bar card no. 50477E.',
+            'Lawyer in charge / managing partner: Dr. Ricardo Carvalho, Bar card no. 50477E.',
           ],
         },
         {

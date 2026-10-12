@@ -20,9 +20,9 @@ const GOLDEN_ICONS = [Question, Path, Package];
 
 // Both arrays follow the order of the i18n `whoPage.team` array
 const TEAM_PHOTOS = [
-  '/assets/ricardo_serrao_carvalho.jpeg',
-  '/assets/joao_carvalho.jpeg',
-  '/assets/ricardo_carvalho.jpeg',
+  '/assets/ricardo_carvalho.jpg',
+  '/assets/joao_carvalho.jpg',
+  '/assets/ricardo_lobato.jpg',
 ];
 
 const TEAM_SOCIALS = [
@@ -143,12 +143,14 @@ export default function WhoWeAre() {
                 key={m.name}
                 className="stagger-child flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition-colors duration-300 hover:border-purple/40"
               >
-                <img
-                  src={TEAM_PHOTOS[i]}
-                  alt={m.name}
-                  loading="lazy"
-                  className="mx-auto mb-7 h-40 w-40 rounded-full object-cover ring-1 ring-white/15"
-                />
+                <div className="mx-auto mb-7 h-40 w-40 overflow-hidden rounded-full ring-1 ring-white/15">
+                  <img
+                    src={TEAM_PHOTOS[i]}
+                    alt={m.name}
+                    loading="lazy"
+                    className="h-full w-full scale-105 object-cover"
+                  />
+                </div>
                 <h3 className="mb-1 text-center font-display text-xl leading-[1.2] text-white">
                   {m.name}
                 </h3>

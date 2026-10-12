@@ -38,7 +38,7 @@ const legal: Legal = {
           paragraphs: [
             'A NIEUSYNC exerce, entre outras, a atividade de advocacia, encontrando-se inscrita e sujeita à supervisão da Ordem dos Advogados, associação pública profissional que regula o acesso e o exercício da profissão em Portugal.',
             'Os advogados que integram a Sociedade estão vinculados ao Estatuto da Ordem dos Advogados e às demais normas deontológicas aplicáveis, designadamente em matéria de segredo profissional, independência, prevenção de conflitos de interesses e proibição de angariação ilícita de clientela.',
-            'Advogado responsável / gerente: Dr. Ricardo Serrão de Carvalho, Cédula Profissional n.º 50477E.',
+            'Advogado responsável / gerente: Dr. Ricardo Carvalho, Cédula Profissional n.º 50477E.',
           ],
         },
         {
