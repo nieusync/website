@@ -11,6 +11,10 @@ const WhatWeDo = lazy(() => import('./pages/WhatWeDo'));
 const Legal = lazy(() => import('./pages/Legal'));
 const LegalIndex = lazy(() => import('./pages/LegalIndex'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Tools = lazy(() => import('./pages/Tools'));
+const Funding = lazy(() => import('./pages/Funding'));
+const PmeCheck = lazy(() => import('./pages/PmeCheck'));
+const RgpcCheck = lazy(() => import('./pages/RgpcCheck'));
 
 /**
  * Owns the language for everything under it. `lang` comes from which subtree
@@ -81,6 +85,10 @@ export default function App() {
             <Route path={ROUTES.whatWeDo[lang]} element={<WhatWeDo />} />
             <Route path={ROUTES.clientArea[lang]} element={<ClientAreaRedirect />} />
             <Route path={ROUTES.contact[lang]} element={<Contact />} />
+            <Route path={ROUTES.tools[lang]} element={<Tools />} />
+            <Route path={ROUTES.funding[lang]} element={<Funding />} />
+            <Route path={ROUTES.pmeCheck[lang]} element={<PmeCheck />} />
+            <Route path={ROUTES.rgpcCheck[lang]} element={<RgpcCheck />} />
             <Route path={ROUTES.legal[lang]} element={<LegalIndex />} />
             <Route path={`${ROUTES.legal[lang]}/:slug`} element={<Legal />} />
             <Route path={`${ROUTES.pillars[lang]}/:slug`} element={<Pillar />} />

@@ -9,6 +9,7 @@ const site = {
     whoWeAre: 'Who we are',
     whatWeDo: 'What we do',
     whatWeThink: 'What we think',
+    tools: 'Tools',
     clientArea: 'Client area',
     menu: 'Menu',
   },
@@ -199,7 +200,7 @@ const site = {
       'Our expertise comes from working with small companies, from the inside, knowing the difficulties they face.',
     team: [
       {
-        name: 'Ricardo Serrão de Carvalho',
+        name: 'Ricardo Carvalho',
         role: 'Managing Partner & Lawyer',
         pillars: 'Legal · Financial · Strategy',
         bio: 'More than 15 years working with SMEs on Legal and Strategy: corporate structure, contracts, negotiations, tax architecture and growth plans for companies operating across European markets. He is the partner who stays closest to the work.',
@@ -211,7 +212,7 @@ const site = {
         bio: 'Previously CTO of two VC-backed US companies. Builds the technology, the data and the operating processes that let a small team run like a much larger one. Keeps the plan moving once it is agreed.',
       },
       {
-        name: 'Ricardo Carvalho',
+        name: 'Ricardo Lobato',
         role: 'Partner',
         pillars: 'Digital',
         bio: 'Comes from digital marketing and video production. Runs the brand, the content and the campaigns: the part of Digital your clients actually see, made in-house rather than bought by the hour.',

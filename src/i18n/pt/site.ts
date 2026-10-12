@@ -8,6 +8,7 @@ const site: Site = {
     whoWeAre: 'Quem somos',
     whatWeDo: 'O que fazemos',
     whatWeThink: 'O que pensamos',
+    tools: 'Ferramentas',
     clientArea: 'Área de cliente',
     menu: 'Menu',
   },
@@ -196,7 +197,7 @@ const site: Site = {
       'A nossa experiência vem de trabalhar com empresas pequenas, por dentro, conhecendo as dificuldades com que se deparam.',
     team: [
       {
-        name: 'Ricardo Serrão de Carvalho',
+        name: 'Ricardo Carvalho',
         role: 'Sócio Gerente & Advogado',
         pillars: 'Legal · Financeira · Estratégia',
         bio: 'Mais de 15 anos a trabalhar com PME em Legal e Estratégia: estrutura societária, contratos, negociações, arquitetura fiscal e planos de crescimento para empresas que operam em mercados europeus. É o sócio que fica mais perto do trabalho.',
@@ -208,7 +209,7 @@ const site: Site = {
         bio: 'Anteriormente CTO de duas empresas norte-americanas financiadas por capital de risco. Constrói a tecnologia, os dados e os processos que permitem a uma equipa pequena operar como uma muito maior. Mantém o plano em andamento depois de acordado.',
       },
       {
-        name: 'Ricardo Carvalho',
+        name: 'Ricardo Lobato',
         role: 'Sócio',
         pillars: 'Digital',
         bio: 'Vem do marketing digital e da produção de vídeo. Trata da marca, dos conteúdos e das campanhas: a parte do Digital que os seus clientes veem, feita em casa e não comprada à hora.',
