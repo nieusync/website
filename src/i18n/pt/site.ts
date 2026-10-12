@@ -14,8 +14,8 @@ const site: Site = {
   },
   hero: {
     eyebrow: 'O parceiro operacional das PME com mercado europeu',
-    titleTop: 'Os negócios são difíceis.',
-    titleSync: 'Nós gostamos disso.',
+    titleTop: 'O seu negócio,',
+    titleSync: 'em sincronia.',
     subtitle:
       'Ajudamos a escalar o seu negócio com o apoio que normalmente só as grandes empresas têm.',
     ctaPillars: 'Explorar os cinco pilares',
@@ -197,7 +197,7 @@ const site: Site = {
       'A nossa experiência vem de trabalhar com empresas pequenas, por dentro, conhecendo as dificuldades com que se deparam.',
     team: [
       {
-        name: 'Ricardo Carvalho',
+        name: 'Ricardo Serrão de Carvalho',
         role: 'Sócio Gerente & Advogado',
         pillars: 'Legal · Financeira · Estratégia',
         bio: 'Mais de 15 anos a trabalhar com PME em Legal e Estratégia: estrutura societária, contratos, negociações, arquitetura fiscal e planos de crescimento para empresas que operam em mercados europeus. É o sócio que fica mais perto do trabalho.',

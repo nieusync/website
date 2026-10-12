@@ -200,7 +200,7 @@ const site = {
       'Our expertise comes from working with small companies, from the inside, knowing the difficulties they face.',
     team: [
       {
-        name: 'Ricardo Carvalho',
+        name: 'Ricardo Serrão de Carvalho',
         role: 'Managing Partner & Lawyer',
         pillars: 'Legal · Financial · Strategy',
         bio: 'More than 15 years working with SMEs on Legal and Strategy: corporate structure, contracts, negotiations, tax architecture and growth plans for companies operating across European markets. He is the partner who stays closest to the work.',
