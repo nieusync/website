@@ -15,8 +15,8 @@ const site = {
   },
   hero: {
     eyebrow: 'The operating partner for European-facing SMEs',
-    titleTop: 'Business is hard.',
-    titleSync: 'We like it.',
+    titleTop: 'Your business,',
+    titleSync: 'in sync.',
     subtitle:
       'We help scale your business with the kind of support usually reserved for large companies.',
     ctaPillars: 'Explore the five pillars',
