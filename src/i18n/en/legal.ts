@@ -167,7 +167,8 @@ const legal = {
           title: 'What we use',
           paragraphs: [
             'This site uses strictly necessary storage only: we keep your chosen language in your browser’s local storage so the site opens in the same language next time. It holds no personal data and is shared with no one.',
-            'We use no advertising or profiling cookies. For statistical analysis of visits we use Umami, a tool hosted on our own servers. Umami sets no cookies and collects no personal data that could identify you, recording only aggregated session data, and it shares no information with third party servers. Because it relies on no cookies and no processing that requires consent, this analytics is not subject to the consent banner. If we later add other analytics or third party cookies, we will ask for your consent before setting them and update this policy.',
+            'We use no advertising or profiling cookies. With your consent, we use Google Analytics to measure visits and understand which pages are read. It may collect browser and device data, usage data, page paths and analytics identifiers through cookies. Google processes that information under its own terms. We do not send form fields, names, email addresses or query strings to Google Analytics.',
+            'Analytics cookies are installed only after you select Accept in the cookie banner. You can refuse them or withdraw consent at any time through Cookie settings. Withdrawal stops future collection and removes the analytics cookies we can remove, but cannot withdraw information already sent to Google.',
           ],
         },
         {

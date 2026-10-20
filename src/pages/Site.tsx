@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import L from '../components/L';
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
 import { useT } from "../i18n";
 import { useParallax } from "../hooks/useParallax";

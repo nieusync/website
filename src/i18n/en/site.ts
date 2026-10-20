@@ -157,6 +157,14 @@ const site = {
     success: 'Thank you, your message is with us.',
     error: 'Something went wrong. Please email geral@nieusync.com directly.',
   },
+  cookieConsent: {
+    title: 'Analytics cookies',
+    description: 'May we use Google Analytics to understand which pages visitors read?',
+    policy: 'Cookie Policy',
+    refuse: 'Refuse',
+    accept: 'Accept',
+    settings: 'Cookie settings',
+  },
   newsletter: {
     label: 'Free guide',
     title: '10 legal protections every SME needs',

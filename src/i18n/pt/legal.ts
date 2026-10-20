@@ -165,7 +165,8 @@ const legal: Legal = {
           title: 'O que utilizamos',
           paragraphs: [
             'Este site utiliza apenas armazenamento estritamente necessário: guardamos o idioma escolhido no armazenamento local do seu navegador para que o site abra no mesmo idioma da próxima vez. Não contém dados pessoais nem é partilhado com ninguém.',
-            'Não utilizamos cookies de publicidade ou de perfilagem. Para efeitos de análise estatística das visitas, utilizamos a ferramenta Umami, alojada nos nossos próprios servidores. O Umami não utiliza cookies nem recolhe dados pessoais que permitam identificar o utilizador, limitando-se a registar dados agregados de sessão, e não partilha qualquer informação com servidores de terceiros. Por não recorrer a cookies nem a tratamento que exija consentimento, esta analítica não está sujeita ao banner de consentimento. Se viermos a acrescentar outra analítica ou cookies de terceiros, pediremos o seu consentimento antes de os instalar e atualizaremos esta política.',
+            'Não utilizamos cookies de publicidade ou de perfilagem. Com o seu consentimento, utilizamos o Google Analytics para medir visitas e perceber que páginas são lidas. Pode recolher dados do navegador e do dispositivo, dados de utilização, caminhos das páginas e identificadores de analítica através de cookies. A Google trata essa informação nos termos próprios. Não enviamos campos de formulários, nomes, endereços de email ou parâmetros de consulta para o Google Analytics.',
+            'Os cookies de analítica só são instalados depois de selecionar Aceitar no banner de cookies. Pode recusá-los ou retirar o consentimento a qualquer momento nas Definições de cookies. A retirada interrompe a recolha futura e elimina os cookies de analítica que conseguimos eliminar, mas não retira informação já enviada à Google.',
           ],
         },
         {

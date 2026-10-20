@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { I18nProvider, detect, type Lang } from './i18n';
 import { ROUTES, LANGS, href, swapLang, legacyTarget } from './routes';
 import { ClientAreaRedirect } from './components/AppLink';
+import CookieConsent from './components/CookieConsent';
 
 const Site = lazy(() => import('./pages/Site'));
 const Pillar = lazy(() => import('./pages/Pillar'));
@@ -58,6 +59,7 @@ function LocaleLayout({ lang }: { lang: Lang }) {
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
+      <CookieConsent />
     </I18nProvider>
   );
 }

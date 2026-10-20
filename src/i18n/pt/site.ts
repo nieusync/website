@@ -154,6 +154,14 @@ const site: Site = {
     success: 'Obrigado, a sua mensagem está connosco.',
     error: 'Algo correu mal. Escreva-nos diretamente para geral@nieusync.com.',
   },
+  cookieConsent: {
+    title: 'Cookies de analítica',
+    description: 'Podemos utilizar o Google Analytics para perceber que páginas os visitantes leem?',
+    policy: 'Política de cookies',
+    refuse: 'Recusar',
+    accept: 'Aceitar',
+    settings: 'Definições de cookies',
+  },
   newsletter: {
     label: 'Guia gratuito',
     title: '10 Proteções Legais que toda a PME precisa',
