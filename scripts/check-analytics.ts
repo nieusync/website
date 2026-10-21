@@ -1,7 +1,11 @@
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 
-const html = await readFile('index.html', 'utf8')
+const [html, analytics, toolFlow] = await Promise.all([
+	readFile('index.html', 'utf8'),
+	readFile('src/analytics.ts', 'utf8'),
+	readFile('src/components/ToolFlow.tsx', 'utf8'),
+])
 const measurementId = 'G-7MRR3GZPDS'
 const defaultConsent = html.indexOf("gtag('consent', 'default'")
 const config = html.indexOf("gtag('config', 'G-7MRR3GZPDS'")
@@ -14,5 +18,30 @@ for (const key of ['ad_storage', 'analytics_storage', 'ad_user_data', 'ad_person
 assert.match(html, /wait_for_update: 500/, 'Consent Mode must wait for the choice')
 assert.match(html, new RegExp(`gtag/js\\?id=${measurementId}`), 'Google tag must be present')
 assert.match(html, /send_page_view: false/, 'React owns page views')
+
+assert.match(analytics, /if \(!consented\) return/, 'Tool events must require analytics consent')
+for (const [event, method, name] of [
+	['tool_start', 'trackCustom', 'ToolStart'],
+	['tool_complete', 'track', 'Lead'],
+	['newsletter_signup', 'track', 'CompleteRegistration'],
+]) {
+	assert.match(analytics, new RegExp(`${event}: \\['${method}', '${name}'\\]`), `${event} Meta mapping must remain stable`)
+}
+const autoConfig = analytics.indexOf("fbq('set', 'autoConfig', false, META_PIXEL_ID)")
+const metaInit = analytics.indexOf("fbq('init', META_PIXEL_ID)")
+assert.ok(autoConfig >= 0 && autoConfig < metaInit, 'Meta autoConfig must be disabled before pixel init')
+
+assert.match(toolFlow, /const completionTracked = useRef\(false\)/, 'Tool completion must track once per flow')
+assert.match(toolFlow, /const newsletterTracked = useRef\(false\)/, 'Newsletter intent must track once per flow')
+assert.match(
+	toolFlow,
+	/if \(!completionTracked\.current\) \{\s+completionTracked\.current = true;\s+trackTool\('tool_complete', form\);\s+\}/,
+	'Tool completion must be guarded before dispatch',
+)
+assert.match(
+	toolFlow,
+	/if \(details\.marketing && !newsletterTracked\.current\) \{\s+newsletterTracked\.current = true;\s+trackTool\('newsletter_signup', form\);\s+\}/,
+	'Newsletter intent must be guarded before dispatch',
+)
 
 console.log('analytics check OK')

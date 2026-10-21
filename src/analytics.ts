@@ -1,4 +1,5 @@
 let lastPath: string | undefined
+let consented = false
 
 const META_PIXEL_ID = '1513647920815889'
 
@@ -45,11 +46,14 @@ function loadMetaPixel() {
 	script.async = true
 	script.src = 'https://connect.facebook.net/en_US/fbevents.js'
 	document.head.append(script)
+	// No automatic button-click events (SubscribedButtonClick): only what we send.
+	fbq('set', 'autoConfig', false, META_PIXEL_ID)
 	fbq('init', META_PIXEL_ID)
 	return fbq
 }
 
 export function enableAnalytics(pathname: string) {
+	consented = true
 	gtag('consent', 'update', { analytics_storage: 'granted' })
 	if (lastPath === pathname) return
 	lastPath = pathname
@@ -61,6 +65,7 @@ export function enableAnalytics(pathname: string) {
 }
 
 export function disableAnalytics() {
+	consented = false
 	lastPath = undefined
 	gtag('consent', 'update', {
 		ad_storage: 'denied',
@@ -69,4 +74,21 @@ export function disableAnalytics() {
 		ad_personalization: 'denied',
 	})
 	clearAnalyticsCookies()
+}
+
+type ToolEvent = 'tool_start' | 'tool_complete' | 'newsletter_signup'
+
+// GA4 keeps these names; Meta gets its standard events where one fits.
+const META_EVENT: Record<ToolEvent, [method: 'track' | 'trackCustom', name: string]> = {
+	tool_start: ['trackCustom', 'ToolStart'],
+	tool_complete: ['track', 'Lead'],
+	newsletter_signup: ['track', 'CompleteRegistration'],
+}
+
+/** One step of a tool, only with consent. `tool` is the form key: 'pme', 'rgpc' or 'funding'. */
+export function trackTool(event: ToolEvent, tool: string) {
+	if (!consented) return
+	gtag('event', event, { tool })
+	const [method, name] = META_EVENT[event]
+	loadMetaPixel()(method, name, { tool })
 }
