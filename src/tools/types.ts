@@ -28,7 +28,7 @@ export interface Condition {
 export interface Question {
   key: string;
   type: 'choice' | 'number';
-  sourceUrl: string;
+  sourceUrl?: string;
   checkedOn: string;
   when?: readonly Condition[];
   allowsNa?: boolean;

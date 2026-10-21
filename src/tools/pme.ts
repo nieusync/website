@@ -23,9 +23,9 @@ export const PME: Framework = {
     // turnover, negligence: 20 UC to 40 UC. Artigo 556.º(1) doubles the maximum
     // for safety and health breaches, so this one carries a 40 UC to 80 UC top.
     // Official PDF: https://files.dre.pt/1s/2009/09/17600/0616706192.pdf
-    { key: 'occupationalRiskAssessment', type: 'choice', sourceUrl: 'https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2009-56365379', checkedOn, when: [{ key: 'hasEmployees', is: ['yes', 'partial', 'toConfirm'] }], finding: { authority: 'ACT', article: 'Lei 102/2009, artigo 15.º', fine: { min: 20, max: 40, unit: 'UC', bracket: 'muitoGraveSmallNegligence' } } },
+    { key: 'occupationalRiskAssessment', type: 'choice', checkedOn, when: [{ key: 'hasEmployees', is: ['yes', 'partial', 'toConfirm'] }], finding: { authority: 'ACT', article: 'Lei 102/2009, artigo 15.º', fine: { min: 20, max: 40, unit: 'UC', bracket: 'muitoGraveSmallNegligence' } } },
     // Artigos 108.º(6) and 110.º(7): both "contra-ordenação grave".
-    { key: 'healthSurveillance', type: 'choice', sourceUrl: 'https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2009-56365379', checkedOn, when: [{ key: 'hasEmployees', is: ['yes', 'partial', 'toConfirm'] }], finding: { authority: 'ACT / DGS', article: 'Lei 102/2009, artigos 108.º e 110.º', fine: { min: 6, max: 12, unit: 'UC', bracket: 'graveSmallNegligence' } } },
+    { key: 'healthSurveillance', type: 'choice', checkedOn, when: [{ key: 'hasEmployees', is: ['yes', 'partial', 'toConfirm'] }], finding: { authority: 'ACT / DGS', article: 'Lei 102/2009, artigos 108.º e 110.º', fine: { min: 6, max: 12, unit: 'UC', bracket: 'graveSmallNegligence' } } },
     // RCBE artigo 6.º(1), read verbatim on the consolidated text: "O incumprimento
     // pela sociedade do dever de manter um registo atualizado dos elementos de
     // identificação do beneficiário efetivo constitui contraordenação punível com

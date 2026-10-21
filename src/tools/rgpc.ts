@@ -23,7 +23,7 @@ export const RGPC: Framework = {
     // Artigo 20.º(1)(b): no code of conduct, or one that ignores the criminal
     // rules on corruption, is the core tier.
     { key: 'hasCodeOfConduct', type: 'choice', sourceUrl, checkedOn, when: [{ key: 'employeeCount', min: 50 }], finding: { authority: 'MENAC', article: 'RGPC, artigos 7.º e 20.º', fine: { min: 2_000, max: 44_891.81, unit: 'EUR', bracket: 'rgpcCore' } } },
-    { key: 'hasWhistleblowingChannel', type: 'choice', sourceUrl: 'https://diariodarepublica.pt/dr/detalhe/lei/93-2021-169143931', checkedOn, when: [{ key: 'employeeCount', min: 50 }], finding: { authority: 'Autoridade competente', article: 'Lei 93/2021, artigo 8.º' } },
+    { key: 'hasWhistleblowingChannel', type: 'choice', checkedOn, when: [{ key: 'employeeCount', min: 50 }], finding: { authority: 'Autoridade competente', article: 'Lei 93/2021, artigo 8.º' } },
     { key: 'hasTraining', type: 'choice', sourceUrl, checkedOn, when: [{ key: 'employeeCount', min: 50 }], finding: { authority: 'MENAC', article: 'Decreto-Lei 109-E/2021, artigo 9.º' } },
     // Artigo 20.º(1)(c): no internal control system under artigo 15.º(1).
     { key: 'hasEvaluationSystem', type: 'choice', sourceUrl, checkedOn, when: [{ key: 'employeeCount', min: 50 }], finding: { authority: 'MENAC', article: 'RGPC, artigos 15.º e 20.º', fine: { min: 2_000, max: 44_891.81, unit: 'EUR', bracket: 'rgpcCore' } } },

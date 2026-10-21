@@ -15,6 +15,7 @@ const blank: Answers = {
 
 const fieldCls =
   'w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-[15px] text-white placeholder:text-white/45 transition focus:border-purple focus:shadow-[0_0_0_3px_rgba(159,142,194,0.18)] focus:outline-none';
+const selectCls = `${fieldCls} bg-ink [color-scheme:dark]`;
 const labelCls = 'mb-2 block text-[11px] font-bold uppercase tracking-[0.14em] text-white/70';
 // Normal sentence case, not the uppercase label treatment: this is read, not scanned.
 const hintCls = 'mt-2 block text-xs normal-case leading-5 tracking-normal text-white/50';
@@ -86,7 +87,7 @@ export default function Funding() {
           <div className="grid grid-cols-1 gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-7 md:grid-cols-2 md:p-9">
             <label>
               <span className={labelCls}>{t.region}</span>
-              <select value={answers.region} onChange={(event) => set('region', event.target.value as Answers['region'])} className={`${fieldCls} bg-ink`}>
+              <select value={answers.region} onChange={(event) => set('region', event.target.value as Answers['region'])} className={selectCls}>
                 {Object.entries(t.regions).map(([key, label]) => (
                   <option key={key} value={key}>{label}</option>
                 ))}
@@ -109,7 +110,7 @@ export default function Funding() {
 
             <label>
               <span className={labelCls}>{t.size}</span>
-              <select value={answers.size} onChange={(event) => set('size', event.target.value as Answers['size'])} className={`${fieldCls} bg-ink`}>
+              <select value={answers.size} onChange={(event) => set('size', event.target.value as Answers['size'])} className={selectCls}>
                 {Object.entries(t.sizes).map(([key, label]) => (
                   <option key={key} value={key}>{label}</option>
                 ))}
@@ -131,7 +132,7 @@ export default function Funding() {
 
             <label>
               <span className={labelCls}>{t.filedAccounts}</span>
-              <select value={answers.filedAccounts} onChange={(event) => set('filedAccounts', event.target.value as Answers['filedAccounts'])} className={`${fieldCls} bg-ink`}>
+              <select value={answers.filedAccounts} onChange={(event) => set('filedAccounts', event.target.value as Answers['filedAccounts'])} className={selectCls}>
                 <option value="unknown">{t.unsure}</option>
                 <option value="yes">{t.yes}</option>
                 <option value="no">{t.no}</option>

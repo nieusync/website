@@ -181,15 +181,17 @@ function Findings({ title, findings, tone, t }: { title: string; findings: Findi
               </>
             )}
 
-            <a
-              href={question.sourceUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-purple transition-colors hover:text-white"
-            >
-              {t.source}
-              <ArrowSquareOut size={14} weight="bold" />
-            </a>
+            {question.sourceUrl && (
+              <a
+                href={question.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-purple transition-colors hover:text-white"
+              >
+                {t.source}
+                <ArrowSquareOut size={14} weight="bold" />
+              </a>
+            )}
           </article>
         ))}
       </div>
