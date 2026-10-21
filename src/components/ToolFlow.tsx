@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight } from '@phosphor-icons/react';
 import L from './L';
 import { subscribe } from './Forms';
 import { post } from '../api';
+import { trackTool } from '../analytics';
 import { useBlogUrl } from '../hooks/useArticles';
 import { useT } from '../i18n';
 
@@ -113,6 +114,8 @@ export function ToolFlow({
 
   const toResults = () => {
     onStep('results');
+    trackTool('tool_complete', form);
+    if (details.marketing) trackTool('newsletter_signup', form);
     // Fire and forget, both of them. See the note at the top of this file.
     void store(form, details, payload());
     if (details.marketing) {
@@ -132,6 +135,7 @@ export function ToolFlow({
         <form
           onSubmit={(event) => {
             event.preventDefault();
+            trackTool('tool_start', form);
             onStep('questions');
           }}
           className="animate-fade-up grid grid-cols-1 gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-7 md:grid-cols-2 md:p-9"
