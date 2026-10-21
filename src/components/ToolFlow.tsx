@@ -98,6 +98,8 @@ export function ToolFlow({
   const blogUrl = useBlogUrl();
   const [consent, setConsent] = useState(false);
   const top = useRef<HTMLDivElement>(null);
+  const completionTracked = useRef(false);
+  const newsletterTracked = useRef(false);
 
   // Every step is a new page as far as the reader is concerned, and landing
   // halfway down the previous one reads as nothing having happened. Skipped on
@@ -114,8 +116,14 @@ export function ToolFlow({
 
   const toResults = () => {
     onStep('results');
-    trackTool('tool_complete', form);
-    if (details.marketing) trackTool('newsletter_signup', form);
+    if (!completionTracked.current) {
+      completionTracked.current = true;
+      trackTool('tool_complete', form);
+    }
+    if (details.marketing && !newsletterTracked.current) {
+      newsletterTracked.current = true;
+      trackTool('newsletter_signup', form);
+    }
     // Fire and forget, both of them. See the note at the top of this file.
     void store(form, details, payload());
     if (details.marketing) {
