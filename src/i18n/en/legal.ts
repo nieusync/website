@@ -167,14 +167,14 @@ const legal = {
           title: 'What we use',
           paragraphs: [
             'This site stores your analytics choice in a cookie shared with the NIEUSYNC website and blog, so the same choice applies on both. It contains only accepted or refused, has no advertising purpose and expires after one year.',
-            'We use no advertising or profiling cookies. With your consent, we use Google Analytics to measure visits and understand which pages are read. It may collect browser and device data, usage data, page paths and analytics identifiers through cookies. Google processes that information under its own terms. We do not send form fields, names, email addresses or query strings to Google Analytics.',
-            'Before you make a choice, the Google tag may send cookieless pings to Google while all Consent Mode signals are denied. These pings do not set analytics cookies. If you accept, Google Analytics may set analytics cookies. If you refuse or withdraw consent, all signals remain denied, future analytics collection stops and we remove the analytics cookies we can remove. This cannot withdraw information already sent to Google.',
+            'With your consent, we use Google Analytics to measure visits and understand which pages are read, and Meta Pixel to measure advertising. These providers may collect browser and device data, usage data, page paths and identifiers through cookies. Google and Meta process that information under their own terms. We do not send form fields, names, email addresses or query strings to either provider.',
+            'Before you make a choice, the Google tag may send cookieless pings to Google while all Consent Mode signals are denied. Meta Pixel does not load before consent. If you accept, Google Analytics and Meta Pixel may set cookies. If you refuse or withdraw consent, future analytics and advertising measurement stops and we remove the cookies we can remove. This cannot withdraw information already sent to Google or Meta.',
           ],
         },
         {
           title: 'Third party content',
           paragraphs: [
-            'Some pages load third party content, for example the fonts served by Google Fonts. Those providers may receive your IP address in order to deliver the content. Their own policies apply to that processing.',
+            'Some pages load third party content, for example the fonts served by Google Fonts and the Meta Pixel after consent. Those providers may receive your IP address in order to deliver the content or measure advertising. Their own policies apply to that processing.',
           ],
         },
         {

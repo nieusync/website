@@ -150,7 +150,7 @@ const site: Site = {
   },
   cookieConsent: {
     title: 'Cookies de analítica',
-    description: 'Podemos utilizar o Google Analytics para perceber que páginas os visitantes leem?',
+    description: 'Podemos utilizar o Google Analytics e o Meta Pixel para perceber visitas e medir publicidade?',
     policy: 'Política de cookies',
     refuse: 'Recusar',
     accept: 'Aceitar',

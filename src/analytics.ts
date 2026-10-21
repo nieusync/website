@@ -1,10 +1,15 @@
 let lastPath: string | undefined
 
+const META_PIXEL_ID = '1513647920815889'
+
 type Gtag = (...args: unknown[]) => void
+type Fbq = ((...args: unknown[]) => void) & { callMethod?: Fbq; queue: unknown[][] }
 
 type AnalyticsWindow = Window & {
 	dataLayer?: unknown[]
 	gtag?: Gtag
+	fbq?: Fbq
+	_fbq?: Fbq
 }
 
 function gtag(...args: unknown[]) {
@@ -17,11 +22,31 @@ function gtag(...args: unknown[]) {
 function clearAnalyticsCookies() {
 	document.cookie.split(';').forEach((entry) => {
 		const name = entry.trim().split('=', 1)[0]
-		if (name !== '_ga' && !name.startsWith('_ga_')) return
+		if (name !== '_ga' && !name.startsWith('_ga_') && name !== '_fbp' && name !== 'fr') return
 		for (const domain of ['', '; Domain=.nieusync.com']) {
 			document.cookie = `${name}=; Max-Age=0; Path=/; SameSite=Lax${domain}`
 		}
 	})
+}
+
+function loadMetaPixel() {
+	const analyticsWindow = window as AnalyticsWindow
+	if (analyticsWindow.fbq) return analyticsWindow.fbq
+
+	const fbq = ((...args: unknown[]) => {
+		if (fbq.callMethod) fbq.callMethod(...args)
+		else fbq.queue.push(args)
+	}) as Fbq
+	fbq.queue = []
+	analyticsWindow.fbq = fbq
+	analyticsWindow._fbq = fbq
+
+	const script = document.createElement('script')
+	script.async = true
+	script.src = 'https://connect.facebook.net/en_US/fbevents.js'
+	document.head.append(script)
+	fbq('init', META_PIXEL_ID)
+	return fbq
 }
 
 export function enableAnalytics(pathname: string) {
@@ -32,6 +57,7 @@ export function enableAnalytics(pathname: string) {
 		page_location: `${window.location.origin}${pathname}`,
 		page_path: pathname,
 	})
+	loadMetaPixel()('track', 'PageView')
 }
 
 export function disableAnalytics() {

@@ -153,7 +153,7 @@ const site = {
   },
   cookieConsent: {
     title: 'Analytics cookies',
-    description: 'May we use Google Analytics to understand which pages visitors read?',
+    description: 'May we use Google Analytics and Meta Pixel to understand visits and measure advertising?',
     policy: 'Cookie Policy',
     refuse: 'Refuse',
     accept: 'Accept',

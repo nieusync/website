@@ -165,14 +165,14 @@ const legal: Legal = {
           title: 'O que utilizamos',
           paragraphs: [
             'Este site guarda a escolha de analítica num cookie partilhado pelo website e pelo blogue da NIEUSYNC, para que a mesma escolha se aplique nos dois. Contém apenas aceitar ou recusar, não tem finalidade publicitária e expira ao fim de um ano.',
-            'Não utilizamos cookies de publicidade ou de perfilagem. Com o seu consentimento, utilizamos o Google Analytics para medir visitas e perceber que páginas são lidas. Pode recolher dados do navegador e do dispositivo, dados de utilização, caminhos das páginas e identificadores de analítica através de cookies. A Google trata essa informação nos termos próprios. Não enviamos campos de formulários, nomes, endereços de email ou parâmetros de consulta para o Google Analytics.',
-            'Antes de escolher, a tag da Google pode enviar para a Google pings sem cookies, com todos os sinais do Consent Mode definidos como recusados. Esses pings não instalam cookies de analítica. Se aceitar, o Google Analytics poderá instalar cookies de analítica. Se recusar ou retirar o consentimento, todos os sinais permanecem recusados, a recolha futura de analítica é interrompida e eliminamos os cookies de analítica que conseguimos eliminar. Isto não retira informação já enviada à Google.',
+            'Com o seu consentimento, utilizamos o Google Analytics para medir visitas e perceber que páginas são lidas, e o Meta Pixel para medir publicidade. Estes fornecedores podem recolher dados do navegador e do dispositivo, dados de utilização, caminhos das páginas e identificadores através de cookies. A Google e a Meta tratam essa informação nos termos próprios. Não enviamos campos de formulários, nomes, endereços de email ou parâmetros de consulta para nenhum dos fornecedores.',
+            'Antes de escolher, a tag da Google pode enviar para a Google pings sem cookies, com todos os sinais do Consent Mode definidos como recusados. O Meta Pixel não carrega antes do consentimento. Se aceitar, o Google Analytics e o Meta Pixel podem instalar cookies. Se recusar ou retirar o consentimento, a recolha futura de analítica e medição de publicidade é interrompida e eliminamos os cookies que conseguimos eliminar. Isto não retira informação já enviada à Google ou à Meta.',
           ],
         },
         {
           title: 'Conteúdo de terceiros',
           paragraphs: [
-            'Algumas páginas carregam conteúdo de terceiros, por exemplo os tipos de letra servidos pelo Google Fonts. Esses fornecedores podem receber o seu endereço IP para entregar o conteúdo. A esse tratamento aplicam-se as políticas próprias desses fornecedores.',
+            'Algumas páginas carregam conteúdo de terceiros, por exemplo os tipos de letra servidos pelo Google Fonts e o Meta Pixel após consentimento. Estes fornecedores podem receber o seu endereço IP para entregar conteúdo ou medir publicidade. A esse tratamento aplicam-se as políticas próprias destes fornecedores.',
           ],
         },
         {
