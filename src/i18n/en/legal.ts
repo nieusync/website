@@ -174,7 +174,7 @@ const legal = {
         {
           title: 'Third party content',
           paragraphs: [
-            'Some pages load third party content, for example the articles from our blog and the fonts served by Google Fonts. Those providers may receive your IP address in order to deliver the content. Their own policies apply to that processing.',
+            'Some pages load third party content, for example the fonts served by Google Fonts. Those providers may receive your IP address in order to deliver the content. Their own policies apply to that processing.',
           ],
         },
         {

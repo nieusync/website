@@ -172,7 +172,7 @@ const legal: Legal = {
         {
           title: 'Conteúdo de terceiros',
           paragraphs: [
-            'Algumas páginas carregam conteúdo de terceiros, por exemplo os artigos do nosso blogue e os tipos de letra servidos pelo Google Fonts. Esses fornecedores podem receber o seu endereço IP para entregar o conteúdo. A esse tratamento aplicam-se as políticas próprias desses fornecedores.',
+            'Algumas páginas carregam conteúdo de terceiros, por exemplo os tipos de letra servidos pelo Google Fonts. Esses fornecedores podem receber o seu endereço IP para entregar o conteúdo. A esse tratamento aplicam-se as políticas próprias desses fornecedores.',
           ],
         },
         {

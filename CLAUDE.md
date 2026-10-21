@@ -23,7 +23,7 @@ src/
   i18n/          en/ and pt/ dictionaries, one file per page namespace
   pages/         one file per route, lazy-loaded from App.tsx
   components/    Navbar, Footer, LegalPage, GlobalComponents
-  hooks/         useArticles (Ghost content API), useScrollReveal
+  hooks/         useArticles (Ghost blog URL), useScrollReveal
 scripts/         check-i18n.ts, check-routes.ts
 ```
 
@@ -31,7 +31,7 @@ scripts/         check-i18n.ts, check-routes.ts
 
 **No hardcoded user-facing text.** Every string lives in `src/i18n/en/<ns>.ts` and `src/i18n/pt/<ns>.ts`, read via `useT('<ns>')`. Adding a key to `en` without `pt` is a typecheck error; a differing array length is a `check:i18n` error. Both languages, same PR, always.
 
-**Styling is Tailwind.** Brand tokens live in `tailwind.config.js` — `bg-blue`, `text-purple`, `bg-bg`, `bg-grad-main`, `font-display` (Magistral), `animate-float`. Use those, not raw hex. Repeated patterns (`.card`, `.btn-gradient`, `.badge`, `.container`, `.section-label`) are component classes in `src/index.css` under `@layer components`, so utilities always override them — `className="card p-0"` works.
+**Styling is Tailwind.** Brand tokens live in `tailwind.config.js` — `bg-blue`, `text-purple`, `bg-bg`, `bg-grad-main`, `font-display` (Magistral), `animate-float`. Use those, not raw hex. Shared `.btn-gradient`, `.container`, `.glow-*` and `.tech-grid-white` classes live in `src/index.css` under `@layer components`, so utilities override them.
 
 Inline `style={{}}` is allowed only for values JS computes at runtime (scroll progress width, orbit transforms, a colour from a data map). Mark those with a `ponytail:` comment. Everything static is a class.
 

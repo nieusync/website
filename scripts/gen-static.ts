@@ -133,7 +133,10 @@ for (const pair of paths) {
 // The root index.html is the Portuguese home page: `/` redirects to `/pt` in
 // the client, and an unfurler that never runs the redirect should still read
 // the right thing.
-writeFileSync(join(dist, 'index.html'), pageHtml('pt', href('pt', 'home'), titleFor('pt', 'home')));
+writeFileSync(
+  join(dist, 'index.html'),
+  pageHtml('pt', href('pt', 'home'), titleFor('pt', 'home')).replace('</head>', '\t\t<meta http-equiv="refresh" content="0;url=/pt/" />\n\t</head>'),
+);
 
 const priority = (path: string) =>
   /^\/(pt|en)$/.test(path) ? '1.0' : path.includes('/legal/') ? '0.3' : path.includes('/pilares/') || path.includes('/pillars/') ? '0.7' : '0.8';

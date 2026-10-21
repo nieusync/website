@@ -162,7 +162,7 @@ export default function Site() {
 
 						<div className="animate-fade-up flex flex-wrap items-center gap-4 [animation-delay:300ms]">
 							<L
-								to="whatWeDo"
+								to="home" hash="pillars"
 								className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-white px-8 py-3.5 text-[13px] font-bold uppercase tracking-[0.08em] text-blue transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_40px_rgba(255,255,255,0.25)]"
 							>
 								{t.hero.ctaPillars}

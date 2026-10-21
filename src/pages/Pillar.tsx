@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import L, { useHref } from '../components/L';
 import { Navigate, useParams } from 'react-router-dom';
-import { ArrowLeft, CheckCircle } from '@phosphor-icons/react';
+import { ArrowLeft, ArrowRight, CheckCircle } from '@phosphor-icons/react';
 import { useT } from '../i18n';
 import { useParallax } from '../hooks/useParallax';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -73,6 +73,7 @@ export default function Pillar() {
           <p className="animate-fade-up max-w-[620px] text-[18px] leading-[1.75] text-white/85 [animation-delay:200ms]">
             {pillar.intro}
           </p>
+          {!PILLAR_LIVE[idx] && <p className="mt-5 max-w-[620px] text-sm font-bold text-purple">{t.pillars.futureNote}</p>}
         </div>
       </section>
 
@@ -96,6 +97,12 @@ export default function Pillar() {
               </div>
             ))}
           </div>
+          {!PILLAR_LIVE[idx] && (
+            <L to="contact" className="btn-gradient mt-10 inline-flex items-center gap-2 px-8 py-3.5">
+              {t.pillars.contact(pillar.name)}
+              <ArrowRight size={16} weight="bold" />
+            </L>
+          )}
         </div>
       </section>
 

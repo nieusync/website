@@ -26,9 +26,8 @@ import { LANGS, swapLang } from '../routes';
 // One icon per pillar, same order as the i18n `pillars.items` array
 export const PILLAR_ICONS = [Scales, Cpu, Compass, Gear, Calculator];
 
-// Which pillars we already deliver; the rest are announced but not yet open.
 // Same order as the i18n `pillars.items` array.
-export const PILLAR_LIVE = [true, true, false, false, false];
+export const PILLAR_LIVE = [true, true, false, true, false];
 
 const CONTACTS = [
   { label: '(+351) 269 030 096', href: 'tel:+351269030096' },
@@ -78,6 +77,8 @@ function LangSwitch() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={t.nav.language}
+        aria-haspopup="menu"
+        aria-controls="language-menu"
         aria-expanded={open}
         className="flex min-h-[40px] cursor-pointer items-center gap-2 border-none bg-transparent px-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white/90 transition-colors hover:text-white"
       >
@@ -91,10 +92,11 @@ function LangSwitch() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-3 w-28 rounded-xl border border-white/10 bg-ink/95 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+        <div id="language-menu" role="menu" className="absolute right-0 top-full mt-3 w-28 rounded-xl border border-white/10 bg-ink/95 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-xl">
           {LANGS.map((l) => (
             <button
               key={l}
+              role="menuitem"
               onClick={() => {
                 setLang(l);
                 setOpen(false);
@@ -120,6 +122,8 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const [whatOpen, setWhatOpen] = useState(false);
   const whatRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -130,8 +134,35 @@ export function Nav() {
   // The mobile panel covers the page, so the page behind it must not scroll
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
+    if (!open) return () => {
+      document.body.style.overflow = '';
+    };
+
+    const focusable = () => [...(menuRef.current?.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), summary') ?? [])];
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const items = focusable();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    focusable()[0]?.focus();
+    document.addEventListener('keydown', onKey);
     return () => {
       document.body.style.overflow = '';
+      document.removeEventListener('keydown', onKey);
     };
   }, [open]);
 
@@ -186,6 +217,9 @@ export function Nav() {
           </div>
         )}
       </div>
+      <L to="contact" className={linkCls} onClick={() => setOpen(false)}>
+        {t.nav.contact}
+      </L>
       <a href={blogUrl} className={linkCls}>
         {t.nav.whatWeThink}
       </a>
@@ -223,8 +257,13 @@ export function Nav() {
           </AppLink>
 
           <button
-            onClick={() => setOpen((o) => !o)}
+            ref={menuButtonRef}
+            onClick={() => {
+              if (open) menuButtonRef.current?.focus();
+              setOpen((current) => !current);
+            }}
             aria-label={t.nav.menu}
+            aria-controls="mobile-nav"
             aria-expanded={open}
             className="flex h-11 w-11 cursor-pointer items-center justify-center border-none bg-transparent text-white lg:hidden"
           >
@@ -234,7 +273,7 @@ export function Nav() {
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-white/10 bg-ink/95 px-6 pb-8 pt-4 backdrop-blur-xl lg:hidden">
+        <nav ref={menuRef} id="mobile-nav" className="flex flex-col gap-1 border-t border-white/10 bg-ink/95 px-6 pb-8 pt-4 backdrop-blur-xl lg:hidden">
           <div className="flex flex-col gap-5 py-4 text-lg [&>*]:text-lg">
             <L to="whoWeAre" className={linkCls} onClick={() => setOpen(false)}>{t.nav.whoWeAre}</L>
             <details className="text-white/85">
@@ -248,6 +287,7 @@ export function Nav() {
                 {toolLinks.map(({ id, name, route }) => <L key={id} to={route} onClick={() => setOpen(false)} className="text-sm text-white/75">{name}</L>)}
               </div>
             </details>
+            <L to="contact" className={linkCls} onClick={() => setOpen(false)}>{t.nav.contact}</L>
             <a href={blogUrl} className={linkCls}>{t.nav.whatWeThink}</a>
           </div>
           <AppLink

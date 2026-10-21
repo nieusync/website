@@ -11,11 +11,11 @@ const site = {
     whatWeThink: 'What we think',
     tools: 'Tools',
     clientArea: 'Client area',
+    contact: 'Contact',
     language: 'PT / EN',
     menu: 'Menu',
   },
   hero: {
-    eyebrow: 'The operating partner for European-facing SMEs',
     titleTop: 'Your business,',
     titleSync: 'in sync.',
     subtitle:
@@ -28,6 +28,8 @@ const site = {
     title: 'Five pillars. One integrated view.',
     statusLive: 'Current',
     statusSoon: 'Future',
+    futureNote: 'Available in 2027. Talk to us about early access.',
+    contact: (name: string) => `Talk to us about ${name}`,
     more: (n: number) => (n === 1 ? '+ 1 more service' : `+ ${n} more services`),
     items: [
       {
@@ -80,12 +82,12 @@ const site = {
       {
         slug: 'operations',
         name: 'Operations',
-        desc: 'Supply chain, cost and process.',
+        desc: 'Process automation and cost optimisation.',
         intro:
-          'The machine behind the promise: simple processes and costs under control. We design the supply chain, cut what adds no value, and leave written processes your team can repeat without depending on us.',
+          'Process automation and cost optimisation that leave the business easier to run. We identify repetitive work, automate the right parts and remove cost that adds no value.',
         services: [
-          'Supply chain optimisation',
-          'Cost reduction',
+          'Process automation',
+          'Cost optimisation',
           'Process simplification',
         ],
       },
@@ -102,15 +104,6 @@ const site = {
           'Financial planning and analysis (FP&A)',
         ],
       },
-    ],
-  },
-  approach: {
-    label: '03 / The method',
-    title: 'How we sync.',
-    steps: [
-      { title: 'Map', desc: 'We read the problem you brought us and the parts of the business it touches.' },
-      { title: 'Sync', desc: 'One plan with priorities, owners and deadlines, whatever its scope.' },
-      { title: 'Scale', desc: 'Continuous execution with your team, measured at every step.' },
     ],
   },
   portal: {

@@ -10,11 +10,11 @@ const site: Site = {
     whatWeThink: 'O que pensamos',
     tools: 'Ferramentas',
     clientArea: 'Área de cliente',
+    contact: 'Contacto',
     language: 'Português / English',
     menu: 'Menu',
   },
   hero: {
-    eyebrow: 'O parceiro operacional das PME com mercado europeu',
     titleTop: 'O seu negócio,',
     titleSync: 'em sincronia.',
     subtitle:
@@ -27,6 +27,8 @@ const site: Site = {
     title: 'Cinco pilares. Uma visão integrada.',
     statusLive: 'Atual',
     statusSoon: 'Futuro',
+    futureNote: 'Disponível em 2027. Fale connosco sobre acesso antecipado.',
+    contact: (name: string) => `Falar connosco sobre ${name}`,
     more: (n: number) => (n === 1 ? '+ 1 outro serviço' : `+ ${n} outros serviços`),
     items: [
       {
@@ -79,12 +81,12 @@ const site: Site = {
       {
         slug: 'operations',
         name: 'Operações',
-        desc: 'Supply-chain, custos e processos.',
+        desc: 'Automação de processos e otimização de custos.',
         intro:
-          'A máquina por trás da promessa: processos simples e custos sob controlo. Desenhamos a cadeia de abastecimento, cortamos o que não acrescenta valor e deixamos processos escritos que a sua equipa repete sem depender de nós.',
+          'Automação de processos e otimização de custos que tornam a empresa mais simples de gerir. Identificamos trabalho repetitivo, automatizamos o que faz sentido e removemos custos sem valor.',
         services: [
-          'Otimização da supply-chain',
-          'Redução de custos',
+          'Automação de processos',
+          'Otimização de custos',
           'Simplificação de processos',
         ],
       },
@@ -101,15 +103,6 @@ const site: Site = {
           'Planeamento e análise financeira (FP&A)',
         ],
       },
-    ],
-  },
-  approach: {
-    label: '03 / O método',
-    title: 'Como sincronizamos.',
-    steps: [
-      { title: 'Mapear', desc: 'Lemos o problema que nos trouxe e as partes do negócio que ele toca.' },
-      { title: 'Sincronizar', desc: 'Um plano com prioridades, responsáveis e prazos, seja qual for o âmbito.' },
-      { title: 'Escalar', desc: 'Execução contínua com a sua equipa, medida a cada passo.' },
     ],
   },
   portal: {

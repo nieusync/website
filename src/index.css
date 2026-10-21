@@ -84,39 +84,8 @@
 }
 
 /* Component classes live in @layer components so Tailwind utilities in JSX
-   always win over them, so `class="card p-0"` does what it looks like. */
+   always win over them. */
 @layer components {
-  .gradient-text {
-    background: var(--grad-main);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .section-label {
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--purple);
-    margin-bottom: 10px;
-  }
-
-  .accent-line { width: 44px; height: 4px; border-radius: 2px; background: var(--grad-main); margin-bottom: 18px; }
-
-  .btn-primary {
-    background: var(--blue); color: var(--white);
-    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 15px 32px; border-radius: 8px; border: none; cursor: pointer;
-    display: inline-flex; align-items: center; justify-content: center;
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    min-height: 44px; min-width: 44px;
-  }
-  .btn-primary:hover { background: var(--grad-main); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(35, 56, 119, 0.30); }
-
   .btn-gradient {
     background: var(--purple); color: var(--white);
     font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px;
@@ -130,81 +99,6 @@
   .btn-gradient:hover { background: var(--white); color: var(--purple); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(159, 142, 194, 0.35); }
   .btn-gradient:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-  .btn-portal {
-    background: var(--blue);
-    color: var(--white);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 8px 18px;
-    border-radius: 6px;
-    border: 1.5px solid var(--blue);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    box-shadow: 0 4px 14px rgba(35, 56, 119, 0.25);
-    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    min-height: 36px;
-  }
-  .btn-portal:hover {
-    background: var(--white);
-    color: var(--blue);
-    border-color: var(--blue);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(35, 56, 119, 0.30);
-  }
-
-  .btn-secondary {
-    background: transparent; border: 2px solid var(--blue); color: var(--blue);
-    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 13px 32px; border-radius: 8px; cursor: pointer;
-    display: inline-flex; align-items: center; justify-content: center;
-    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-    min-height: 44px; min-width: 44px;
-  }
-  .btn-secondary:hover { background: var(--grad-main); border-color: transparent; color: var(--white); transform: translateY(-3px); }
-
-  .btn-sm { padding: 10px 22px; font-size: 12px; }
-
-  /* White outline button (for dark backgrounds) */
-  .btn-outline-white {
-    background: transparent;
-    border: 2px solid rgba(255,255,255,0.6);
-    color: var(--white);
-    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 13px 30px; border-radius: 8px; cursor: pointer;
-    display: inline-flex; align-items: center; justify-content: center;
-    text-decoration: none;
-    transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-    min-height: 44px;
-  }
-  .btn-outline-white:hover {
-    background: rgba(255,255,255,0.15);
-    border-color: var(--white);
-    transform: translateY(-3px);
-  }
-
-  .card {
-    background: var(--white);
-    border: 1px solid rgba(159, 142, 194, 0.22);
-    border-radius: 16px;
-    padding: 30px 32px;
-    box-shadow: 0 2px 18px rgba(35, 56, 119, 0.07);
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
-    position: relative;
-  }
-  .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 44px rgba(35, 56, 119, 0.16), 0 0 0 1px rgba(159, 142, 194, 0.25);
-    border-color: rgba(159, 142, 194, 0.55);
-  }
-
-  /* Faint blueprint grid. Layer over sections, fade with a mask utility at the call site */
   /* Ambient glow. A radial gradient, not a blurred circle: `filter: blur(150px)`
      on a 480px element costs a full-screen GPU pass per frame, which stalled
      scrolling on phones. Same look, no filter. */
@@ -213,12 +107,6 @@
   .glow-purple { background: radial-gradient(closest-side, rgba(159, 142, 194, 0.28), transparent); }
   .glow-white { background: radial-gradient(closest-side, rgba(255, 255, 255, 0.10), transparent); }
 
-  .tech-grid {
-    background-image:
-      linear-gradient(rgba(35, 56, 119, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(35, 56, 119, 0.06) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
   .tech-grid-white {
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
@@ -226,48 +114,11 @@
     background-size: 48px 48px;
   }
 
-  .badge {
-    display: inline-flex; align-items: center; justify-content: center;
-    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11px;
-    letter-spacing: 0.10em; text-transform: uppercase;
-    padding: 5px 14px; border-radius: 100px; line-height: 1;
-  }
-  .badge-blue { background: var(--blue); color: var(--white); }
-  .badge-purple { background: var(--purple); color: var(--white); }
-  .badge-gradient { background: var(--grad-main); color: var(--white); }
-  .badge-outline { background: transparent; border: 1.5px solid var(--purple); color: var(--purple); }
-  .badge-light { background: rgba(159, 142, 194, 0.12); color: var(--blue); }
-
   .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
   @media (max-width: 1024px) { .container { padding: 0 24px; } }
   @media (max-width: 768px) { .container { padding: 0 20px; } }
   @media (max-width: 480px) { .container { padding: 0 16px; } }
 
-  /* Variantes de accent-line e section-label */
-  .accent-line-center { margin-left: auto; margin-right: auto; }
-  .accent-line-white   { background: rgba(255,255,255,0.5); }
-  .section-label-white { color: rgba(255,255,255,0.85); }
-
-  /* Floating WhatsApp button. The tooltip depends on the parent's :hover */
-  .whatsapp-btn {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: #25D366;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-    z-index: 999;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .whatsapp-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 24px rgba(0,0,0,0.30);
-  }
 }
 
 /* ── Scroll animations (depend on the .visible class applied by JS) ── */
