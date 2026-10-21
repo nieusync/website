@@ -191,9 +191,15 @@ export default function WhoWeAre() {
               <h2 className="mb-8 font-display text-[clamp(26px,3.5vw,40px)] leading-[1.1] text-white">
                 {t.whoPage.ctaTitle}
               </h2>
+              <img
+                src="/assets/team-photo.jpg"
+                alt=""
+                className="mx-auto mt-10 h-72 w-full max-w-2xl rounded-2xl object-cover object-center md:h-96"
+                loading="lazy"
+              />
               <L
                 to="contact"
-                className="group inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-grad-main px-9 py-4 text-[13px] font-bold uppercase tracking-[0.08em] text-white shadow-[0_0_30px_rgba(159,142,194,0.4)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_50px_rgba(159,142,194,0.6)]"
+                className="group mt-10 inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-grad-main px-9 py-4 text-[13px] font-bold uppercase tracking-[0.08em] text-white shadow-[0_0_30px_rgba(159,142,194,0.4)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_50px_rgba(159,142,194,0.6)]"
               >
                 {t.whoPage.cta}
                 <ArrowRight
