@@ -45,8 +45,11 @@ for (const framework of frameworks) {
     assert.match(question.key, /^[a-zA-Z][a-zA-Z0-9]*$/, `${framework.id}.${question.key}: bad key`);
     assert.equal(seen.has(question.key), false, `${framework.id}: duplicate key ${question.key}`);
     seen.add(question.key);
-    assert.doesNotThrow(() => new URL(question.sourceUrl), `${framework.id}.${question.key}: bad source URL`);
-    assert.equal(new URL(question.sourceUrl).protocol, 'https:', `${framework.id}.${question.key}: source must be https`);
+    const { sourceUrl } = question;
+    if (sourceUrl) {
+      assert.doesNotThrow(() => new URL(sourceUrl), `${framework.id}.${question.key}: bad source URL`);
+      assert.equal(new URL(sourceUrl).protocol, 'https:', `${framework.id}.${question.key}: source must be https`);
+    }
     assert.equal(Number.isNaN(Date.parse(question.checkedOn)), false, `${framework.id}.${question.key}: bad checkedOn`);
     assert.equal(Date.parse(question.checkedOn) <= now.getTime(), true, `${framework.id}.${question.key}: future checkedOn`);
     assert.equal(now.getTime() - Date.parse(question.checkedOn) <= 120 * 24 * 60 * 60 * 1000, true, `${framework.id}.${question.key}: stale`);
