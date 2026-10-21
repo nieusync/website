@@ -12,7 +12,7 @@ pnpm build        # vite build (CI gate)
 pnpm lint
 ```
 
-Package manager is **pnpm** — never `npm` or `yarn`. CI runs `typecheck && check:i18n && build`; run all of those plus `check:routes` before saying a change is done.
+Package manager is **pnpm** — never `npm` or `yarn`. CI runs `lint && typecheck && check && build`; run all of them before saying a change is done.
 
 ## Layout
 

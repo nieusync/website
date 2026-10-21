@@ -11,6 +11,7 @@ const site = {
     whatWeThink: 'What we think',
     tools: 'Tools',
     clientArea: 'Client area',
+    language: 'PT / EN',
     menu: 'Menu',
   },
   hero: {
@@ -228,6 +229,7 @@ const site = {
     ],
     ctaTitle: 'Want this team alongside your company?',
     cta: 'Talk to us',
+    socialLink: (name: string, platform: string) => `${name} on ${platform}`,
   },
   whatPage: {
     documentTitle: 'What we do | Nieusync',

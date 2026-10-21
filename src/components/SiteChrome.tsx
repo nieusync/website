@@ -47,6 +47,7 @@ const SOCIALS = [
 // levels deep stays where they were.
 function LangSwitch() {
   const lang = useLang();
+  const t = useT('site');
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const setLang = (l: Lang) => {
@@ -76,7 +77,7 @@ function LangSwitch() {
     <div ref={ref} className="relative z-10">
       <button
         onClick={() => setOpen((o) => !o)}
-        aria-label="PT / EN"
+        aria-label={t.nav.language}
         aria-expanded={open}
         className="flex min-h-[40px] cursor-pointer items-center gap-2 border-none bg-transparent px-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white/90 transition-colors hover:text-white"
       >

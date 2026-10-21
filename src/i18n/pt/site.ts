@@ -10,6 +10,7 @@ const site: Site = {
     whatWeThink: 'O que pensamos',
     tools: 'Ferramentas',
     clientArea: 'Área de cliente',
+    language: 'Português / English',
     menu: 'Menu',
   },
   hero: {
@@ -225,6 +226,7 @@ const site: Site = {
     ],
     ctaTitle: 'Quer esta equipa ao lado da sua empresa?',
     cta: 'Falar connosco',
+    socialLink: (name: string, platform: string) => `${name} em ${platform}`,
   },
   whatPage: {
     documentTitle: 'O que fazemos | Nieusync',

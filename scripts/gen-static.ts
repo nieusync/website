@@ -37,6 +37,7 @@ const params: Partial<Record<RouteKey, (lang: 'pt' | 'en') => string[]>> = {
 // emitting one would answer 200 and then redirect, which reads as a soft 404.
 // `legal` does have an index (LegalIndex), so it is not in here.
 const PARAM_ONLY: RouteKey[] = ['pillars'];
+const EXCLUDED_ROUTES: RouteKey[] = ['clientArea'];
 
 // The <title> each page sets for itself at runtime, resolved statically. Every
 // value is read from the dictionaries the pages read, so the crawler and the
@@ -73,7 +74,7 @@ function allPaths(): Page[] {
     en: { path: href('en', key, enSlug), title: titleFor('en', key, enSlug) },
   });
   for (const key of Object.keys(ROUTES) as RouteKey[]) {
-    if (!PARAM_ONLY.includes(key)) out.push(page(key));
+    if (!PARAM_ONLY.includes(key) && !EXCLUDED_ROUTES.includes(key)) out.push(page(key));
     const slugs = params[key];
     if (!slugs) continue;
     // Slugs are identical across dictionaries by design (see routes.ts), so

@@ -169,7 +169,7 @@ export default function WhoWeAre() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`${m.name} on ${label}`}
+                      aria-label={t.whoPage.socialLink(m.name, label)}
                       className="text-white/75 transition-colors hover:text-purple"
                     >
                       <Icon size={20} />
