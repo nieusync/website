@@ -13,14 +13,13 @@ export const ROUTES = {
   home: { pt: '', en: '' },
   whoWeAre: { pt: 'quem-somos', en: 'who-we-are' },
   whatWeDo: { pt: 'o-que-fazemos', en: 'what-we-do' },
+  legalServices: { pt: 'servicos-juridicos', en: 'legal-services' },
+  complianceServices: { pt: 'conformidade', en: 'compliance' },
   clientArea: { pt: 'area-de-cliente', en: 'client-area' },
   contact: { pt: 'contacto', en: 'contact' },
   legal: { pt: 'legal', en: 'legal' },
   pillars: { pt: 'pilares', en: 'pillars' },
-  tools: { pt: 'ferramentas', en: 'tools' },
-  // Flat, not nested under `tools`: swapLang only translates the first segment,
-  // so a `ferramentas/x` slug would strand a reader on the homepage when they
-  // switch language. check-routes.ts enforces the bare-segment rule.
+  // Tool routes stay flat: swapLang only translates the first segment.
   funding: { pt: 'calculadora-apoios', en: 'funding-calculator' },
   pmeCheck: { pt: 'diagnostico-pme', en: 'sme-check' },
   rgpcCheck: { pt: 'diagnostico-rgpc', en: 'rgpc-check' },

@@ -12,6 +12,8 @@ assert.equal(href('pt', 'home'), '/pt');
 assert.equal(href('en', 'home'), '/en');
 assert.equal(href('pt', 'whoWeAre'), '/pt/quem-somos');
 assert.equal(href('en', 'whoWeAre'), '/en/who-we-are');
+assert.equal(href('pt', 'legalServices'), '/pt/servicos-juridicos');
+assert.equal(href('en', 'complianceServices'), '/en/compliance');
 assert.equal(href('pt', 'legal', 'privacy-policy'), '/pt/legal/privacy-policy');
 assert.equal(href('en', 'pillars', 'digital'), '/en/pillars/digital');
 
@@ -20,6 +22,8 @@ assert.equal(swapLang('/pt', 'en'), '/en');
 assert.equal(swapLang('/pt/quem-somos', 'en'), '/en/who-we-are');
 assert.equal(swapLang('/en/who-we-are', 'pt'), '/pt/quem-somos');
 assert.equal(swapLang('/pt/o-que-fazemos', 'en'), '/en/what-we-do');
+assert.equal(swapLang('/pt/servicos-juridicos', 'en'), '/en/legal-services');
+assert.equal(swapLang('/en/compliance', 'pt'), '/pt/conformidade');
 assert.equal(swapLang('/pt/area-de-cliente', 'en'), '/en/client-area');
 
 // Params ride along untranslated, which is the whole reason the slugs in

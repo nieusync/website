@@ -73,7 +73,7 @@ function LangSwitch() {
   }, [open]);
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative z-10">
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label="PT / EN"
@@ -113,11 +113,12 @@ function LangSwitch() {
 export function Nav() {
   const blogUrl = useBlogUrl();
   const t = useT('site');
+  const services = useT('services');
   const tools = useT('tools');
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [toolsOpen, setToolsOpen] = useState(false);
-  const toolsRef = useRef<HTMLDivElement>(null);
+  const [whatOpen, setWhatOpen] = useState(false);
+  const whatRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -138,12 +139,12 @@ export function Nav() {
   const toolLinks = tools.items.map((item, index) => ({ ...item, route: toolRoutes[index]! }));
 
   useEffect(() => {
-    if (!toolsOpen) return;
+    if (!whatOpen) return;
     const onClick = (event: MouseEvent) => {
-      if (!toolsRef.current?.contains(event.target as Node)) setToolsOpen(false);
+      if (!whatRef.current?.contains(event.target as Node)) setWhatOpen(false);
     };
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setToolsOpen(false);
+      if (event.key === 'Escape') setWhatOpen(false);
     };
     document.addEventListener('mousedown', onClick);
     document.addEventListener('keydown', onKey);
@@ -151,34 +152,34 @@ export function Nav() {
       document.removeEventListener('mousedown', onClick);
       document.removeEventListener('keydown', onKey);
     };
-  }, [toolsOpen]);
+  }, [whatOpen]);
 
   const links = (
     <>
       <L to="whoWeAre" className={linkCls} onClick={() => setOpen(false)}>
         {t.nav.whoWeAre}
       </L>
-      <L to="whatWeDo" className={linkCls} onClick={() => setOpen(false)}>
-        {t.nav.whatWeDo}
-      </L>
-      <div ref={toolsRef} className="relative">
+      <div ref={whatRef} className="relative">
         <button
           type="button"
-          onClick={() => setToolsOpen((current) => !current)}
-          aria-expanded={toolsOpen}
+          onClick={() => setWhatOpen((current) => !current)}
+          aria-expanded={whatOpen}
           aria-haspopup="menu"
-          className={`${linkCls} inline-flex cursor-pointer items-center gap-1 border-none bg-transparent p-0`}
+          className={`${linkCls} inline-flex min-h-10 cursor-pointer items-center gap-1 border-none bg-transparent p-0`}
         >
-          {t.nav.tools}
-          <CaretDown size={12} weight="bold" className={toolsOpen ? 'rotate-180' : ''} />
+          {t.nav.whatWeDo}
+          <CaretDown size={12} weight="bold" className={whatOpen ? 'rotate-180' : ''} />
         </button>
-        {toolsOpen && (
-          <div role="menu" className="absolute left-0 top-full mt-3 w-72 rounded-xl border border-white/10 bg-ink/95 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-xl">
-            <L to="tools" role="menuitem" onClick={() => setToolsOpen(false)} className="block rounded-lg px-3 py-2 text-sm font-bold text-white hover:bg-white/[0.06]">{tools.nav}</L>
-            {toolLinks.map(({ id, name, desc, route }) => (
-              <L key={id} to={route} role="menuitem" onClick={() => setToolsOpen(false)} className="block rounded-lg px-3 py-2.5 hover:bg-white/[0.06]">
-                <span className="block text-sm font-bold text-white">{name}</span>
-                <span className="mt-1 block text-xs leading-5 text-white/65">{desc}</span>
+        {whatOpen && (
+          <div className="absolute left-0 top-full mt-3 w-80 rounded-xl border border-white/10 bg-ink/95 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+            <L to="whatWeDo" onClick={() => setWhatOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-bold text-white hover:bg-white/[0.06]">{services.nav.overview}</L>
+            <p className="px-3 pb-1 pt-4 text-[10px] font-bold uppercase tracking-[0.14em] text-white/55">{services.nav.services}</p>
+            <L to="legalServices" onClick={() => setWhatOpen(false)} className="block rounded-lg px-3 py-2 text-sm font-bold text-white hover:bg-white/[0.06]">{services.nav.legal}</L>
+            <L to="complianceServices" onClick={() => setWhatOpen(false)} className="block rounded-lg px-3 py-2 text-sm font-bold text-white hover:bg-white/[0.06]">{services.nav.compliance}</L>
+            <p className="px-3 pb-1 pt-4 text-[10px] font-bold uppercase tracking-[0.14em] text-white/55">{services.nav.tools}</p>
+            {toolLinks.map(({ id, name, route }) => (
+              <L key={id} to={route} onClick={() => setWhatOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-bold text-white hover:bg-white/[0.06]">
+                {name}
               </L>
             ))}
           </div>
@@ -235,11 +236,14 @@ export function Nav() {
         <nav className="flex flex-col gap-1 border-t border-white/10 bg-ink/95 px-6 pb-8 pt-4 backdrop-blur-xl lg:hidden">
           <div className="flex flex-col gap-5 py-4 text-lg [&>*]:text-lg">
             <L to="whoWeAre" className={linkCls} onClick={() => setOpen(false)}>{t.nav.whoWeAre}</L>
-            <L to="whatWeDo" className={linkCls} onClick={() => setOpen(false)}>{t.nav.whatWeDo}</L>
             <details className="text-white/85">
-              <summary className="cursor-pointer text-sm font-bold">{t.nav.tools}</summary>
+              <summary className="min-h-11 cursor-pointer py-2 text-sm font-bold">{t.nav.whatWeDo}</summary>
               <div className="mt-3 flex flex-col gap-3 border-l border-white/10 pl-4">
-                <L to="tools" onClick={() => setOpen(false)} className="text-sm font-bold">{tools.nav}</L>
+                <L to="whatWeDo" onClick={() => setOpen(false)} className="text-sm font-bold">{services.nav.overview}</L>
+                <p className="pt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-white/55">{services.nav.services}</p>
+                <L to="legalServices" onClick={() => setOpen(false)} className="text-sm text-white/75">{services.nav.legal}</L>
+                <L to="complianceServices" onClick={() => setOpen(false)} className="text-sm text-white/75">{services.nav.compliance}</L>
+                <p className="pt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-white/55">{services.nav.tools}</p>
                 {toolLinks.map(({ id, name, route }) => <L key={id} to={route} onClick={() => setOpen(false)} className="text-sm text-white/75">{name}</L>)}
               </div>
             </details>
