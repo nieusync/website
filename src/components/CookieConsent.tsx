@@ -6,22 +6,29 @@ import L from './L'
 
 type Consent = 'accepted' | 'refused'
 
-const STORAGE_KEY = 'nieusync_analytics_consent_v1'
+const COOKIE_NAME = 'nieusync_analytics_consent_v1'
 
-function readConsent(): Consent | undefined {
-	try {
-		const value = localStorage.getItem(STORAGE_KEY)
-		return value === 'accepted' || value === 'refused' ? value : undefined
-	} catch {
-		return undefined
-	}
+function readCookie(): Consent | undefined {
+	const value = document.cookie.match(new RegExp(`(?:^|; )${COOKIE_NAME}=(accepted|refused)(?:;|$)`))?.[1]
+	return value === 'accepted' || value === 'refused' ? value : undefined
 }
 
 function writeConsent(value: Consent) {
+	document.cookie = `${COOKIE_NAME}=${value}; Domain=.nieusync.com; Path=/; Max-Age=31536000; SameSite=Lax; Secure`
+}
+
+function readConsent(): Consent | undefined {
+	const consent = readCookie()
+	if (consent) return consent
+
 	try {
-		localStorage.setItem(STORAGE_KEY, value)
+		const legacyConsent = localStorage.getItem(COOKIE_NAME)
+		if (legacyConsent !== 'accepted' && legacyConsent !== 'refused') return undefined
+		writeConsent(legacyConsent)
+		if (readCookie() === legacyConsent) localStorage.removeItem(COOKIE_NAME)
+		return legacyConsent
 	} catch {
-		// Safari private mode must not prevent an explicit choice for this visit.
+		return undefined
 	}
 }
 

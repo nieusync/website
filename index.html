@@ -59,9 +59,15 @@
 		<script>
 			window.dataLayer = window.dataLayer || []
 			function gtag(){dataLayer.push(arguments)}
-			let analyticsConsent
+			const consentCookie = document.cookie.match(/(?:^|; )nieusync_analytics_consent_v1=(accepted|refused)(?:;|$)/)
+			let analyticsConsent = consentCookie?.[1]
 			try {
-				analyticsConsent = localStorage.getItem('nieusync_analytics_consent_v1')
+				const legacyConsent = localStorage.getItem('nieusync_analytics_consent_v1')
+				if (!analyticsConsent && (legacyConsent === 'accepted' || legacyConsent === 'refused')) {
+					document.cookie = `nieusync_analytics_consent_v1=${legacyConsent}; Domain=.nieusync.com; Path=/; Max-Age=31536000; SameSite=Lax; Secure`
+					analyticsConsent = legacyConsent
+					localStorage.removeItem('nieusync_analytics_consent_v1')
+				}
 			} catch {}
 			gtag('consent', 'default', {
 				ad_storage: 'denied',
@@ -72,7 +78,7 @@
 			})
 			if (analyticsConsent === 'accepted') gtag('consent', 'update', { analytics_storage: 'granted' })
 			gtag('js', new Date())
-			gtag('config', 'G-7MRR3GZPDS', { send_page_view: false })
+			gtag('config', 'G-7MRR3GZPDS', { cookie_domain: 'nieusync.com', send_page_view: false })
 		</script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-7MRR3GZPDS"></script>
 	</head>

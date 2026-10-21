@@ -166,7 +166,7 @@ const legal = {
         {
           title: 'What we use',
           paragraphs: [
-            'This site uses strictly necessary storage only: we keep your chosen language in your browser’s local storage so the site opens in the same language next time. It holds no personal data and is shared with no one.',
+            'This site stores your analytics choice in a cookie shared with the NIEUSYNC website and blog, so the same choice applies on both. It contains only accepted or refused, has no advertising purpose and expires after one year.',
             'We use no advertising or profiling cookies. With your consent, we use Google Analytics to measure visits and understand which pages are read. It may collect browser and device data, usage data, page paths and analytics identifiers through cookies. Google processes that information under its own terms. We do not send form fields, names, email addresses or query strings to Google Analytics.',
             'Before you make a choice, the Google tag may send cookieless pings to Google while all Consent Mode signals are denied. These pings do not set analytics cookies. If you accept, Google Analytics may set analytics cookies. If you refuse or withdraw consent, all signals remain denied, future analytics collection stops and we remove the analytics cookies we can remove. This cannot withdraw information already sent to Google.',
           ],

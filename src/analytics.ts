@@ -17,8 +17,9 @@ function gtag(...args: unknown[]) {
 function clearAnalyticsCookies() {
 	document.cookie.split(';').forEach((entry) => {
 		const name = entry.trim().split('=', 1)[0]
-		if (name === '_ga' || name.startsWith('_ga_')) {
-			document.cookie = `${name}=; Max-Age=0; Path=/; SameSite=Lax`
+		if (name !== '_ga' && !name.startsWith('_ga_')) return
+		for (const domain of ['', '; Domain=.nieusync.com']) {
+			document.cookie = `${name}=; Max-Age=0; Path=/; SameSite=Lax${domain}`
 		}
 	})
 }
