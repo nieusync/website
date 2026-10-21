@@ -168,7 +168,7 @@ const legal = {
           paragraphs: [
             'This site uses strictly necessary storage only: we keep your chosen language in your browser’s local storage so the site opens in the same language next time. It holds no personal data and is shared with no one.',
             'We use no advertising or profiling cookies. With your consent, we use Google Analytics to measure visits and understand which pages are read. It may collect browser and device data, usage data, page paths and analytics identifiers through cookies. Google processes that information under its own terms. We do not send form fields, names, email addresses or query strings to Google Analytics.',
-            'Analytics cookies are installed only after you select Accept in the cookie banner. You can refuse them or withdraw consent at any time through Cookie settings. Withdrawal stops future collection and removes the analytics cookies we can remove, but cannot withdraw information already sent to Google.',
+            'Before you make a choice, the Google tag may send cookieless pings to Google while all Consent Mode signals are denied. These pings do not set analytics cookies. If you accept, Google Analytics may set analytics cookies. If you refuse or withdraw consent, all signals remain denied, future analytics collection stops and we remove the analytics cookies we can remove. This cannot withdraw information already sent to Google.',
           ],
         },
         {

@@ -56,6 +56,25 @@
 			]
 		}
 		</script>
+		<script>
+			window.dataLayer = window.dataLayer || []
+			function gtag(){dataLayer.push(arguments)}
+			let analyticsConsent
+			try {
+				analyticsConsent = localStorage.getItem('nieusync_analytics_consent_v1')
+			} catch {}
+			gtag('consent', 'default', {
+				ad_storage: 'denied',
+				analytics_storage: 'denied',
+				ad_user_data: 'denied',
+				ad_personalization: 'denied',
+				wait_for_update: 500,
+			})
+			if (analyticsConsent === 'accepted') gtag('consent', 'update', { analytics_storage: 'granted' })
+			gtag('js', new Date())
+			gtag('config', 'G-7MRR3GZPDS', { send_page_view: false })
+		</script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-7MRR3GZPDS"></script>
 	</head>
 	<body>
 		<div id="root"></div>

@@ -166,7 +166,7 @@ const legal: Legal = {
           paragraphs: [
             'Este site utiliza apenas armazenamento estritamente necessário: guardamos o idioma escolhido no armazenamento local do seu navegador para que o site abra no mesmo idioma da próxima vez. Não contém dados pessoais nem é partilhado com ninguém.',
             'Não utilizamos cookies de publicidade ou de perfilagem. Com o seu consentimento, utilizamos o Google Analytics para medir visitas e perceber que páginas são lidas. Pode recolher dados do navegador e do dispositivo, dados de utilização, caminhos das páginas e identificadores de analítica através de cookies. A Google trata essa informação nos termos próprios. Não enviamos campos de formulários, nomes, endereços de email ou parâmetros de consulta para o Google Analytics.',
-            'Os cookies de analítica só são instalados depois de selecionar Aceitar no banner de cookies. Pode recusá-los ou retirar o consentimento a qualquer momento nas Definições de cookies. A retirada interrompe a recolha futura e elimina os cookies de analítica que conseguimos eliminar, mas não retira informação já enviada à Google.',
+            'Antes de escolher, a tag da Google pode enviar para a Google pings sem cookies, com todos os sinais do Consent Mode definidos como recusados. Esses pings não instalam cookies de analítica. Se aceitar, o Google Analytics poderá instalar cookies de analítica. Se recusar ou retirar o consentimento, todos os sinais permanecem recusados, a recolha futura de analítica é interrompida e eliminamos os cookies de analítica que conseguimos eliminar. Isto não retira informação já enviada à Google.',
           ],
         },
         {

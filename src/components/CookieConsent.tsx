@@ -33,7 +33,7 @@ export default function CookieConsent() {
 
 	useEffect(() => {
 		if (consent === 'accepted') enableAnalytics(pathname)
-		else disableAnalytics()
+		if (consent === 'refused') disableAnalytics()
 	}, [consent, pathname])
 
 	const choose = (value: Consent) => {
