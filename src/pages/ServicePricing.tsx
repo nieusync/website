@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Nav, Footer } from '../components/SiteChrome'
+import L from '../components/L'
 import { useParallax } from '../hooks/useParallax'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useT } from '../i18n'
@@ -62,6 +63,11 @@ export default function ServicePricing({ kind }: Props) {
                 ))}
               </tbody>
             </table>
+          </div>
+          <div className="mt-10 text-center">
+            <L to="contact" className="btn-gradient px-8 py-3.5">
+              {page.cta}
+            </L>
           </div>
         </div>
       </section>

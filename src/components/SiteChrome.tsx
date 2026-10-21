@@ -217,9 +217,6 @@ export function Nav() {
           </div>
         )}
       </div>
-      <L to="contact" className={linkCls} onClick={() => setOpen(false)}>
-        {t.nav.contact}
-      </L>
       <a href={blogUrl} className={linkCls}>
         {t.nav.whatWeThink}
       </a>
@@ -287,7 +284,6 @@ export function Nav() {
                 {toolLinks.map(({ id, name, route }) => <L key={id} to={route} onClick={() => setOpen(false)} className="text-sm text-white/75">{name}</L>)}
               </div>
             </details>
-            <L to="contact" className={linkCls} onClick={() => setOpen(false)}>{t.nav.contact}</L>
             <a href={blogUrl} className={linkCls}>{t.nav.whatWeThink}</a>
           </div>
           <AppLink

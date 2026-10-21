@@ -4,6 +4,7 @@ export interface ServicePage {
   title: string
   subtitle: string
   caption: string
+  cta: string
   headers: [string, string, string, string]
   rows: Array<{ label: string; values: [string, string, string] }>
 }
@@ -28,6 +29,7 @@ const services: Services = {
     title: 'Legal services.',
     subtitle: 'Ongoing legal support for SMEs, with the level of cover that fits the work.',
     caption: 'Legal service plans',
+    cta: 'Talk to us',
     headers: ['Service', 'Essential', 'Professional', 'Advanced'],
     rows: [
       { label: 'Access to the client platform', values: ['✓', '✓', '✓'] },
@@ -52,6 +54,7 @@ const services: Services = {
     title: 'Compliance services.',
     subtitle: 'GDPR and RGPC support sized to your organisation and regulatory exposure.',
     caption: 'Compliance service plans',
+    cta: 'Talk to us',
     headers: ['Service', 'Essential', 'Professional', 'Advanced'],
     rows: [
       { label: 'Access to the client platform', values: ['✓', '✓', '✓'] },

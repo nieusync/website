@@ -14,6 +14,7 @@ const pt: Services = {
     title: 'Serviços Jurídicos.',
     subtitle: 'Apoio jurídico contínuo para PME, com o nível de cobertura ajustado ao trabalho.',
     caption: 'Planos de serviços jurídicos',
+    cta: 'Falar connosco',
     headers: ['Serviço', 'Essencial', 'Profissional', 'Avançada'],
     rows: [
       { label: 'Acesso à plataforma de cliente', values: ['✓', '✓', '✓'] },
@@ -38,6 +39,7 @@ const pt: Services = {
     title: 'Serviços de Compliance.',
     subtitle: 'Apoio em RGPD e RGPC dimensionado à sua entidade e exposição regulatória.',
     caption: 'Planos de serviços de compliance',
+    cta: 'Falar connosco',
     headers: ['Serviço', 'Essencial', 'Profissional', 'Avançada'],
     rows: [
       { label: 'Acesso à plataforma de cliente', values: ['✓', '✓', '✓'] },
