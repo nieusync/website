@@ -208,16 +208,16 @@ const site = {
         bio: 'More than 15 years working with SMEs on Legal and Strategy: corporate structure, contracts, negotiations, tax architecture and growth plans for companies operating across European markets. He is the partner who stays closest to the work.',
       },
       {
-        name: 'João Carvalho',
-        role: 'Partner',
-        pillars: 'Digital · Strategy · Operations',
-        bio: 'Previously CTO of two VC-backed US companies. Builds the technology, the data and the operating processes that let a small team run like a much larger one. Keeps the plan moving once it is agreed.',
-      },
-      {
         name: 'Ricardo Lobato',
         role: 'Partner',
         pillars: 'Digital',
         bio: 'Comes from digital marketing and video production. Runs the brand, the content and the campaigns: the part of Digital your clients actually see, made in-house rather than bought by the hour.',
+      },
+      {
+        name: 'João Carvalho',
+        role: 'Advisor',
+        pillars: 'Digital · Strategy · Operations',
+        bio: 'Previously CTO of two VC-backed US companies. Advises the team on technology, data and operating processes.',
       },
     ],
     ctaTitle: 'Want this team alongside your company?',

@@ -21,8 +21,8 @@ const GOLDEN_ICONS = [Question, Path, Package];
 // Both arrays follow the order of the i18n `whoPage.team` array
 const TEAM_PHOTOS = [
   '/assets/ricardo_carvalho.jpg',
-  '/assets/joao_carvalho.jpg',
   '/assets/ricardo_lobato.jpg',
+  '/assets/joao_carvalho.jpg',
 ];
 
 const TEAM_SOCIALS = [
@@ -31,13 +31,13 @@ const TEAM_SOCIALS = [
     { href: 'https://x.com/RicardoSCarva', Icon: XLogo, label: 'X' },
   ],
   [
+    { href: 'https://www.linkedin.com/in/ricardo-m-carvalho/', Icon: LinkedinLogo, label: 'LinkedIn' },
+    { href: 'https://x.com/ricardomlc93', Icon: XLogo, label: 'X' },
+  ],
+  [
     { href: 'https://www.linkedin.com/in/d-roak/', Icon: LinkedinLogo, label: 'LinkedIn' },
     { href: 'https://x.com/droak_', Icon: XLogo, label: 'X' },
     { href: 'https://github.com/d-roak', Icon: GithubLogo, label: 'GitHub' },
-  ],
-  [
-    { href: 'https://www.linkedin.com/in/ricardo-m-carvalho/', Icon: LinkedinLogo, label: 'LinkedIn' },
-    { href: 'https://x.com/ricardomlc93', Icon: XLogo, label: 'X' },
   ],
 ];
 
