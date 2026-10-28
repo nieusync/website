@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { REGIONS, matchAll, statusOf, type Answers, type Region } from '../src/funding/match';
 import { COVERED_REGIONS, PROGRAMMES } from '../src/funding/programmes';
 
-const now = new Date('2026-09-14T12:00:00.000Z');
+const now = new Date('2026-10-28T12:00:00.000Z');
 const nieusync: Answers = {
   region: 'alentejo',
   cae: '70200',
