@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight } from '@phosphor-icons/react';
 import L from './L';
 import { subscribe } from './Forms';
 import { post } from '../api';
-import { trackTool } from '../analytics';
+import { metaContext, trackTool, type MetaEvent } from '../analytics';
 import { useBlogUrl } from '../hooks/useArticles';
 import { useT } from '../i18n';
 
@@ -51,7 +51,12 @@ const labelCls = 'mb-2 block text-[11px] font-bold uppercase tracking-[0.14em] t
  * is where a failure is recorded, because there is nobody on this page who
  * could act on it.
  */
-async function store(form: string, details: Details, payload: Record<string, unknown>) {
+async function store(
+  form: string,
+  details: Details,
+  payload: Record<string, unknown>,
+  meta: ReturnType<typeof metaContext>,
+) {
   try {
     await post('/api/submissions', {
       form,
@@ -64,6 +69,9 @@ async function store(form: string, details: Details, payload: Record<string, unk
       // refuses the submission without it.
       consent: true,
       marketing: details.marketing,
+      // Only present with cookie consent: the ids of the Pixel events just
+      // sent, so the API can send the server copy. See src/analytics.ts.
+      ...(meta ? { meta } : {}),
     });
   } catch (error) {
     console.error('tool submission was not stored', error);
@@ -116,16 +124,17 @@ export function ToolFlow({
 
   const toResults = () => {
     onStep('results');
+    const sent: (MetaEvent | undefined)[] = [];
     if (!completionTracked.current) {
       completionTracked.current = true;
-      trackTool('tool_complete', form);
+      sent.push(trackTool('tool_complete', form));
     }
     if (details.marketing && !newsletterTracked.current) {
       newsletterTracked.current = true;
-      trackTool('newsletter_signup', form);
+      sent.push(trackTool('newsletter_signup', form));
     }
     // Fire and forget, both of them. See the note at the top of this file.
-    void store(form, details, payload());
+    void store(form, details, payload(), metaContext(sent));
     if (details.marketing) {
       // `label` tags the member in Ghost admin, so staff can see the tool they
       // came from rather than one undifferentiated pile of signups.

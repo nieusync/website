@@ -85,10 +85,48 @@ const META_EVENT: Record<ToolEvent, [method: 'track' | 'trackCustom', name: stri
 	newsletter_signup: ['track', 'CompleteRegistration'],
 }
 
-/** One step of a tool, only with consent. `tool` is the form key: 'pme', 'rgpc' or 'funding'. */
-export function trackTool(event: ToolEvent, tool: string) {
-	if (!consented) return
+/**
+ * One step of a tool, only with consent. `tool` is the form key: 'pme', 'rgpc'
+ * or 'funding'.
+ *
+ * Returns the id the Pixel event was sent with, or nothing without consent.
+ * The submission hands that id to website-api, which sends the same event to
+ * the Conversions API; Meta counts a name and id pair once, so the server copy
+ * only adds the events an ad blocker stopped here.
+ */
+export function trackTool(event: ToolEvent, tool: string): MetaEvent | undefined {
+	if (!consented) return undefined
 	gtag('event', event, { tool })
 	const [method, name] = META_EVENT[event]
-	loadMetaPixel()(method, name, { tool })
+	const id = crypto.randomUUID()
+	loadMetaPixel()(method, name, { tool }, { eventID: id })
+	return { name, id }
+}
+
+export interface MetaEvent {
+	name: string
+	id: string
+}
+
+/** The value of one first-party cookie, if set. */
+function cookie(name: string): string | undefined {
+	const entry = document.cookie.split('; ').find((part) => part.startsWith(`${name}=`))
+	return entry?.slice(name.length + 1)
+}
+
+/**
+ * What website-api needs to send `events` to the Conversions API: the ids, the
+ * page and the two cookies the Pixel set to recognise this browser. No name,
+ * email or answer. Undefined when there is nothing to send, which is always the
+ * case without consent, because trackTool returned no ids.
+ */
+export function metaContext(events: (MetaEvent | undefined)[]) {
+	const sent = events.filter((event): event is MetaEvent => event !== undefined)
+	if (!consented || sent.length === 0) return undefined
+	return {
+		events: sent,
+		url: `${window.location.origin}${window.location.pathname}`,
+		fbp: cookie('_fbp'),
+		fbc: cookie('_fbc'),
+	}
 }
