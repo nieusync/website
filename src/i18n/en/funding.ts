@@ -69,7 +69,6 @@ const funding = {
     'mpr-2026-7': { name: 'SIID R&D Demonstrators', summary: 'Individual and joint R&D demonstrator projects.' },
     'alt2030-2026-16': { name: 'Alentejo territorial incentive', summary: 'Small investment by micro and small firms in eligible Alentejo activities.' },
     'alt2030-2025-25': { name: 'Qualified entrepreneurship', summary: 'Knowledge-intensive new businesses in Alentejo.', next: 'Previous editions ran in 2024, 2025 and 2026.' },
-    'vale-digitalizacao': { name: 'Digitalisation voucher', summary: 'Digital systems and transformation services for SMEs.' },
     'iefp-mais-emprego': { name: '+Emprego', summary: 'Support for permanent full-time hires registered with IEFP.' },
     'iefp-emprego-mais-talento': { name: 'Emprego +Talento', summary: 'Support for qualified young permanent hires.' },
     'sifide-ii': { name: 'SIFIDE II', summary: 'IRC credit for qualifying business R&D.' },

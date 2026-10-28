@@ -73,7 +73,6 @@ const funding: Funding = {
     'mpr-2026-7': { name: 'SIID Demonstradores de I&D', summary: 'Projetos demonstradores de I&D, individuais ou em copromoção.' },
     'alt2030-2026-16': { name: 'Incentivo territorial Alentejo', summary: 'Pequeno investimento por micro e pequenas empresas em atividades elegíveis do Alentejo.' },
     'alt2030-2025-25': { name: 'Empreendedorismo Qualificado', summary: 'Novos negócios intensivos em conhecimento no Alentejo.', next: 'Teve edições em 2024, 2025 e 2026.' },
-    'vale-digitalizacao': { name: 'Vale Digitalização', summary: 'Sistemas e serviços de transformação digital para PME.' },
     'iefp-mais-emprego': { name: '+Emprego', summary: 'Apoio à contratação sem termo e a tempo completo de pessoas inscritas no IEFP.' },
     'iefp-emprego-mais-talento': { name: 'Emprego +Talento', summary: 'Apoio à contratação sem termo de jovens qualificados.' },
     'sifide-ii': { name: 'SIFIDE II', summary: 'Crédito IRC para I&D empresarial qualificada.' },
