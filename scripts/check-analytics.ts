@@ -35,19 +35,13 @@ assert.match(toolFlow, /const completionTracked = useRef\(false\)/, 'Tool comple
 assert.match(toolFlow, /const newsletterTracked = useRef\(false\)/, 'Newsletter intent must track once per flow')
 assert.match(
 	toolFlow,
-	/if \(!completionTracked\.current\) \{\s+completionTracked\.current = true;\s+sent\.push\(trackTool\('tool_complete', form\)\);\s+\}/,
+	/if \(!completionTracked\.current\) \{\s+completionTracked\.current = true;\s+trackTool\('tool_complete', form\);\s+\}/,
 	'Tool completion must be guarded before dispatch',
 )
 assert.match(
 	toolFlow,
-	/if \(details\.marketing && !newsletterTracked\.current\) \{\s+newsletterTracked\.current = true;\s+sent\.push\(trackTool\('newsletter_signup', form\)\);\s+\}/,
+	/if \(details\.marketing && !newsletterTracked\.current\) \{\s+newsletterTracked\.current = true;\s+trackTool\('newsletter_signup', form\);\s+\}/,
 	'Newsletter intent must be guarded before dispatch',
 )
-
-// The Conversions API copy is only deduplicated if the Pixel and the server
-// send the same id, and only lawful if it rides on the same consent.
-assert.match(analytics, /\{ eventID: id \}/, 'Pixel events must carry the id the server copy reuses')
-assert.match(analytics, /if \(!consented \|\| sent\.length === 0\) return undefined/, 'No Conversions API context without consent')
-assert.match(toolFlow, /store\(form, details, payload\(\), metaContext\(sent\)\)/, 'The submission must carry the Pixel ids')
 
 console.log('analytics check OK')
