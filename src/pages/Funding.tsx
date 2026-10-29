@@ -94,6 +94,8 @@ export default function Funding() {
           <div className="grid grid-cols-1 gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-7 md:grid-cols-2 md:p-9">
             <label>
               <span className={labelCls}>{t.region}</span>
+              {/* "Não sei" leads every list here: it is also the starting value. Its
+                  place comes from the key order in i18n/<lang>/funding.ts. */}
               <select value={answers.region} onChange={(event) => set('region', event.target.value as Answers['region'])} className={selectCls}>
                 {Object.entries(t.regions).map(([key, label]) => (
                   <option key={key} value={key}>{label}</option>

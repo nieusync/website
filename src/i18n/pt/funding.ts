@@ -40,15 +40,15 @@ const funding: Funding = {
   amount: (min?: number, max?: number) =>
     min && max ? `${min.toLocaleString('pt-PT')} € a ${max.toLocaleString('pt-PT')} €` : max ? `Até ${max.toLocaleString('pt-PT')} €` : 'Montante variável',
   rate: (rate: number) => `Até ${Math.round(rate * 100)}%`,
-  regions: { norte: 'Norte', centro: 'Centro', lisboa: 'Lisboa', alentejo: 'Alentejo', algarve: 'Algarve', acores: 'Açores', madeira: 'Madeira', unknown: 'Não sei' },
+  regions: { unknown: 'Não sei', norte: 'Norte', centro: 'Centro', lisboa: 'Lisboa', alentejo: 'Alentejo', algarve: 'Algarve', acores: 'Açores', madeira: 'Madeira' },
   // Thresholds from EU Recommendation 2003/361. Headcount leads because it is
   // the number a founder knows without opening the accounts.
   sizes: {
+    unknown: 'Não sei',
     micro: 'Micro (menos de 10 pessoas, até 2 M€)',
     small: 'Pequena (10 a 49 pessoas, até 10 M€)',
     medium: 'Média (50 a 249 pessoas, até 50 M€)',
     large: 'Grande (250 pessoas ou mais)',
-    unknown: 'Não sei',
   },
   purposes: { hiring: 'Contratação', digital: 'Digitalização', rnd: 'I&D', equipment: 'Equipamento', international: 'Internacionalização', workingCapital: 'Tesouraria', training: 'Formação', energy: 'Energia' },
   gates: {
