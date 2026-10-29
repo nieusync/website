@@ -13,9 +13,16 @@ const blank: Answers = {
   region: 'unknown', cae: '', size: 'unknown', ageYears: 'unknown', filedAccounts: 'unknown', purposes: [], deMinimisUsed: 'unknown',
 };
 
-const fieldCls =
-  'w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-[15px] text-white placeholder:text-white/45 transition focus:border-purple focus:shadow-[0_0_0_3px_rgba(159,142,194,0.18)] focus:outline-none';
-const selectCls = `${fieldCls} bg-ink [color-scheme:dark]`;
+// No background here: each field sets its own. Two background utilities in one
+// className resolve by CSS order, and bg-white/[0.04] used to beat bg-ink on
+// the selects, leaving the native option list white on white in Windows Chrome.
+const fieldBase =
+  'w-full rounded-xl border border-white/15 px-4 py-3 text-[15px] text-white placeholder:text-white/45 transition focus:border-purple focus:shadow-[0_0_0_3px_rgba(159,142,194,0.18)] focus:outline-none';
+const fieldCls = `${fieldBase} bg-white/[0.04]`;
+// The open list is drawn by the OS from the select's own colours, so it needs a
+// solid background, and the options get theirs explicitly for browsers that
+// style them apart from the closed field.
+const selectCls = `${fieldBase} bg-ink [color-scheme:dark] [&_option]:bg-ink [&_option]:text-white`;
 const labelCls = 'mb-2 block text-[11px] font-bold uppercase tracking-[0.14em] text-white/70';
 // Normal sentence case, not the uppercase label treatment: this is read, not scanned.
 const hintCls = 'mt-2 block text-xs normal-case leading-5 tracking-normal text-white/50';
