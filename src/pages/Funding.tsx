@@ -16,8 +16,9 @@ const blank: Answers = {
 // No background here: each field sets its own. Two background utilities in one
 // className resolve by CSS order, and bg-white/[0.04] used to beat bg-ink on
 // the selects, leaving the native option list white on white in Windows Chrome.
+// 16px on phones, as in ToolFlow: iOS Safari zooms into smaller fields on focus.
 const fieldBase =
-  'w-full rounded-xl border border-white/15 px-4 py-3 text-[15px] text-white placeholder:text-white/45 transition focus:border-purple focus:shadow-[0_0_0_3px_rgba(159,142,194,0.18)] focus:outline-none';
+  'w-full rounded-xl border border-white/15 px-4 py-3 text-base md:text-[15px] text-white placeholder:text-white/45 transition focus:border-purple focus:shadow-[0_0_0_3px_rgba(159,142,194,0.18)] focus:outline-none';
 const fieldCls = `${fieldBase} bg-white/[0.04]`;
 // The open list is drawn by the OS from the select's own colours, so it needs a
 // solid background, and the options get theirs explicitly for browsers that
