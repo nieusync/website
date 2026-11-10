@@ -39,10 +39,10 @@ export interface Details {
 
 export type Step = 'details' | 'questions' | 'results';
 
-// 16px on phones: iOS Safari zooms into any field under 16px when it gets
+// 16px everywhere: iOS and iPadOS Safari zoom into any field under 16px when it gets
 // focus and leaves the page zoomed, which reads as a broken layout.
 const fieldCls =
-  'w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-base md:text-[15px] text-white placeholder:text-white/45 transition focus:border-purple focus:shadow-[0_0_0_3px_rgba(159,142,194,0.18)] focus:outline-none';
+  'w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-base text-white placeholder:text-white/45 transition focus:border-purple focus:shadow-[0_0_0_3px_rgba(159,142,194,0.18)] focus:outline-none';
 const labelCls = 'mb-2 block text-[11px] font-bold uppercase tracking-[0.14em] text-white/70';
 
 /**
