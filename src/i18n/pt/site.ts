@@ -9,7 +9,6 @@ const site: Site = {
     whatWeDo: 'O que fazemos',
     whatWeThink: 'O que pensamos',
     tools: 'Ferramentas',
-    clientArea: 'Área de cliente',
     contact: 'Contacto',
     language: 'Português / English',
     menu: 'Menu',

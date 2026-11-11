@@ -3,7 +3,6 @@ import L from './L';
 import AppLink from './AppLink';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
-  ArrowUpRight,
   Calculator,
   CaretDown,
   Check,
@@ -15,7 +14,6 @@ import {
   InstagramLogo,
   List,
   LinkedinLogo,
-  LockKey,
   Scales,
   X,
 } from '@phosphor-icons/react';
@@ -241,18 +239,6 @@ export function Nav() {
         <div className="flex items-center gap-1 md:gap-4">
           <LangSwitch />
 
-          <AppLink
-            className="group hidden items-center gap-2 rounded-full border border-white/25 px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.1em] text-white transition duration-200 hover:-translate-y-0.5 hover:border-purple hover:text-purple sm:inline-flex md:px-5"
-          >
-            <LockKey size={15} weight="bold" />
-            {t.nav.clientArea}
-            <ArrowUpRight
-              size={14}
-              weight="bold"
-              className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            />
-          </AppLink>
-
           <button
             ref={menuButtonRef}
             onClick={() => {
@@ -286,13 +272,6 @@ export function Nav() {
             </details>
             <a href={blogUrl} className={linkCls}>{t.nav.whatWeThink}</a>
           </div>
-          <AppLink
-            onClick={() => setOpen(false)}
-            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-[11px] font-bold uppercase tracking-[0.1em] text-white"
-          >
-            <LockKey size={15} weight="bold" />
-            {t.nav.clientArea}
-          </AppLink>
         </nav>
       )}
     </header>

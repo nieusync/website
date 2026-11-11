@@ -10,7 +10,6 @@ const site = {
     whatWeDo: 'What we do',
     whatWeThink: 'What we think',
     tools: 'Tools',
-    clientArea: 'Client area',
     contact: 'Contact',
     language: 'PT / EN',
     menu: 'Menu',
