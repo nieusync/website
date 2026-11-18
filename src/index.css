@@ -131,10 +131,15 @@
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
+/* `none` rather than `blur(0)` and `translateY(0) scale(1)`, which look the same
+   but are not: any filter or transform, even an identity one, keeps a revealed
+   section on its own compositing layer for the life of the page, one more
+   place for the photos inside it to be resampled. The transition still runs,
+   since `none` interpolates from the values above. */
 .animate-on-scroll.visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
-  filter: blur(0);
+  transform: none;
+  filter: none;
 }
 
 .stagger-child {
@@ -144,7 +149,7 @@
 }
 .stagger-child.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 /* Motion is decoration here, so turn it all off for users who asked for less */

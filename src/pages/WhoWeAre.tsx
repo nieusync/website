@@ -18,7 +18,12 @@ import { Nav, Footer } from '../components/SiteChrome';
 // Golden circle, outside in on the page but why-first in the copy
 const GOLDEN_ICONS = [Question, Path, Package];
 
-// Both arrays follow the order of the i18n `whoPage.team` array
+// Both arrays follow the order of the i18n `whoPage.team` array.
+//
+// The photos are 480px squares, three times the 160px circle: enough for a 3x
+// phone screen, and a small enough step down for a 1x desktop screen to stay
+// sharp. The originals were 1448px and the browser had to shrink them about
+// eight times on desktop, which is what made them look grainy there.
 const TEAM_PHOTOS = [
   '/assets/ricardo_carvalho.jpg',
   '/assets/ricardo_lobato.jpg',
@@ -147,8 +152,11 @@ export default function WhoWeAre() {
                   <img
                     src={TEAM_PHOTOS[i]}
                     alt={m.name}
+                    width={160}
+                    height={160}
                     loading="lazy"
-                    className="h-full w-full scale-105 object-cover"
+                    decoding="async"
+                    className="h-full w-full object-cover"
                   />
                 </div>
                 <h3 className="mb-1 text-center font-display text-xl leading-[1.2] text-white">
@@ -194,6 +202,9 @@ export default function WhoWeAre() {
               <img
                 src="/assets/team-photo.jpg"
                 alt=""
+                width={1344}
+                height={1344}
+                decoding="async"
                 className="mx-auto mt-10 h-72 w-full max-w-2xl rounded-2xl object-cover object-center md:h-96"
                 loading="lazy"
               />

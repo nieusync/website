@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import L from './L';
-import AppLink from './AppLink';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Calculator,
@@ -315,7 +314,6 @@ export function Footer() {
           <L to="whoWeAre" className={colLink}>{t.nav.whoWeAre}</L>
           <L to="whatWeDo" className={colLink}>{t.nav.whatWeDo}</L>
           <a href={blogUrl} className={colLink}>{t.footer.blog}</a>
-          <AppLink className={colLink}>{t.footer.clientArea}</AppLink>
         </div>
 
         <div>

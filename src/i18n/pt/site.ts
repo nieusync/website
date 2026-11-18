@@ -231,7 +231,6 @@ const site: Site = {
     contact: 'Contacto',
     legal: 'Legal',
     blog: 'O que pensamos',
-    clientArea: 'Área de cliente',
     copyright: (year: number) =>
       `© ${year} Nieusync, Sociedade Multidisciplinar de Advogados e Consultores SP, LDA. Registo OA 17/26 — Todos os direitos reservados.`,
   },
