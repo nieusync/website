@@ -1,28 +1,17 @@
-import { useEffect, type AnchorHTMLAttributes } from 'react';
+import { useEffect } from 'react';
 import { useLang } from '../i18n';
 
 /** The client area, which is a separate app on its own domain.
  *
- *  It used to be a mock page on this site. Now it is `portal.nieusync.com`, so
- *  this is an `<a>` and not an `<L>`: react-router cannot route out of the
- *  bundle, and a `<Link>` here would push a path this site has no route for.
+ *  It used to be a mock page on this site. Now it is `portal.nieusync.com`, and
+ *  the site no longer links to it anywhere: the nav button and the footer link
+ *  are gone. Only the redirect below remains, for old links.
  *
  *  It answered on `app.nieusync.com` until 2026-08-31, when the portal moved to
  *  Praxis. That name still resolves and is the one in the wild, so keep this in
  *  step with whatever Traefik actually routes.
  */
 const APP_URL = import.meta.env.VITE_APP_URL || 'https://portal.nieusync.com';
-
-/** Carries the reader's language across the domain boundary.
- *
- *  The portal names its language in the URL (`/pt`, `/en`), so somebody reading
- *  the site in English lands on the English portal instead of on Portuguese and
- *  a second language switch. It is only the first hop: once they sign in, their
- *  own account preference takes over.
- */
-export default function AppLink(props: AnchorHTMLAttributes<HTMLAnchorElement>) {
-  return <a href={`${APP_URL}/${useLang()}`} {...props} />;
-}
 
 /** The old on-site client area, which is now a redirect out.
  *
