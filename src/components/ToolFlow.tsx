@@ -5,6 +5,7 @@ import { subscribe } from './Forms';
 import { post } from '../api';
 import { trackTool } from '../analytics';
 import { landingOrigin } from '../origin';
+import { countStep } from '../steps';
 import { useBlogUrl } from '../hooks/useArticles';
 import { useT } from '../i18n';
 
@@ -107,6 +108,20 @@ export function ToolFlow({
   const completionTracked = useRef(false);
   const newsletterTracked = useRef(false);
 
+  // The funnel, without cookies: see ../steps.ts. Each stage counts once per
+  // visit to the tool, so going back to change an answer does not count twice.
+  // The refs also keep React's doubled effects in development from counting.
+  const counted = useRef(new Set<string>());
+  const countOnce = (stage: Parameters<typeof countStep>[1]) => {
+    if (counted.current.has(stage)) return;
+    counted.current.add(stage);
+    countStep(form, stage);
+  };
+  useEffect(() => countOnce('view'), []); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (step === 'questions' && canSubmit) countOnce('answered');
+  }, [step, canSubmit]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Every step is a new page as far as the reader is concerned, and landing
   // halfway down the previous one reads as nothing having happened. Skipped on
   // the first render so arriving at the page does not fight the browser's own
@@ -122,6 +137,7 @@ export function ToolFlow({
 
   const toResults = () => {
     onStep('results');
+    countOnce('results');
     if (!completionTracked.current) {
       completionTracked.current = true;
       trackTool('tool_complete', form);
@@ -150,6 +166,7 @@ export function ToolFlow({
           onSubmit={(event) => {
             event.preventDefault();
             trackTool('tool_start', form);
+            countOnce('details');
             onStep('questions');
           }}
           className="animate-fade-up grid grid-cols-1 gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-7 md:grid-cols-2 md:p-9"

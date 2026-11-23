@@ -64,3 +64,11 @@ assert.equal(readOrigin(`?utm_campaign=${'a'.repeat(101)}`, '', site), undefined
 assert.equal(readOrigin('', 'not a url', site), undefined)
 assert.match(toolFlow, /origin: landingOrigin\(\)/, 'Tool submissions must carry their origin')
 assert.doesNotMatch(await readFile('src/origin.ts', 'utf8'), /localStorage|sessionStorage|document\.cookie/, 'Origin must not touch device storage')
+
+// The funnel: every stage counted from the tool, and off until Legal says otherwise.
+for (const stage of ['view', 'details', 'answered', 'results']) {
+	assert.match(toolFlow, new RegExp(`countOnce\\('${stage}'\\)`), `The ${stage} step must be counted`)
+}
+const steps = await readFile('src/steps.ts', 'utf8')
+assert.doesNotMatch(steps, /localStorage|sessionStorage|document\.cookie/, 'Step counts must not touch device storage')
+assert.doesNotMatch(steps, /email|name:/, 'Step counts must carry nothing that identifies a visitor')
