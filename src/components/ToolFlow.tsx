@@ -4,6 +4,7 @@ import L from './L';
 import { subscribe } from './Forms';
 import { post } from '../api';
 import { trackTool } from '../analytics';
+import { landingOrigin } from '../origin';
 import { useBlogUrl } from '../hooks/useArticles';
 import { useT } from '../i18n';
 
@@ -66,6 +67,9 @@ async function store(form: string, details: Details, payload: Record<string, unk
       // refuses the submission without it.
       consent: true,
       marketing: details.marketing,
+      // The campaign and ad version that brought this visitor, so the notice
+      // names the source of the lead. Read from the landing URL, no cookie.
+      origin: landingOrigin(),
     });
   } catch (error) {
     console.error('tool submission was not stored', error);

@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 
+import { readOrigin } from '../src/origin'
+
 const [html, analytics, toolFlow] = await Promise.all([
 	readFile('index.html', 'utf8'),
 	readFile('src/analytics.ts', 'utf8'),
@@ -45,3 +47,20 @@ assert.match(
 )
 
 console.log('analytics check OK')
+
+// Where a lead came from: read from the landing URL, never from storage.
+const site = 'nieusync.com'
+assert.deepEqual(
+	readOrigin('?utm_source=meta&utm_medium=paid_social&utm_campaign=rgpc&utm_content=A&fbclid=x', 'https://l.facebook.com/', site),
+	{ source: 'meta', medium: 'paid_social', campaign: 'rgpc', content: 'A', referrer: 'l.facebook.com' },
+	'utm tags and the referring host are both kept',
+)
+assert.deepEqual(readOrigin('?gclid=abc', '', site), { source: 'google', medium: 'cpc' }, 'Google Ads clicks carry gclid, not utm')
+assert.deepEqual(readOrigin('?utm_source=newsletter&gclid=abc', '', site), { source: 'newsletter' }, 'explicit tags win over gclid')
+assert.equal(readOrigin('', 'https://nieusync.com/pt/quem-somos', site), undefined, 'our own pages are not an origin')
+assert.deepEqual(readOrigin('', 'https://blog.nieusync.com/pt/artigo/', site), { referrer: 'blog.nieusync.com' }, 'the blog is credited')
+assert.equal(readOrigin('', '', site), undefined, 'a typed address has no origin')
+assert.equal(readOrigin(`?utm_campaign=${'a'.repeat(101)}`, '', site), undefined, 'a field the API would refuse is left out, not cut')
+assert.equal(readOrigin('', 'not a url', site), undefined)
+assert.match(toolFlow, /origin: landingOrigin\(\)/, 'Tool submissions must carry their origin')
+assert.doesNotMatch(await readFile('src/origin.ts', 'utf8'), /localStorage|sessionStorage|document\.cookie/, 'Origin must not touch device storage')
